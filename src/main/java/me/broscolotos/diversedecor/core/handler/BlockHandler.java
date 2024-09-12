@@ -19,21 +19,23 @@ package me.broscolotos.diversedecor.core.handler;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import me.broscolotos.diversedecor.blocks.BlockFancyWallLight;
 import me.broscolotos.diversedecor.blocks.BlockPicnicTable;
+import me.broscolotos.diversedecor.tiles.TileFancyWallLight;
 import me.broscolotos.diversedecor.tiles.TilePicnicTable;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockHandler {
 
     public static void initBlockRegister(FMLInitializationEvent e){
 
 
-        //BlockIDs.rpb_cw.block = new RPBWhite(Material.rock);
         BlockIDs.picnicTable.block = new BlockPicnicTable(Material.wood);
         GameRegistry.registerTileEntity(TilePicnicTable.class, "picnictable.tile");
-        //GameRegistry.registerTileEntity(TileBreakerBox.class, "breakerbox.tile");
+
+        BlockIDs.fancyWallLight.block = new BlockFancyWallLight(Material.iron);
+        GameRegistry.registerTileEntity(TileFancyWallLight.class, "fancywalllight.tile");
 
 
         for (BlockIDs block : BlockIDs.values()) {
