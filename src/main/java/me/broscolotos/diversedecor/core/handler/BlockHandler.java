@@ -20,17 +20,12 @@ package me.broscolotos.diversedecor.core.handler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import me.broscolotos.diversedecor.blocks.BlockPicnicTable;
-import me.broscolotos.diversedecor.core.handler.BlockIDs;
-import me.broscolotos.diversedecor.core.handler.BlockProperties;
-import me.broscolotos.diversedecor.core.handler.RenderBlockHandler;
-import me.broscolotos.diversedecor.render.models.PicnicTable;
 import me.broscolotos.diversedecor.tiles.TilePicnicTable;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockHandler {
-    public static CreativeTabs diverseDecorCreativeTab;
 
     public static void initBlockRegister(FMLInitializationEvent e){
 
@@ -60,8 +55,6 @@ public class BlockHandler {
 
     //The code below is not active. Do not touch unless you know how to fix and your fix works! -hariesh
     public static void blockpropertyregister() {
-
-
         for (BlockProperties blockReg : BlockProperties.values()) {
             String nameOfBlock = blockReg.blockName;
             Block blockOfReg = blockReg.block;

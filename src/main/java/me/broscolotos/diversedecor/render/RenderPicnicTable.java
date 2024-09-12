@@ -19,7 +19,6 @@ public class RenderPicnicTable extends TileEntitySpecialRenderer {
         Tessellator.bindTexture(texture1);
         GL11.glTranslated(x + 0.5, y + 0.62, z + 0.5);
         GL11.glRotatef(180F, 1F, 0F, 0F);
-        GL11.glRotatef(90F, 0F, 1F, 0F);
         int dir = ((TilePicnicTable)tileEntity).dir;
         switch(dir) {
             case 0:{// north
