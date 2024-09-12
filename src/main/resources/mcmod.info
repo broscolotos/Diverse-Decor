@@ -1,0 +1,18 @@
+[
+{
+  "modid": "diversedecor",
+  "name": "Diverse Decor",
+  "description": "Voxel decoration mod.",
+  "version": "1.0.0",
+  "mcversion": "1.7.10",
+  "credits": "Bidahochi and Foxblocks associated, broscolotos",
+  "logoFile": "assets/diversedecor/logo.png",
+  "mcversion": "",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["Bidahochi","broscolotos"],
+  "parent":"",
+  "screenshots": [],
+  "dependencies": ["Forge@[10.13.4.1558,)"]
+}
+]
