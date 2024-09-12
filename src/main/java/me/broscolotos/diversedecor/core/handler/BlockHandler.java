@@ -19,10 +19,14 @@ package me.broscolotos.diversedecor.core.handler;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import me.broscolotos.diversedecor.blocks.BlockPicnicTable;
 import me.broscolotos.diversedecor.core.handler.BlockIDs;
 import me.broscolotos.diversedecor.core.handler.BlockProperties;
 import me.broscolotos.diversedecor.core.handler.RenderBlockHandler;
+import me.broscolotos.diversedecor.render.models.PicnicTable;
+import me.broscolotos.diversedecor.tiles.TilePicnicTable;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockHandler {
@@ -32,6 +36,8 @@ public class BlockHandler {
 
 
         //BlockIDs.rpb_cw.block = new RPBWhite(Material.rock);
+        BlockIDs.picnicTable.block = new BlockPicnicTable(Material.wood);
+        GameRegistry.registerTileEntity(TilePicnicTable.class, "picnictable.tile");
         //GameRegistry.registerTileEntity(TileBreakerBox.class, "breakerbox.tile");
 
 

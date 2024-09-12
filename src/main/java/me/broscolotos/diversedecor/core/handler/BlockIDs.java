@@ -29,6 +29,7 @@ import net.minecraft.item.ItemBlock;
 public enum BlockIDs
 {
     //concreteBrick(true, ItemBlockconcreteBrick.class, "concreteBrick", 6),
+    picnicTable(false,null,"picnic_table"),
     ;
 
 

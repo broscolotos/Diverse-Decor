@@ -32,10 +32,8 @@ public class DiverseDecor {
         blockLogger.info("Divserse Decor starting");
 
         diverseDecorCreativeTab = new CreativeTabs("Divserse Decor") {
-            /*public Item getTabIconItem() {
-                return  Item.getItemFromBlock(BlockIDs.tHanos.block); }*/
             public Item getTabIconItem() {
-                return null;
+                return Item.getItemFromBlock(BlockIDs.picnicTable.block);
             }
             public String getTranslatedTabLabel() {
                 return "Diverse Decor";
