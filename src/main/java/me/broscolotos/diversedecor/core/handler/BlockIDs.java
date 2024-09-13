@@ -31,6 +31,7 @@ public enum BlockIDs
     //concreteBrick(true, ItemBlockconcreteBrick.class, "concreteBrick", 6),
     picnicTable(false,null,"picnic_table"),
     fancyWallLight(false,null,"fancy_wall_light"),
+    fancyWallLightDiagonal(false,null,"fancy_wall_light_diagonal"),
     ;
 
 

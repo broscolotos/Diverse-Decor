@@ -20,8 +20,10 @@ package me.broscolotos.diversedecor.core.handler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import me.broscolotos.diversedecor.blocks.BlockFancyWallLight;
+import me.broscolotos.diversedecor.blocks.BlockFancyWallLightDiagonal;
 import me.broscolotos.diversedecor.blocks.BlockPicnicTable;
 import me.broscolotos.diversedecor.tiles.TileFancyWallLight;
+import me.broscolotos.diversedecor.tiles.TileFancyWallLightDiagonal;
 import me.broscolotos.diversedecor.tiles.TilePicnicTable;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -36,6 +38,9 @@ public class BlockHandler {
 
         BlockIDs.fancyWallLight.block = new BlockFancyWallLight(Material.iron);
         GameRegistry.registerTileEntity(TileFancyWallLight.class, "fancywalllight.tile");
+
+        BlockIDs.fancyWallLightDiagonal.block = new BlockFancyWallLightDiagonal(Material.iron);
+        GameRegistry.registerTileEntity(TileFancyWallLightDiagonal.class, "fancywalllightdiagonal.tile");
 
 
         for (BlockIDs block : BlockIDs.values()) {
