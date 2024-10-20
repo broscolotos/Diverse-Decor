@@ -1,22 +1,21 @@
 package me.broscolotos.diversedecor.render;
 
-import fexcraft.tmt.slim.Tessellator;
-import me.broscolotos.diversedecor.DiverseDecor;
+import ddfexcraft.tmt.slim.Tessellator;
 import me.broscolotos.diversedecor.render.models.PicnicTable;
 import me.broscolotos.diversedecor.tiles.TilePicnicTable;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class RenderPicnicTable extends TileEntitySpecialRenderer {
-    private ResourceLocation texture1 = new ResourceLocation(DiverseDecor.MODID, "textures/blocks/picnic table/picnic table spruce.png");
-    private PicnicTable model = new PicnicTable();
+public class RenderPicnicTable extends RenderTileEntity {
+    public RenderPicnicTable(String texture) {
+        setTexture(texture);
+        this.model = new PicnicTable();
+    }
     @Override
     public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
         if(!(tileEntity instanceof TilePicnicTable)){return;}
         GL11.glPushMatrix();
-        Tessellator.bindTexture(texture1);
+        Tessellator.bindTexture(texture);
         GL11.glTranslated(x + 0.5, y + 0.625, z + 0.5);
         GL11.glRotatef(180F, 1F, 0F, 0F);
         int dir = ((TilePicnicTable)tileEntity).dir;

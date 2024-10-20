@@ -1,9 +1,9 @@
 //FMT-Marker FVTM-1.5
 package me.broscolotos.diversedecor.render.models;
 
-import fexcraft.fvtm.BlockModel;
-import fexcraft.fvtm.TurboList;
-import fexcraft.tmt.slim.ModelRendererTurbo;
+import ddfexcraft.fvtm.BlockModel;
+import ddfexcraft.fvtm.TurboList;
+import ddfexcraft.tmt.slim.ModelRendererTurbo;
 
 /** This file was exported via the FVTM Exporter v1.5 of<br>
  *  FMT (Fex's Modelling Toolbox) v.2.7.5 &copy; 2024 - Fexcraft.net<br>

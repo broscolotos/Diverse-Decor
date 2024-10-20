@@ -1,11 +1,20 @@
 <!-- ## BLOCKS ## -->
+tile.orange_bricks_0.name=Orange Bricks
+tile.blue_gray_bricks_0.name=Blue-Gray Bricks
+tile.neutral_bricks_0.name=Neutral Bricks
+tile.light_gray_bricks_0.name=Light-Gray Bricks
+tile.brown_bricks_0.name=Brown Bricks
+tile.dirtytanbricks_0.name=Dirty Tan Bricks
+tile.palebricks_0.name=Pale Bricks
+tile.rosebricks_0.name=Rose Bricks
 
-<!-- ## TILES ## -->
+<!-- ## PROPS ## -->
 tile.Picnic Table.name=Picnic Table
 tile.Fancy Hanging Light.name=Fancy Hanging Light
 tile.Fancy Hanging Light Diagonal.name=Fancy Hanging Light Diagonal
-
-<!-- ## PROPS ## -->
+tile.Post Topper.name=Post Topper
+tile.Post Curve.name=Light Post Bracket
+tile.Top Post Light.name=Center Post Light
 
 <!-- ## ITEMS ## -->
 

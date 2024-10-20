@@ -19,7 +19,7 @@ public class DiverseDecor {
     public static final String MODID = "diversedecor";
     public static final String NAME = "DiverseDecor";
     public static final String VERSION = "1.0.0";
-    public static CreativeTabs diverseDecorCreativeTab;
+    public static CreativeTabs diverseDecorCreativeTab, diverseDecorBlockTab;
     public static Logger blockLogger = LogManager.getLogger("DiverseDecor");
 
     @EventHandler
@@ -39,8 +39,19 @@ public class DiverseDecor {
                 return "Diverse Decor";
                 }
         };
-        BlockHandler.initBlockRegister(event);
 
+        diverseDecorBlockTab = new CreativeTabs("Diverse Decor Blocks") {
+            @Override
+            public Item getTabIconItem() {
+                return Item.getItemFromBlock(BlockIDs.blockBrickOrange.block);
+            }
+            public String getTranslatedTabLabel() {
+                return "Diverse Decor Blocks";
+            }
+        };
+
+
+        BlockHandler.initBlockRegister(event);
         ItemHandler.initItemRegister();
         RecipeHandler.initBlockRecipes();
         OreDictHandler.registerOreDict();

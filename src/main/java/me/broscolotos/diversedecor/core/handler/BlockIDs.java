@@ -23,15 +23,28 @@ package me.broscolotos.diversedecor.core.handler;
  *
  ****************************/
 
+import me.broscolotos.diversedecor.blocks.normal.itemblocks.GenericItemBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
 
 public enum BlockIDs
 {
     //concreteBrick(true, ItemBlockconcreteBrick.class, "concreteBrick", 6),
-    picnicTable(false,null,"picnic_table"),
-    fancyWallLight(false,null,"fancy_wall_light"),
-    fancyWallLightDiagonal(false,null,"fancy_wall_light_diagonal"),
+    picnicTable(false,null,"picnic_table", -1),
+    fancyWallLight(false,null,"fancy_wall_light", -1),
+    fancyWallLightDiagonal(false,null,"fancy_wall_light_diagonal", -1),
+    postTopper(false,null,"post_topper", -1),
+    postCurve(false,null,"post_curve", -1),
+    postLight(false,null,"post_light", -1),
+    blockBrickOrange(true, GenericItemBlock.class, "blockBrickOrange", 2),
+    blockBrickBrown(true, GenericItemBlock.class, "blockBrickBrown", 1),
+    blockBrickBlueGray(true, GenericItemBlock.class, "blockBrickBlueGray", 1),
+    blockBrickLightGray(true, GenericItemBlock.class, "blockBrickLightGray", 1),
+    blockBrickNeutral(true, GenericItemBlock.class, "blockBrickNeutral", 1),
+    blockBrickMessyTan(true, GenericItemBlock.class, "blockBrickMessyTan", 1),
+    blockBrickPale(true, GenericItemBlock.class, "blockBrickPale", 1),
+    blockBrickRose(true, GenericItemBlock.class, "blockBrickRose",1),
     ;
 
 

@@ -19,12 +19,16 @@ package me.broscolotos.diversedecor.core.handler;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import me.broscolotos.diversedecor.blocks.BlockFancyWallLight;
-import me.broscolotos.diversedecor.blocks.BlockFancyWallLightDiagonal;
-import me.broscolotos.diversedecor.blocks.BlockPicnicTable;
-import me.broscolotos.diversedecor.tiles.TileFancyWallLight;
-import me.broscolotos.diversedecor.tiles.TileFancyWallLightDiagonal;
-import me.broscolotos.diversedecor.tiles.TilePicnicTable;
+import me.broscolotos.diversedecor.blocks.*;
+import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.BlueGrayBrick;
+import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.BrownBrick;
+import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.LightGrayBrick;
+import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.NeutralBrick;
+import me.broscolotos.diversedecor.blocks.normal.blocks.mono.MessyTanBrick;
+import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.OrangeBrick;
+import me.broscolotos.diversedecor.blocks.normal.blocks.mono.PaleBrick;
+import me.broscolotos.diversedecor.blocks.normal.blocks.mono.RoseBrick;
+import me.broscolotos.diversedecor.tiles.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
@@ -41,6 +45,24 @@ public class BlockHandler {
 
         BlockIDs.fancyWallLightDiagonal.block = new BlockFancyWallLightDiagonal(Material.iron);
         GameRegistry.registerTileEntity(TileFancyWallLightDiagonal.class, "fancywalllightdiagonal.tile");
+
+        BlockIDs.postLight.block = new BlockTopPostLight(Material.iron);
+        GameRegistry.registerTileEntity(TileTopPostLight.class, "toppostlight.tile");
+
+        BlockIDs.postCurve.block = new BlockPostCurve(Material.iron);
+        GameRegistry.registerTileEntity(TilePostCurve.class, "postcurve.tile");
+
+        BlockIDs.postTopper.block = new BlockPostTopper(Material.iron);
+        GameRegistry.registerTileEntity(TilePostTopper.class, "posttopper.tile");
+
+        BlockIDs.blockBrickOrange.block = new OrangeBrick(Material.rock);
+        BlockIDs.blockBrickBrown.block = new BrownBrick(Material.rock);
+        BlockIDs.blockBrickBlueGray.block = new BlueGrayBrick(Material.rock);
+        BlockIDs.blockBrickLightGray.block = new LightGrayBrick(Material.rock);
+        BlockIDs.blockBrickNeutral.block = new NeutralBrick(Material.rock);
+        BlockIDs.blockBrickMessyTan.block = new MessyTanBrick(Material.rock);
+        BlockIDs.blockBrickPale.block = new PaleBrick(Material.rock);
+        BlockIDs.blockBrickRose.block = new RoseBrick(Material.rock);
 
 
         for (BlockIDs block : BlockIDs.values()) {

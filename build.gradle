@@ -85,7 +85,6 @@ dependencies {
 	compile "codechicken:CodeChickenCore:1.7.10-1.0.4.35:dev"
 	compile "codechicken:NotEnoughItems:1.7.10-1.0.4.90:dev"
     compile "codechicken:ForgeMultipart:1.7.10-1.2.0.345:dev"
-    compile "codechicken:ForgeMultipart:1.7.10-1.2.0.345:src"
 
     // quality of life line to simplify importing jars for experimental testing
     compile fileTree(dir: 'libs', include: ['*.jar'])

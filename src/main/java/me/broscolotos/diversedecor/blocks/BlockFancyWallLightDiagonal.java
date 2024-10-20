@@ -17,15 +17,14 @@ public class BlockFancyWallLightDiagonal extends BlockFancyWallLight {
     }
 
     @Override
-    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_)
-    {
+    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
         return new TileFancyWallLightDiagonal();
     }
+
     @Override
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack)
-    {
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {
         super.onBlockPlacedBy(world, x, y, z, entity, stack);
         //force tile spawn manually and override any existing tile at the space
-        world.setTileEntity(x,y,z, new TileFancyWallLightDiagonal(getDir(entity)));
+        world.setTileEntity(x, y, z, new TileFancyWallLightDiagonal(getDir(entity)));
     }
 }

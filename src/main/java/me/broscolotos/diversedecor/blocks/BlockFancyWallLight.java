@@ -3,11 +3,11 @@ package me.broscolotos.diversedecor.blocks;
 import me.broscolotos.diversedecor.tiles.TileFancyWallLight;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -43,9 +43,14 @@ public class BlockFancyWallLight extends DecorationBlock {
         //force tile spawn manually and override any existing tile at the space
         world.setTileEntity(x,y,z, new TileFancyWallLight(getDir(entity)));
     }
+
     @Override
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
-    {
-        return AxisAlignedBB.getBoundingBox((double)x + this.minX, (double)y + this.minY, (double)z + this.minZ, (double)x + this.maxX, (double)y + this.maxY, (double)z + this.maxZ);
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_) {
+        return null;
+    }
+
+    @Override
+    public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
+        this.setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 1F, 0.75F);
     }
 }

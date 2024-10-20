@@ -1,26 +1,24 @@
 package me.broscolotos.diversedecor.render;
 
-import fexcraft.tmt.slim.Tessellator;
-import me.broscolotos.diversedecor.DiverseDecor;
+import ddfexcraft.tmt.slim.Tessellator;
 import me.broscolotos.diversedecor.render.models.FancyWallLight;
-import me.broscolotos.diversedecor.tiles.TileFancyWallLight;
 import me.broscolotos.diversedecor.tiles.TileFancyWallLightDiagonal;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockWall;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class RenderFancyWallLightDiagonal extends TileEntitySpecialRenderer {
-    private ResourceLocation texture1 = new ResourceLocation(DiverseDecor.MODID, "textures/blocks/lights/wall lights/fancy_lantern.png");
-    private FancyWallLight model = new FancyWallLight();
+public class RenderFancyWallLightDiagonal extends RenderTileEntity {
+    public RenderFancyWallLightDiagonal(String texture) {
+        setTexture(texture);
+        this.model = new FancyWallLight();
+    }
     @Override
     public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
         if(!(tileEntity instanceof TileFancyWallLightDiagonal)){return;}
         GL11.glPushMatrix();
-        Tessellator.bindTexture(texture1);
+        Tessellator.bindTexture(texture);
         GL11.glTranslated(x-0.0625, y+.625, z-0.0625);
         GL11.glRotatef(180F, 1F, 0F, 0F);
         int dir = ((TileFancyWallLightDiagonal)tileEntity).dir;

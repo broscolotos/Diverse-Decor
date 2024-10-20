@@ -1,6 +1,8 @@
 package me.broscolotos.diversedecor.core.handler;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import me.broscolotos.diversedecor.DiverseDecor;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -61,10 +63,19 @@ public class RecipeHandler {
     }
 
     public static void initBlockRecipes() {
+
+        ArrayList<ItemStack> dyeOrange = OreDictionary.getOres("dyeOrange");
         /*ArrayList<ItemStack> iron = OreDictionary.getOres("ingotIron");//does this work?
         for (ItemStack dyepurple : dyePurple) { GameRegistry.addRecipe(new ItemStack(BlockIDs.tile2x2.block, 6, 15), " S ", "SDS", " S ", Character.valueOf('S'), new ItemStack(ItemIDs.ceramic.item, 1), Character.valueOf('D'), dyepurple);
             GameRegistry.addRecipe(new ItemStack(BlockIDs.tile4.block, 6, 15), "S S", "SDS", "S S", Character.valueOf('S'), new ItemStack(ItemIDs.ceramic.item, 1), Character.valueOf('D'), dyepurple);
         }*/
+
+        for (ItemStack dye : dyeOrange) {
+            GameRegistry.addShapelessRecipe(new ItemStack(BlockIDs.blockBrickOrange.block, 1, 0), Blocks.brick_block, dye);
+        }
+        GameRegistry.addShapelessRecipe(new ItemStack(BlockIDs.blockBrickOrange.block, 1, 1), new ItemStack(BlockIDs.blockBrickOrange.block, 1, 0));
+        GameRegistry.addShapelessRecipe(new ItemStack(BlockIDs.blockBrickOrange.block, 1, 2), new ItemStack(BlockIDs.blockBrickOrange.block, 1, 1));
+        GameRegistry.addShapelessRecipe(new ItemStack(BlockIDs.blockBrickOrange.block, 1, 0), new ItemStack(BlockIDs.blockBrickOrange.block, 1, 2));
 
         DiverseDecor.blockLogger.info("Recipe's registered.");
     }
