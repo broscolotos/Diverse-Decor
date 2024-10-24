@@ -8,6 +8,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import me.broscolotos.diversedecor.core.handler.*;
 import me.broscolotos.diversedecor.plugins.fmp.ForgeMultiPart;
+import me.broscolotos.diversedecor.registry.BlockRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import org.apache.logging.log4j.LogManager;
@@ -30,7 +31,6 @@ public class DiverseDecor {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         blockLogger.info("Divserse Decor starting");
-
         diverseDecorCreativeTab = new CreativeTabs("Divserse Decor") {
             public Item getTabIconItem() {
                 return Item.getItemFromBlock(BlockIDs.picnicTable.block);
@@ -49,8 +49,7 @@ public class DiverseDecor {
                 return "Diverse Decor Blocks";
             }
         };
-
-
+        BlockRegistry.registerBlocks();
         BlockHandler.initBlockRegister(event);
         ItemHandler.initItemRegister();
         RecipeHandler.initBlockRecipes();
