@@ -30,11 +30,27 @@ public class StandardBlock extends Block {
         setTextureAmt(textAmt);
     }
 
+    public StandardBlock(Material material, String name, String textName, int textAmt, String tool) {
+        super(material);
+        standardRegister(tool);
+        setBlockName(name);
+        setBlockTextureName(textName);
+        setTextureAmt(textAmt);
+    }
+
     public void standardRegister() {
         setHardness(2F);
         setResistance(10.0F);
         setHarvestLevel("pickaxe", 1);
         setStepSound(soundTypeStone);
+        setCreativeTab(DiverseDecor.diverseDecorBlockTab);
+    }
+
+    public void standardRegister(String tool) {
+        setHardness(2F);
+        setResistance(10.0F);
+        setHarvestLevel(tool, 1);
+        setStepSound(soundTypeWood);
         setCreativeTab(DiverseDecor.diverseDecorBlockTab);
     }
 

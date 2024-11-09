@@ -1,12 +1,59 @@
 <!-- ## BLOCKS ## -->
-tile.orange_bricks_0.name=Orange Bricks
-tile.blue_gray_bricks_0.name=Blue-Gray Bricks
-tile.neutral_bricks_0.name=Neutral Bricks
-tile.light_gray_bricks_0.name=Light-Gray Bricks
-tile.brown_bricks_0.name=Brown Bricks
-tile.dirtytanbricks_0.name=Dirty Tan Bricks
-tile.palebricks_0.name=Pale Bricks
-tile.rosebricks_0.name=Rose Bricks
+tile.orange_brick_0.name=Orange Bricks
+tile.blue_gray_brick_0.name=Blue-Gray Bricks
+tile.neutral_brick_0.name=Neutral Bricks
+tile.light_gray_brick_0.name=Light Gray Bricks
+tile.brown_brick_0.name=Brown Bricks
+tile.dirtytanbrick_0.name=Dirty Tan Bricks
+tile.palebrick_0.name=Pale Bricks
+tile.rosebrick_0.name=Rose Bricks
+tile.aged_stucco_0.name=Aged Stucco
+tile.wood_panel_0.name=White Wood Panel
+tile.wood_panel_1.name=Yellow Wood Panel
+tile.wood_panel_2.name=Purple-Blue Wood Panel
+tile.wood_panel_3.name=Black Wood Panel
+tile.wood_panel_4.name=Gray Wood Panel
+tile.wood_panel_5.name=Light Gray Wood Panel
+tile.wood_panel_6.name=Red Oak Wood Panel
+tile.wood_panel_7.name=Walnut Wood Panel
+tile.cement_0.name=Cement
+tile.cement_1.name=Aged Cement
+tile.cement_2.name=Large Cement Bricks
+tile.polished_stone_0.name=Polished Stone
+tile.pale_vertical_brick_0.name=Pale Bricks (Vertical)
+tile.black_brick_0.name=Black Bricks
+tile.white_brick_0.name=White Bricks
+tile.granite_large_brick_0.name=Large Granite Bricks
+
+<!-- ## STAIRS ## -->
+tile.stairBrickMessyTan0.name=Dirty Tan Brick Stairs
+tile.stairWoodPanel0.name=White Wood Panel Stairs
+tile.stairWoodPanel1.name=Yellow Wood Panel Stairs
+tile.stairWoodPanel2.name=Purple-Blue Wood Panel Stairs
+tile.stairWoodPanel3.name=Black Wood Panel Stairs
+tile.stairWoodPanel4.name=Gray Wood Panel Stairs
+tile.stairWoodPanel5.name=Light Gray Wood Panel Stairs
+tile.stairWoodPanel6.name=Red Oak Wood Panel Stairs
+tile.stairWoodPanel7.name=Walnut Wood Panel Stairs
+tile.stairBrickNeutral0.name=Neutral Brick Stairs
+tile.stairVerticalBrickPale0.name=Pale Brick (Vertical) Stairs
+tile.stairBrickRose0.name=Rose Brick Stairs
+tile.stairBrickWhite0.name=White Brick Stairs
+tile.stairLargeBrickGranite0.name=Large Granite Brick Stairs
+tile.stairBrickBrown0.name=Brown Brick Stairs
+tile.stairBrickBlack0.name=Black Brick Stairs
+tile.stairBrickOrange0.name=Orange Brick Stairs
+tile.stairAgedStucco0.name=Aged Stucco Stairs
+tile.stairCement0.name=Cement Stairs
+tile.stairCement1.name=Aged Cement Stairs
+tile.stairCement2.name=Large Cement Brick Stair
+tile.stairBrickLightGray0.name=Light Gray Brick Stairs
+tile.stairBrickPale0.name=Pale Brick Stairs
+tile.stairPolishedStone0.name=Polished Stone Stairs
+tile.stairBrickBlueGray0.name=Blue-Gray Brick Stairs
+
+<!-- ## STAIRS ## -->
+
 
 <!-- ## PROPS ## -->
 tile.Picnic Table.name=Picnic Table
@@ -17,4 +64,3 @@ tile.Post Curve.name=Light Post Bracket
 tile.Top Post Light.name=Center Post Light
 
 <!-- ## ITEMS ## -->
-

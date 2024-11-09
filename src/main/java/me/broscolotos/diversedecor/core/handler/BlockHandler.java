@@ -1,30 +1,15 @@
 package me.broscolotos.diversedecor.core.handler;
 
-/********************
- *
- *  blockHander
- *
- *  This file allows you to register your blocks to MINECRAFT without cluttering up DiverseDecor.java
- *  MAKE SURE YOU REGISTER THEM TO DIVERSEDECOR IN BlockIDs.java  in me.broscolotos.diversedecor.core.handler;
- *
- *  This file is ONLY for registering blocks to the mod. Do not try to add properties like hardness here
- *
- *  You can set hardness and other properties in the block class file directly. just do set### under the main class in the block file
- *
- *  Use Format:
- *      BlockIDs.blockname.block = new BlockName(materialOfBlock);
- *
- *  Any Questions feel free to DM me or Ping Me in discord!
- ********************/
-
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import me.broscolotos.diversedecor.blocks.*;
-import me.broscolotos.diversedecor.registry.BlockRegistry;
+import me.broscolotos.diversedecor.blocks.normal.blocks.standard.BaseSlabBlock;
+import me.broscolotos.diversedecor.blocks.normal.blocks.standard.BaseStairBlock;
+import me.broscolotos.diversedecor.core.register.BlockRegistry;
 import me.broscolotos.diversedecor.tiles.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemBlock;
+
 
 public class BlockHandler {
 
@@ -57,8 +42,17 @@ public class BlockHandler {
         BlockIDs.blockBrickMessyTan.block = BlockRegistry.dirtyTanBrick;
         BlockIDs.blockBrickPale.block = BlockRegistry.paleBrick;;
         BlockIDs.blockBrickRose.block = BlockRegistry.roseBrick;
+        BlockIDs.blockAgedStucco.block = BlockRegistry.agedStucco;
+        BlockIDs.blockWoodPanel.block = BlockRegistry.woodPanel;
+        BlockIDs.blockCement.block = BlockRegistry.cement;
+        BlockIDs.blockPolishedStone.block = BlockRegistry.polishedStone;
+        BlockIDs.blockVerticalBrickPale.block = BlockRegistry.paleVerticalBrick;
+        BlockIDs.blockBrickBlack.block = BlockRegistry.blackBrick;
+        BlockIDs.blockBrickWhite.block = BlockRegistry.whiteBrick;
+        BlockIDs.blockLargeBrickGranite.block = BlockRegistry.graniteLargeBrick;
+        //SlabBlockIDs.slabBrickOrange.block = new BaseSlabBlock(false, SlabBlockIDs.slabBrickOrange.blockName, BlockIDs.blockBrickOrange.block.getMaterial(), BlockIDs.blockBrickOrange.block, BlockIDs.blockBrickOrange.tool);
 
-
+        //BlockIDs.slabBrickOrange.block = new BaseSlabBlock(false, BlockIDs.blockBrickOrange.blockName + "Slab", Material.rock, BlockIDs.blockBrickOrange.block);
         for (BlockIDs block : BlockIDs.values()) {
 
             if (!block.hasItemBlock) {
@@ -67,26 +61,54 @@ public class BlockHandler {
                 GameRegistry.registerBlock(block.block, block.itemBlockClass, block.blockName);
             }
         }
+        for (SlabBlockIDs id : SlabBlockIDs.values()) {
+            String name = id.blockName;
+            name = name.replace("slab","block");
+            BlockIDs blockID = null;
+            for (BlockIDs block : BlockIDs.values()) { //feels inefficient
+                if (block.blockName.equalsIgnoreCase(name)) {
+                    blockID = block;
+                    break;
+                }
+            }
+            if (blockID == null || !blockID.hasSlabStair) {
+                continue;
+            }
+            id.block = new BaseSlabBlock(false, id.blockName + id.metaData, blockID.block.getMaterial(), blockID.block, blockID.tool, id.metaData);
+            if (!id.hasItemBlock) {
+                GameRegistry.registerBlock(id.block, id.blockName + id.metaData);
+            } else {
+                GameRegistry.registerBlock(id.block, id.itemBlockClass, id.blockName + id.metaData);
+            }
+        }
 
+
+        for (StairBlockIDs id : StairBlockIDs.values()) {
+            String name = id.blockName;
+            name = name.replace("stair","block");
+            BlockIDs blockID = null;
+            for (BlockIDs block : BlockIDs.values()) { //feels inefficient
+                if (block.blockName.equalsIgnoreCase(name)) {
+                    blockID = block;
+                    break;
+                }
+            }
+            if (blockID == null || !blockID.hasSlabStair) {
+                continue;
+            }
+            id.block = new BaseStairBlock(id.blockName + id.metaData, blockID.block.getMaterial(), blockID.block, blockID.tool, id.metaData);
+            if (!id.hasItemBlock) {
+                GameRegistry.registerBlock(id.block, id.blockName + id.metaData);
+            } else {
+                GameRegistry.registerBlock(id.block, id.itemBlockClass, id.blockName + id.metaData);
+            }
+        }
         if(e.getSide().isClient()) {
             RenderBlockHandler.initializeCustomModels();
 
         }
 
         //FoxBlocks.blockLogger.info("BlockRegister Post Init at com.bidahochi.BlockMod.core.handler.blockHandler");
-    }
-
-    //The code below is not active. Do not touch unless you know how to fix and your fix works! -hariesh
-    public static void blockpropertyregister() {
-        for (BlockProperties blockReg : BlockProperties.values()) {
-            String nameOfBlock = blockReg.blockName;
-            Block blockOfReg = blockReg.block;
-            BlockProperties.valueOf(nameOfBlock).block = new BaseBlock(blockReg.material, blockReg.blockName, blockReg.hardness, blockReg.resistance, blockReg.harvestTool, blockReg.harvestLevel, blockReg.sound, blockReg.textureLocation);
-        }
-
-        for (BlockProperties blockReg : BlockProperties.values()){
-            GameRegistry.registerBlock(blockReg.block, blockReg.blockName);
-        }
     }
 
 }

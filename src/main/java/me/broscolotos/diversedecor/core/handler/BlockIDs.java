@@ -25,26 +25,33 @@ package me.broscolotos.diversedecor.core.handler;
 
 import me.broscolotos.diversedecor.blocks.normal.itemblocks.GenericItemBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
 
 public enum BlockIDs
 {
-    //concreteBrick(true, ItemBlockconcreteBrick.class, "concreteBrick", 6),
     picnicTable(false,null,"picnic_table", -1),
     fancyWallLight(false,null,"fancy_wall_light", -1),
     fancyWallLightDiagonal(false,null,"fancy_wall_light_diagonal", -1),
     postTopper(false,null,"post_topper", -1),
     postCurve(false,null,"post_curve", -1),
     postLight(false,null,"post_light", -1),
-    blockBrickOrange(true, GenericItemBlock.class, "blockBrickOrange", 2),
-    blockBrickBrown(true, GenericItemBlock.class, "blockBrickBrown", 1),
-    blockBrickBlueGray(true, GenericItemBlock.class, "blockBrickBlueGray", 1),
-    blockBrickLightGray(true, GenericItemBlock.class, "blockBrickLightGray", 1),
-    blockBrickNeutral(true, GenericItemBlock.class, "blockBrickNeutral", 1),
-    blockBrickMessyTan(true, GenericItemBlock.class, "blockBrickMessyTan", 1),
-    blockBrickPale(true, GenericItemBlock.class, "blockBrickPale", 1),
-    blockBrickRose(true, GenericItemBlock.class, "blockBrickRose",1),
+
+    blockBrickOrange(true, GenericItemBlock.class, "blockBrickOrange", 1, true),
+    blockBrickBrown(true, GenericItemBlock.class, "blockBrickBrown", 1, true),
+    blockBrickBlueGray(true, GenericItemBlock.class, "blockBrickBlueGray", 1, true),
+    blockBrickLightGray(true, GenericItemBlock.class, "blockBrickLightGray", 1, true),
+    blockBrickNeutral(true, GenericItemBlock.class, "blockBrickNeutral", 1, true),
+    blockBrickMessyTan(true, GenericItemBlock.class, "blockBrickMessyTan", 1, true),
+    blockBrickPale(true, GenericItemBlock.class, "blockBrickPale", 1, true),
+    blockBrickRose(true, GenericItemBlock.class, "blockBrickRose",1, true),
+    blockAgedStucco(true, GenericItemBlock.class, "blockAgedStucco",1, true),
+    blockWoodPanel(true, GenericItemBlock.class, "blockWoodPanel",8, true, "axe"),
+    blockCement(true, GenericItemBlock.class, "blockCement",3, true),
+    blockPolishedStone(true, GenericItemBlock.class, "blockPolishedStone",1, true),
+    blockVerticalBrickPale(true, GenericItemBlock.class, "blockVerticalBrickPale",1, true),
+    blockBrickBlack(true, GenericItemBlock.class, "blockBrickBlack",1, true),
+    blockBrickWhite(true, GenericItemBlock.class, "blockBrickWhite",1, true),
+    blockLargeBrickGranite(true, GenericItemBlock.class, "blockLargeBrickGranite", 1, true),
     ;
 
 
@@ -57,6 +64,42 @@ public enum BlockIDs
      * 0 Enabled the use of multipart on the block and will allow for only the base block to use Multipart
      */
     public byte MaxMetadata;
+    public boolean hasSlabStair;
+    public String tool;
+
+    /**
+     * Construct a BlockID that has metaData
+     * @param hasItemBlock
+     * @param itemBlockClass Class
+     * @param blockName name of the block
+     * @param maxMetadata how many blocks with the same baseID should be generated for Forge Multipart
+     */
+    BlockIDs(boolean hasItemBlock, Class<? extends ItemBlock> itemBlockClass, String blockName, int maxMetadata, boolean hasSlabStair, String tool) {
+        this.hasItemBlock = hasItemBlock;
+        this.itemBlockClass = itemBlockClass;
+        this.blockName = blockName;
+        this.MaxMetadata = ((byte) maxMetadata);
+        this.hasSlabStair = hasSlabStair;
+        this.tool = tool;
+    }
+
+
+    /**
+     * Construct a BlockID that has metaData
+     * @param hasItemBlock
+     * @param itemBlockClass Class
+     * @param blockName name of the block
+     * @param maxMetadata how many blocks with the same baseID should be generated for Forge Multipart
+     */
+    BlockIDs(boolean hasItemBlock, Class<? extends ItemBlock> itemBlockClass, String blockName, int maxMetadata, boolean hasSlabStair) {
+        this.hasItemBlock = hasItemBlock;
+        this.itemBlockClass = itemBlockClass;
+        this.blockName = blockName;
+        this.MaxMetadata = ((byte) maxMetadata);
+        this.hasSlabStair = hasSlabStair;
+        this.tool = "pickaxe";
+    }
+
 
     /**
      * Construct a BlockID that has metaData
@@ -70,6 +113,8 @@ public enum BlockIDs
         this.itemBlockClass = itemBlockClass;
         this.blockName = blockName;
         this.MaxMetadata = ((byte) maxMetadata);
+        this.hasItemBlock = false;
+        this.tool = "pickaxe";
     }
 
     /**
@@ -83,5 +128,7 @@ public enum BlockIDs
         this.itemBlockClass = itemBlockClass;
         this.blockName = blockName;
         this.MaxMetadata = 0;
+        this.hasSlabStair = false;
+        this.tool = "pickaxe";
     }
 }

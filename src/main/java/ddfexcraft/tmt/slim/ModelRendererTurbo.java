@@ -2,7 +2,10 @@ package ddfexcraft.tmt.slim;
 
 import ddfexcraft.fvtm.TurboList;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import java.io.IOException;
@@ -1401,6 +1404,50 @@ public class ModelRendererTurbo {
         GL11.glPopMatrix();
     }
 
+    /**
+     * Renders the shape.
+     * @param scale the scale of the shape. Usually is 0.0625.
+     */
+    public void renderArmor(float scale){
+        if(!showModel){
+            return;
+        }
+        GL11.glPushMatrix();
+        if (ignoresLighting){
+            Minecraft.getMinecraft().entityRenderer.disableLightmap(1D);
+        }
+        if(noCull){
+            GL11.glDisable(GL11.GL_CULL_FACE);
+        }
+        if(rotationPointX != 0.0F || rotationPointY != 0.0F || rotationPointZ != 0.0F){
+            GL11.glTranslatef(rotationPointX * scale, rotationPointY * scale, rotationPointZ * scale);
+        }
+
+        if(rotateAngleY != 0.0F){
+            GL11.glRotatef(rotateAngleY, 0.0F, 1.0F, 0.0F);
+        }
+        if(rotateAngleZ != 0.0F){
+            GL11.glRotatef(rotateAngleZ, 0.0F, 0.0F, 1.0F);
+        }
+        if(rotateAngleX != 0.0F){
+            GL11.glRotatef(rotateAngleX, 1.0F, 0.0F, 0.0F);
+        }
+
+        for (TexturedPolygon poly : faces) {
+            Tessellator.getInstance().drawTexturedVertsWithNormal(poly, scale);
+        }
+        if(rotationPointX != 0.0F || rotationPointY != 0.0F || rotationPointZ != 0.0F){
+            GL11.glTranslatef(-rotationPointX * scale, -rotationPointY * scale, -rotationPointZ * scale);
+        }
+        if(noCull){
+            GL11.glEnable(GL11.GL_CULL_FACE);
+        }
+        if (ignoresLighting) {
+            Minecraft.getMinecraft().entityRenderer.enableLightmap(1D);
+        }
+
+        GL11.glPopMatrix();
+    }
 
 
 

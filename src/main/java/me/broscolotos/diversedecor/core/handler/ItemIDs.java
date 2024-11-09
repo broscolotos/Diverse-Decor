@@ -4,7 +4,10 @@ import net.minecraft.item.Item;
 
 public enum ItemIDs {
 
-    bulb("bulb", "bulb", "bulb")
+    //bulb("bulb", "bulb", "bulb"),
+    testhat("testhat","testhat","testhat"),
+    conehat("conehat","conehat","conehat"),
+
     ;
 
     public Item item;
