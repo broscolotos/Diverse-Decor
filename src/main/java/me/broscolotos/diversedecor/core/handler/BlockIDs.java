@@ -54,6 +54,7 @@ public enum BlockIDs
     blockBrickWhite(true, GenericItemBlock.class, "blockBrickWhite",1, true),
     blockLargeBrickGranite(true, GenericItemBlock.class, "blockLargeBrickGranite", 3, true),
     blockSlate(true, GenericItemBlock.class, "blockSlate", 2, true),
+    blockStone(true, GenericItemBlock.class, "blockColored",10,true),
     ;
 
 

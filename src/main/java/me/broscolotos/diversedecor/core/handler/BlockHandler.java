@@ -60,7 +60,7 @@ public class BlockHandler {
         BlockIDs.blockBrickBlack.block = new StandardBlock(Material.rock, "black_brick", DiverseDecor.MODID + ":bricks/black/black_brick",1);
         BlockIDs.blockLargeBrickGranite.block = new StandardBlock(Material.rock, "granite_large_brick", DiverseDecor.MODID + ":bricks/large/granite_large_brick", 3);
         BlockIDs.blockSlate.block = new StandardBlock(Material.rock, "slate", DiverseDecor.MODID + ":stones/slate/slate", 2);
-
+        BlockIDs.blockStone.block = new StandardBlock(Material.rock, "colored_block", DiverseDecor.MODID + ":generic/colored/colored_block",10);
 
 /*        BlockIDs.slabBrick1.block = new SlabBrick1Block(false).setCreativeTab(DiverseDecor.diverseDecorBlockTab);
         BlockIDs.slabDoubleBrick1.block = new SlabBrick1Block(true);*/

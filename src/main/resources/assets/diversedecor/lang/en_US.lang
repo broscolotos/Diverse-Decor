@@ -28,6 +28,16 @@ tile.granite_large_brick_1.name=Large Pewter Bricks
 tile.granite_large_brick_2.name=Large Granite Bricks
 tile.slate_0.name=Slate
 tile.slate_1.name=Smooth Slate
+tile.colored_block_0.name=White Block
+tile.colored_block_1.name=Extremely Light Gray Block
+tile.colored_block_2.name=Very Light Gray Block
+tile.colored_block_3.name=Light Gray Block
+tile.colored_block_4.name=Gray Block
+tile.colored_block_5.name=Dark Gray Block
+tile.colored_block_6.name=Very Dark Gray Block
+tile.colored_block_7.name=Extremely Dark Gray Block
+tile.colored_block_8.name=Black Block
+tile.colored_block_9.name=Eggshell Block
 
 <!-- ## SLABS ## -->
 tile.blockbrickorange0_slab.name=Orange Brick Slab
@@ -59,6 +69,16 @@ tile.blocklargebrickgranite1_slab.name=Large Pewter Brick Slab
 tile.blocklargebrickgranite2_slab.name=Large Granite Brick Slab
 tile.blockslate0_slab.name=Slate Slab
 tile.blockslate1_slab.name=Smooth Slate Slab
+tile.blockcolored0_slab.name=White Slab
+tile.blockcolored1_slab.name=Extremely Light Gray Slab
+tile.blockcolored2_slab.name=Very Light Gray Slab
+tile.blockcolored3_slab.name=Light Gray Slab
+tile.blockcolored4_slab.name=Gray Slab
+tile.blockcolored5_slab.name=Dark Gray Slab
+tile.blockcolored6_slab.name=Very Dark Gray Slab
+tile.blockcolored7_slab.name=Extremely Dark Gray Slab
+tile.blockcolored8_slab.name=Black Slab
+tile.blockcolored9_slab.name=Eggshell Slab
 
 <!-- ## STAIRS ## -->
 tile.blockbrickorange0_stair.name=Orange Brick Stairs
@@ -90,6 +110,16 @@ tile.blocklargebrickgranite1_stair.name=Large Pewter Brick Stairs
 tile.blocklargebrickgranite2_stair.name=Large Granite Brick Stairs
 tile.blockslate0_stair.name=Slate Stairs
 tile.blockslate1_stair.name=Smooth Slate Stairs
+tile.blockcolored0_stair.name=White Stairs
+tile.blockcolored1_stair.name=Extremely Light Gray Stairs
+tile.blockcolored2_stair.name=Very Light Gray Stairs
+tile.blockcolored3_stair.name=Light Gray Stairs
+tile.blockcolored4_stair.name=Gray Stairs
+tile.blockcolored5_stair.name=Dark Gray Stairs
+tile.blockcolored6_stair.name=Very Dark Gray Stairs
+tile.blockcolored7_stair.name=Extremely Dark Gray Stairs
+tile.blockcolored8_stair.name=Black Stairs
+tile.blockcolored9_stair.name=Eggshell Stairs
 
 
 
