@@ -12,6 +12,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
+
 public class DiverseHelmet extends ItemArmor {
 
 
@@ -25,16 +26,23 @@ public class DiverseHelmet extends ItemArmor {
         setCreativeTab(DiverseDecor.diverseDecorCosmeticsTab);
         iconName = icon;
     }
-
-    public DiverseHelmet(String icon, ArmorMaterial material, int par3, int par4, ModelCustomArmor model, String texture) {
+    @SideOnly(Side.CLIENT)
+    public DiverseHelmet(String icon, ArmorMaterial material, int par3, int par4, ModelCustomArmor hat, String texture) {
         super(material, par3, par4);
         setCreativeTab(DiverseDecor.diverseDecorCosmeticsTab);
         iconName = icon;
-        this.model = model;
+        this.model = hat;
         this.texture = texture;
     }
 
-
+    @SideOnly(Side.SERVER)
+    public DiverseHelmet(String icon, ArmorMaterial material, int par3, int par4, String texture) {
+        super(material, par3, par4);
+        setCreativeTab(DiverseDecor.diverseDecorCosmeticsTab);
+        iconName = icon;
+        this.model = null;
+        this.texture = texture;
+    }
 
     @Override
     @SideOnly(Side.CLIENT)

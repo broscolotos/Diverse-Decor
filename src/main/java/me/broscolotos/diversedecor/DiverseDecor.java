@@ -3,9 +3,11 @@ package me.broscolotos.diversedecor;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import me.broscolotos.diversedecor.core.CommonProxy;
 import me.broscolotos.diversedecor.core.handler.*;
 import me.broscolotos.diversedecor.plugins.fmp.ForgeMultiPart;
 import net.minecraft.creativetab.CreativeTabs;
@@ -14,6 +16,8 @@ import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.lang.reflect.InvocationTargetException;
 
 
 @Mod(modid = DiverseDecor.MODID, version = DiverseDecor.VERSION, name = DiverseDecor.NAME, dependencies = "after:ForgeMultipart")
@@ -26,9 +30,13 @@ public class DiverseDecor {
     public static CreativeTabs diverseDecorCreativeTab, diverseDecorBlockTab, diverseDecorCosmeticsTab;
     public static Logger blockLogger = LogManager.getLogger("DiverseDecor");
 
-    /* TrainCraft instance */
+    /* Mod instance */
     @Mod.Instance(MODID)
     public static DiverseDecor instance;
+
+
+    @SidedProxy(clientSide = "me.broscolotos.diversedecor.core.ClientProxy", serverSide = "me.broscolotos.diversedecor.core.CommonProxy")
+    public static CommonProxy proxy;
 
     public ItemArmor.ArmorMaterial armor = EnumHelper.addArmorMaterial("helm", 5, new int[] {1}, 25);
     @EventHandler
@@ -69,7 +77,11 @@ public class DiverseDecor {
         };
 
         BlockHandler.initBlockRegister(event);
-        ItemHandler.initItemRegister();
+        if (event.getSide().isClient()) {
+            ItemHandler.initItemRegisterClient(event);
+        } else {
+            ItemHandler.initItemRegisterServer(event);
+        }
         RecipeHandler.initBlockRecipes();
         OreDictHandler.registerOreDict();
 
