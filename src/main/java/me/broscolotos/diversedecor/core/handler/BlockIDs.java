@@ -23,7 +23,8 @@ package me.broscolotos.diversedecor.core.handler;
  *
  ****************************/
 
-import me.broscolotos.diversedecor.blocks.normal.itemblocks.GenericItemBlock;
+import me.broscolotos.diversedecor.blocks.itemblocks.GenericItemBlock;
+//import me.broscolotos.diversedecor.blocks.itemblocks.ItemBrickSlab;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 
@@ -51,7 +52,8 @@ public enum BlockIDs
     blockVerticalBrickPale(true, GenericItemBlock.class, "blockVerticalBrickPale",1, true),
     blockBrickBlack(true, GenericItemBlock.class, "blockBrickBlack",1, true),
     blockBrickWhite(true, GenericItemBlock.class, "blockBrickWhite",1, true),
-    blockLargeBrickGranite(true, GenericItemBlock.class, "blockLargeBrickGranite", 1, true),
+    blockLargeBrickGranite(true, GenericItemBlock.class, "blockLargeBrickGranite", 3, true),
+    blockSlate(true, GenericItemBlock.class, "blockSlate", 2, true),
     ;
 
 

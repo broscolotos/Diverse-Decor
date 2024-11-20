@@ -1,5 +1,6 @@
 package me.broscolotos.diversedecor.blocks.normal.blocks.standard;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import me.broscolotos.diversedecor.DiverseDecor;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

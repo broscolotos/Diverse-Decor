@@ -77,6 +77,6 @@ public class RecipeHandler {
         GameRegistry.addShapelessRecipe(new ItemStack(BlockIDs.blockBrickOrange.block, 1, 2), new ItemStack(BlockIDs.blockBrickOrange.block, 1, 1));
         GameRegistry.addShapelessRecipe(new ItemStack(BlockIDs.blockBrickOrange.block, 1, 0), new ItemStack(BlockIDs.blockBrickOrange.block, 1, 2));
 
-        DiverseDecor.blockLogger.info("Recipe's registered.");
+        DiverseDecor.blockLogger.info("Recipes registered.");
     }
 }

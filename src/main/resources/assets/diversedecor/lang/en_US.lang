@@ -16,43 +16,87 @@ tile.wood_panel_4.name=Gray Wood Panel
 tile.wood_panel_5.name=Light Gray Wood Panel
 tile.wood_panel_6.name=Red Oak Wood Panel
 tile.wood_panel_7.name=Walnut Wood Panel
-tile.cement_0.name=Cement
-tile.cement_1.name=Aged Cement
-tile.cement_2.name=Large Cement Bricks
+tile.cement_0.name=Concrete
+tile.cement_1.name=Aged Concrete
+tile.cement_2.name=Large Concrete Bricks
 tile.polished_stone_0.name=Polished Stone
 tile.pale_vertical_brick_0.name=Pale Bricks (Vertical)
 tile.black_brick_0.name=Black Bricks
 tile.white_brick_0.name=White Bricks
-tile.granite_large_brick_0.name=Large Granite Bricks
+tile.granite_large_brick_0.name=Large Creamsicle Bricks
+tile.granite_large_brick_1.name=Large Pewter Bricks
+tile.granite_large_brick_2.name=Large Granite Bricks
+tile.slate_0.name=Slate
+tile.slate_1.name=Smooth Slate
+
+<!-- ## SLABS ## -->
+tile.blockbrickorange0_slab.name=Orange Brick Slab
+tile.blockbrickbrown0_slab.name=Brown Brick Slab
+tile.blockbrickbluegray0_slab.name=Blue-Gray Brick Slab
+tile.blockbricklightgray0_slab.name=Light Gray Brick Slab
+tile.blockbrickneutral0_slab.name=Neutral Brick Slab
+tile.blockbrickmessytan0_slab.name=Dirty Tan Brick Slab
+tile.blockbrickpale0_slab.name=Pale Brick Slab
+tile.blockbrickrose0_slab.name=Rose Brick Slab
+tile.blockagedstucco0_slab.name=Aged Stucco Slab
+tile.blockwoodpanel0_slab.name=White Wood Panel Slab
+tile.blockwoodpanel1_slab.name=Yellow Wood Panel Slab
+tile.blockwoodpanel2_slab.name=Purple-Blue Wood Panel Slab
+tile.blockwoodpanel3_slab.name=Black Wood Panel Slab
+tile.blockwoodpanel4_slab.name=Gray Wood Panel Slab
+tile.blockwoodpanel5_slab.name=Light Gray Wood Panel Slab
+tile.blockwoodpanel6_slab.name=Red Oak Wood Panel Slab
+tile.blockwoodpanel7_slab.name=Walnut Wood Panel Slab
+tile.blockcement0_slab.name=Concrete Slab
+tile.blockcement1_slab.name=Aged Concrete Slab
+tile.blockcement2_slab.name=Large Concrete Brick Slab
+tile.blockpolishedstone0_slab.name=Polished Stone Slab
+tile.blockverticalbrickpale0_slab.name=Vertical Pale Brick Slab
+tile.blockbrickblack0_slab.name=Black Brick Slab
+tile.blockbrickwhite0_slab.name=White Brick Slab
+tile.blocklargebrickgranite0_slab.name=Large Creamsicle Brick Slab
+tile.blocklargebrickgranite1_slab.name=Large Pewter Brick Slab
+tile.blocklargebrickgranite2_slab.name=Large Granite Brick Slab
+tile.blockslate0_slab.name=Slate Slab
+tile.blockslate1_slab.name=Smooth Slate Slab
 
 <!-- ## STAIRS ## -->
-tile.stairBrickMessyTan0.name=Dirty Tan Brick Stairs
-tile.stairWoodPanel0.name=White Wood Panel Stairs
-tile.stairWoodPanel1.name=Yellow Wood Panel Stairs
-tile.stairWoodPanel2.name=Purple-Blue Wood Panel Stairs
-tile.stairWoodPanel3.name=Black Wood Panel Stairs
-tile.stairWoodPanel4.name=Gray Wood Panel Stairs
-tile.stairWoodPanel5.name=Light Gray Wood Panel Stairs
-tile.stairWoodPanel6.name=Red Oak Wood Panel Stairs
-tile.stairWoodPanel7.name=Walnut Wood Panel Stairs
-tile.stairBrickNeutral0.name=Neutral Brick Stairs
-tile.stairVerticalBrickPale0.name=Pale Brick (Vertical) Stairs
-tile.stairBrickRose0.name=Rose Brick Stairs
-tile.stairBrickWhite0.name=White Brick Stairs
-tile.stairLargeBrickGranite0.name=Large Granite Brick Stairs
-tile.stairBrickBrown0.name=Brown Brick Stairs
-tile.stairBrickBlack0.name=Black Brick Stairs
-tile.stairBrickOrange0.name=Orange Brick Stairs
-tile.stairAgedStucco0.name=Aged Stucco Stairs
-tile.stairCement0.name=Cement Stairs
-tile.stairCement1.name=Aged Cement Stairs
-tile.stairCement2.name=Large Cement Brick Stair
-tile.stairBrickLightGray0.name=Light Gray Brick Stairs
-tile.stairBrickPale0.name=Pale Brick Stairs
-tile.stairPolishedStone0.name=Polished Stone Stairs
-tile.stairBrickBlueGray0.name=Blue-Gray Brick Stairs
+tile.blockbrickorange0_stair.name=Orange Brick Stairs
+tile.blockbrickbrown0_stair.name=Brown Brick Stairs
+tile.blockbrickbluegray0_stair.name=Blue-Gray Brick Stairs
+tile.blockbricklightgray0_stair.name=Light Gray Brick Stairs
+tile.blockbrickneutral0_stair.name=Neutral Brick Stairs
+tile.blockbrickmessytan0_stair.name=Dirty Tan Brick Stairs
+tile.blockbrickpale0_stair.name=Pale Brick Stairs
+tile.blockbrickrose0_stair.name=Rose Brick Stairs
+tile.blockagedstucco0_stair.name=Aged Stucco Stairs
+tile.blockwoodpanel0_stair.name=White Wood Panel Stairs
+tile.blockwoodpanel1_stair.name=Yellow Wood Panel Stairs
+tile.blockwoodpanel2_stair.name=Purple-Blue Wood Panel Stairs
+tile.blockwoodpanel3_stair.name=Black Wood Panel Stairs
+tile.blockwoodpanel4_stair.name=Gray Wood Panel Stairs
+tile.blockwoodpanel5_stair.name=Light Gray Wood Panel Stairs
+tile.blockwoodpanel6_stair.name=Red Oak Wood Panel Stairs
+tile.blockwoodpanel7_stair.name=Walnut Wood Panel Stairs
+tile.blockcement0_stair.name=Concrete Stairs
+tile.blockcement1_stair.name=Aged Concrete Stairs
+tile.blockcement2_stair.name=Large Concrete Brick Stairs
+tile.blockpolishedstone0_stair.name=Polished Stone Stairs
+tile.blockverticalbrickpale0_stair.name=Vertical Pale Brick Stairs
+tile.blockbrickblack0_stair.name=Black Brick Stairs
+tile.blockbrickwhite0_stair.name=White Brick Stairs
+tile.blocklargebrickgranite0_stair.name=Large Creamsicle Brick Stairs
+tile.blocklargebrickgranite1_stair.name=Large Pewter Brick Stairs
+tile.blocklargebrickgranite2_stair.name=Large Granite Brick Stairs
+tile.blockslate0_stair.name=Slate Stairs
+tile.blockslate1_stair.name=Smooth Slate Stairs
 
-<!-- ## STAIRS ## -->
+
+
+
+
+
+
 
 
 <!-- ## PROPS ## -->

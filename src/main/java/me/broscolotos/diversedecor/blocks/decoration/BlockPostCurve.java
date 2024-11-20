@@ -1,4 +1,4 @@
-package me.broscolotos.diversedecor.blocks;
+package me.broscolotos.diversedecor.blocks.decoration;
 
 import me.broscolotos.diversedecor.tiles.TilePostCurve;
 import net.minecraft.block.Block;

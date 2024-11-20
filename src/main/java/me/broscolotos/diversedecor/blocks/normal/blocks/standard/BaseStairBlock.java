@@ -1,6 +1,8 @@
 package me.broscolotos.diversedecor.blocks.normal.blocks.standard;
 
 import me.broscolotos.diversedecor.DiverseDecor;
+import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.DynamicBlock;
+import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.DynamicPillarBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
@@ -60,6 +62,13 @@ public class BaseStairBlock extends BlockStairs {
 
     @Override
     public IIcon getIcon (IBlockAccess world, int x, int y, int z, int side) {
+
+        if (type instanceof DynamicPillarBlock) {
+            return ((DynamicPillarBlock) type).getIcon(world, x, y, z, side);
+        }
+        if (type instanceof DynamicBlock) {
+            return ((DynamicBlock) type).getIcon(world, x, y, z, side);
+        }
         return type.getIcon(side,this.meta);
     }
 

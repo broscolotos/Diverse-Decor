@@ -1,6 +1,6 @@
-package me.broscolotos.diversedecor.blocks;
+package me.broscolotos.diversedecor.blocks.decoration;
 
-import me.broscolotos.diversedecor.tiles.TileFancyWallLight;
+import me.broscolotos.diversedecor.tiles.TilePostTopper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,18 +10,17 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.List;
+public class BlockPostTopper extends DecorationBlock {
 
-public class BlockFancyWallLight extends DecorationBlock {
-    public BlockFancyWallLight(Material material) {
+
+    public BlockPostTopper(Material material) {
         super(material);
-        setBlockName("Fancy Hanging Light");
+        setBlockName("Post Topper");
         setHardness(1);
         setResistance(2);
-        setHarvestLevel("pickaxe",1);
-        setStepSound(Block.soundTypeMetal);
-        setLightLevel(0.6f);
-        icon = "hangingLightIcon";
+        setHarvestLevel("axe",1);
+        setStepSound(Block.soundTypeWood);
+        icon = "topperIcon";
         opaque = false;
         renderType = -1;
         normalBlock = false;
@@ -30,18 +29,15 @@ public class BlockFancyWallLight extends DecorationBlock {
     @Override
     public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_)
     {
-        return new TileFancyWallLight();
+        return new TilePostTopper();
     }
-    @Override
-    public boolean canCollideCheck(int p_149678_1_, boolean p_149678_2_){
-        return true;
-    }
+
     @Override
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack)
     {
         super.onBlockPlacedBy(world, x, y, z, entity, stack);
         //force tile spawn manually and override any existing tile at the space
-        world.setTileEntity(x,y,z, new TileFancyWallLight(getDir(entity)));
+        world.setTileEntity(x,y,z, new TilePostTopper());
     }
 
     @Override
@@ -51,6 +47,6 @@ public class BlockFancyWallLight extends DecorationBlock {
 
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
-        this.setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 1F, 0.75F);
+        this.setBlockBounds(0.375F, 0.0F, 0.375F, 0.625F, 0.3125F, 0.625F);
     }
 }

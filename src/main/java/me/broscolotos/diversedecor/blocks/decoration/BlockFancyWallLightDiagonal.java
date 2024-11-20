@@ -1,13 +1,10 @@
-package me.broscolotos.diversedecor.blocks;
+package me.broscolotos.diversedecor.blocks.decoration;
 
-import me.broscolotos.diversedecor.tiles.TileFancyWallLight;
 import me.broscolotos.diversedecor.tiles.TileFancyWallLightDiagonal;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class BlockFancyWallLightDiagonal extends BlockFancyWallLight {

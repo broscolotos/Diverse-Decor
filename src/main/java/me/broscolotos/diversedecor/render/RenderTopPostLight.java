@@ -1,7 +1,7 @@
 package me.broscolotos.diversedecor.render;
 
 import ddfexcraft.tmt.slim.Tessellator;
-import me.broscolotos.diversedecor.blocks.BlockPostCurve;
+import me.broscolotos.diversedecor.blocks.decoration.BlockPostCurve;
 import me.broscolotos.diversedecor.render.models.TopPostLight;
 import me.broscolotos.diversedecor.tiles.TilePostCurve;
 import me.broscolotos.diversedecor.tiles.TileTopPostLight;

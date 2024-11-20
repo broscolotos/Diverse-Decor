@@ -1,4 +1,4 @@
-package me.broscolotos.diversedecor.blocks;
+package me.broscolotos.diversedecor.blocks.decoration;
 
 import me.broscolotos.diversedecor.entities.EntityChair;
 import me.broscolotos.diversedecor.tiles.TilePicnicTable;

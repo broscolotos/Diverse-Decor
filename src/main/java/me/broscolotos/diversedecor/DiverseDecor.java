@@ -8,7 +8,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import me.broscolotos.diversedecor.core.handler.*;
 import me.broscolotos.diversedecor.plugins.fmp.ForgeMultiPart;
-import me.broscolotos.diversedecor.core.register.BlockRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -69,7 +68,6 @@ public class DiverseDecor {
             }
         };
 
-        BlockRegistry.registerBlocks();
         BlockHandler.initBlockRegister(event);
         ItemHandler.initItemRegister();
         RecipeHandler.initBlockRecipes();

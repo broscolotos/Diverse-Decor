@@ -2,12 +2,16 @@ package me.broscolotos.diversedecor.core.handler;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import me.broscolotos.diversedecor.blocks.*;
-import me.broscolotos.diversedecor.blocks.normal.blocks.standard.BaseSlabBlock;
+import me.broscolotos.diversedecor.DiverseDecor;
+import me.broscolotos.diversedecor.blocks.decoration.*;
+import me.broscolotos.diversedecor.blocks.itemblocks.GenericItemBlock;
+import me.broscolotos.diversedecor.blocks.itemblocks.GenericSlabItemBlock;
+import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.DynamicBlock;
+import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.DynamicPillarBlock;
 import me.broscolotos.diversedecor.blocks.normal.blocks.standard.BaseStairBlock;
-import me.broscolotos.diversedecor.core.register.BlockRegistry;
+import me.broscolotos.diversedecor.blocks.normal.blocks.standard.BaseSlabBlock;
+import me.broscolotos.diversedecor.blocks.normal.blocks.standard.StandardBlock;
 import me.broscolotos.diversedecor.tiles.*;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 
@@ -34,25 +38,34 @@ public class BlockHandler {
         BlockIDs.postTopper.block = new BlockPostTopper(Material.iron);
         GameRegistry.registerTileEntity(TilePostTopper.class, "posttopper.tile");
 
-        BlockIDs.blockBrickOrange.block = BlockRegistry.orangeBrick;
-        BlockIDs.blockBrickBrown.block = BlockRegistry.brownBrick;
-        BlockIDs.blockBrickBlueGray.block = BlockRegistry.blueGrayBrick;
-        BlockIDs.blockBrickLightGray.block = BlockRegistry.lightGrayBrick;
-        BlockIDs.blockBrickNeutral.block = BlockRegistry.neutralBrick;
-        BlockIDs.blockBrickMessyTan.block = BlockRegistry.dirtyTanBrick;
-        BlockIDs.blockBrickPale.block = BlockRegistry.paleBrick;;
-        BlockIDs.blockBrickRose.block = BlockRegistry.roseBrick;
-        BlockIDs.blockAgedStucco.block = BlockRegistry.agedStucco;
-        BlockIDs.blockWoodPanel.block = BlockRegistry.woodPanel;
-        BlockIDs.blockCement.block = BlockRegistry.cement;
-        BlockIDs.blockPolishedStone.block = BlockRegistry.polishedStone;
-        BlockIDs.blockVerticalBrickPale.block = BlockRegistry.paleVerticalBrick;
-        BlockIDs.blockBrickBlack.block = BlockRegistry.blackBrick;
-        BlockIDs.blockBrickWhite.block = BlockRegistry.whiteBrick;
-        BlockIDs.blockLargeBrickGranite.block = BlockRegistry.graniteLargeBrick;
-        //SlabBlockIDs.slabBrickOrange.block = new BaseSlabBlock(false, SlabBlockIDs.slabBrickOrange.blockName, BlockIDs.blockBrickOrange.block.getMaterial(), BlockIDs.blockBrickOrange.block, BlockIDs.blockBrickOrange.tool);
+        //dynamic
+        BlockIDs.blockBrickOrange.block = new DynamicBlock(Material.rock, "orange_brick", DiverseDecor.MODID+":bricks/orange/orange_brick", 3);
+        BlockIDs.blockBrickBrown.block = new DynamicBlock(Material.rock, "brown_brick", DiverseDecor.MODID+":bricks/brown/brown_brick", 4);
+        BlockIDs.blockBrickBlueGray.block = new DynamicBlock(Material.rock, "blue_gray_brick", DiverseDecor.MODID+":bricks/blue gray/bluegray_brick", 3);
+        BlockIDs.blockBrickLightGray.block = new DynamicBlock(Material.rock, "light_gray_brick", DiverseDecor.MODID+":bricks/light gray/lightgray_brick", 2);
+        BlockIDs.blockBrickNeutral.block = new DynamicBlock(Material.rock, "neutral_brick", DiverseDecor.MODID+":bricks/neutral/neutral_brick", 4);
 
-        //BlockIDs.slabBrickOrange.block = new BaseSlabBlock(false, BlockIDs.blockBrickOrange.blockName + "Slab", Material.rock, BlockIDs.blockBrickOrange.block);
+        //pillar
+        BlockIDs.blockBrickWhite.block = new DynamicPillarBlock(Material.rock, "white_brick", DiverseDecor.MODID + ":bricks/white/white_brick", 2);
+
+        //normal
+        BlockIDs.blockBrickMessyTan.block = new StandardBlock(Material.rock, "dirtytanbrick", DiverseDecor.MODID+":bricks/tan/dirty_tan_brick", 1);
+        BlockIDs.blockBrickPale.block = new StandardBlock(Material.rock, "palebrick", DiverseDecor.MODID+":bricks/pale/pale_brick", 1);
+        BlockIDs.blockBrickRose.block = new StandardBlock(Material.rock, "rosebrick", DiverseDecor.MODID + ":bricks/rose/rose_brick", 1);
+        BlockIDs.blockAgedStucco.block = new StandardBlock(Material.rock, "aged_stucco", DiverseDecor.MODID + ":aged_stucco",1);
+        BlockIDs.blockWoodPanel.block = new StandardBlock(Material.wood, "wood_panel", DiverseDecor.MODID + ":woods/wood panels/wood_panel", 8, "axe");
+        BlockIDs.blockCement.block = new StandardBlock(Material.rock, "cement", DiverseDecor.MODID + ":stones/cement/cement",3);
+        BlockIDs.blockPolishedStone.block = new StandardBlock(Material.rock, "polished_stone", DiverseDecor.MODID + ":stones/polished_stone",1);
+        BlockIDs.blockVerticalBrickPale.block = new StandardBlock(Material.rock, "pale_vertical_brick", DiverseDecor.MODID + ":bricks/vertical/pale_vertical_brick", 1);
+        BlockIDs.blockBrickBlack.block = new StandardBlock(Material.rock, "black_brick", DiverseDecor.MODID + ":bricks/black/black_brick",1);
+        BlockIDs.blockLargeBrickGranite.block = new StandardBlock(Material.rock, "granite_large_brick", DiverseDecor.MODID + ":bricks/large/granite_large_brick", 3);
+        BlockIDs.blockSlate.block = new StandardBlock(Material.rock, "slate", DiverseDecor.MODID + ":stones/slate/slate", 2);
+
+
+/*        BlockIDs.slabBrick1.block = new SlabBrick1Block(false).setCreativeTab(DiverseDecor.diverseDecorBlockTab);
+        BlockIDs.slabDoubleBrick1.block = new SlabBrick1Block(true);*/
+
+
         for (BlockIDs block : BlockIDs.values()) {
 
             if (!block.hasItemBlock) {
@@ -60,47 +73,13 @@ public class BlockHandler {
             } else {
                 GameRegistry.registerBlock(block.block, block.itemBlockClass, block.blockName);
             }
-        }
-        for (SlabBlockIDs id : SlabBlockIDs.values()) {
-            String name = id.blockName;
-            name = name.replace("slab","block");
-            BlockIDs blockID = null;
-            for (BlockIDs block : BlockIDs.values()) { //feels inefficient
-                if (block.blockName.equalsIgnoreCase(name)) {
-                    blockID = block;
-                    break;
+            if (block.hasSlabStair) {
+                //register slabs & stairs
+                for (int i=0; i<block.MaxMetadata; i++) {
+                    GameRegistry.registerBlock(new BaseSlabBlock(true, block.block.getMaterial(), 10f, 2f, block.blockName.toLowerCase() + (byte)(i) + "_doubleslab", block, (byte)(i)), GenericSlabItemBlock.class,  block.blockName.toLowerCase() + (byte)(i) + "_doubleslab"); //register the doubleslab first because the slab needs to reference it when registering.
+                    GameRegistry.registerBlock(new BaseSlabBlock(false, block.block.getMaterial(), 10f, 2f, block.blockName.toLowerCase() + (byte)(i) + "_slab", block, (byte)(i)).setCreativeTab(DiverseDecor.diverseDecorBlockTab), GenericSlabItemBlock.class, block.blockName.toLowerCase() + (byte)(i) + "_slab");
+                    GameRegistry.registerBlock(new BaseStairBlock(block.blockName.toLowerCase() + i + "_stair", block.block.getMaterial(), block.block, block.tool, (byte)(i)), GenericItemBlock.class, block.blockName.toLowerCase() + i + "_stair");
                 }
-            }
-            if (blockID == null || !blockID.hasSlabStair) {
-                continue;
-            }
-            id.block = new BaseSlabBlock(false, id.blockName + id.metaData, blockID.block.getMaterial(), blockID.block, blockID.tool, id.metaData);
-            if (!id.hasItemBlock) {
-                GameRegistry.registerBlock(id.block, id.blockName + id.metaData);
-            } else {
-                GameRegistry.registerBlock(id.block, id.itemBlockClass, id.blockName + id.metaData);
-            }
-        }
-
-
-        for (StairBlockIDs id : StairBlockIDs.values()) {
-            String name = id.blockName;
-            name = name.replace("stair","block");
-            BlockIDs blockID = null;
-            for (BlockIDs block : BlockIDs.values()) { //feels inefficient
-                if (block.blockName.equalsIgnoreCase(name)) {
-                    blockID = block;
-                    break;
-                }
-            }
-            if (blockID == null || !blockID.hasSlabStair) {
-                continue;
-            }
-            id.block = new BaseStairBlock(id.blockName + id.metaData, blockID.block.getMaterial(), blockID.block, blockID.tool, id.metaData);
-            if (!id.hasItemBlock) {
-                GameRegistry.registerBlock(id.block, id.blockName + id.metaData);
-            } else {
-                GameRegistry.registerBlock(id.block, id.itemBlockClass, id.blockName + id.metaData);
             }
         }
         if(e.getSide().isClient()) {

@@ -1,4 +1,4 @@
-package me.broscolotos.diversedecor.blocks.normal.itemblocks;
+package me.broscolotos.diversedecor.blocks.itemblocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
