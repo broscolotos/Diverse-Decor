@@ -38,6 +38,10 @@ public class BlockHandler {
         BlockIDs.postTopper.block = new BlockPostTopper(Material.iron);
         GameRegistry.registerTileEntity(TilePostTopper.class, "posttopper.tile");
 
+        BlockIDs.cashRegister.block = new BlockCashRegister(Material.iron);
+        GameRegistry.registerTileEntity(TileCashRegister.class, "cashregister.tile");
+
+
         //dynamic
         BlockIDs.blockBrickOrange.block = new DynamicBlock(Material.rock, "orange_brick", DiverseDecor.MODID+":bricks/orange/orange_brick", 3);
         BlockIDs.blockBrickBrown.block = new DynamicBlock(Material.rock, "brown_brick", DiverseDecor.MODID+":bricks/brown/brown_brick", 4);

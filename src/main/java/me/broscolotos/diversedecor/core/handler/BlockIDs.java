@@ -36,6 +36,7 @@ public enum BlockIDs
     postTopper(false,null,"post_topper", -1),
     postCurve(false,null,"post_curve", -1),
     postLight(false,null,"post_light", -1),
+    cashRegister(false,null,"cash_register", -1),
 
     blockBrickOrange(true, GenericItemBlock.class, "blockBrickOrange", 1, true),
     blockBrickBrown(true, GenericItemBlock.class, "blockBrickBrown", 1, true),
