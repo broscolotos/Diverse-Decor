@@ -41,10 +41,15 @@ public class BaseSlabBlock extends BlockSlab {
     public BaseSlabBlock(boolean par2, Material mat, float resistance, float hardness, String name, BlockIDs block, byte meta) {
         super(par2, mat);
         this.useNeighborBrightness = true;
-        this.setStepSound(soundTypeStone);
+        if (block.tool.equalsIgnoreCase("axe")) {
+            this.setStepSound(soundTypeWood);
+        } else {
+            this.setStepSound(soundTypeStone);
+        }
         this.setResistance(resistance);
         this.setHardness(hardness);
         this.setBlockName(name);
+        this.setHarvestLevel(block.tool, 1);
         this.host = block;
         this.meta = meta;
     }

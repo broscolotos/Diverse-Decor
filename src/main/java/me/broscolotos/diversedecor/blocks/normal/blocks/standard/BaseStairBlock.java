@@ -18,6 +18,7 @@ public class BaseStairBlock extends BlockStairs {
         super(block, 3);
         this.type = block;
         this.meta = 0;
+        this.standardRegister();
     }
 
     public BaseStairBlock (String name, Material mat, Block type) {
@@ -25,7 +26,7 @@ public class BaseStairBlock extends BlockStairs {
         this.type = type;
         this.meta = 0;
         standardRegister();
-        setBlockName(name);
+        this.setBlockName(name);
     }
 
     public BaseStairBlock (String name, Material mat, Block type, String tool) {
@@ -33,7 +34,7 @@ public class BaseStairBlock extends BlockStairs {
         this.type = type;
         this.meta = 0;
         standardRegister(tool);
-        setBlockName(name);
+        this.setBlockName(name);
     }
 
     public BaseStairBlock (String name, Material mat, Block type, String tool, byte meta) {
@@ -41,25 +42,29 @@ public class BaseStairBlock extends BlockStairs {
         this.type = type;
         this.meta = meta;
         standardRegister(tool);
-        setBlockName(name);
+        this.setBlockName(name);
     }
 
     public void standardRegister() {
-        setHardness(2F);
-        setResistance(10.0F);
-        setHarvestLevel("pickaxe", 1);
-        setStepSound(soundTypeStone);
-        setCreativeTab(DiverseDecor.diverseDecorBlockTab);
-        useNeighborBrightness = true;
+        this.setHardness(2F);
+        this.setResistance(10.0F);
+        this.setHarvestLevel("pickaxe", 1);
+        this.setStepSound(soundTypeStone);
+        this.setCreativeTab(DiverseDecor.diverseDecorBlockTab);
+        this.useNeighborBrightness = true;
     }
 
     public void standardRegister(String tool) {
-        setHardness(2F);
-        setResistance(10.0F);
-        setHarvestLevel(tool, 1);
-        setStepSound(soundTypeWood);
-        setCreativeTab(DiverseDecor.diverseDecorBlockTab);
-        useNeighborBrightness = true;
+        this.setHardness(2F);
+        this.setResistance(10.0F);
+        this.setHarvestLevel(tool, 1);
+        if (tool.equalsIgnoreCase("axe")) {
+            this.setStepSound(soundTypeWood);
+        } else {
+            this.setStepSound(soundTypeStone);
+        }
+        this.setCreativeTab(DiverseDecor.diverseDecorBlockTab);
+        this.useNeighborBrightness = true;
     }
 
     @Override
