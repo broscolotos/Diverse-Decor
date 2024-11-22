@@ -141,10 +141,10 @@ public class ModelRendererTurbo {
     private TexturedPolygon textureQuad(TexturedVertex vert1, TexturedVertex vert2, TexturedVertex vert3, TexturedVertex vert4, float f, float g, float h, float j){
         List<TexturedVertex> verts = new ArrayList<>();
         //casting to int will floor the input, this SHOULD fix the pixel offsets in weird shapeboxes
-        verts.add(vert1.setTexturePosition((int)h / textureWidth, (int)g / textureHeight));
-        verts.add(vert2.setTexturePosition((int)f / textureWidth, (int)g / textureHeight));
-        verts.add(vert3.setTexturePosition((int)f / textureWidth, (int)j / textureHeight));
-        verts.add(vert4.setTexturePosition((int)h / textureWidth, (int)j / textureHeight));
+        verts.add(vert1.setTexturePosition((float)Math.floor(h) / textureWidth, (float)Math.floor(g) / textureHeight));
+        verts.add(vert2.setTexturePosition((float)Math.floor(f) / textureWidth, (float)Math.floor(g) / textureHeight));
+        verts.add(vert3.setTexturePosition((float)Math.floor(f) / textureWidth, (float)Math.floor(j) / textureHeight));
+        verts.add(vert4.setTexturePosition((float)Math.floor(h) / textureWidth, (float)Math.floor(j) / textureHeight));
         return new TexturedPolygon(verts);
     }
 
@@ -1483,7 +1483,10 @@ public class ModelRendererTurbo {
 
     //ETERNAL: changed w/h/d to floats for better support of the custom render on the rails.
     public ModelRendererTurbo addShapeBox(float x, float y, float z, float w, float h, float d, float scale, float x0, float y0, float z0, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4, float x5, float y5, float z5, float x6, float y6, float z6, float x7, float y7, float z7){
-
+        //fixes weird triangle bug
+        w+=0.001f;
+        h+=0.001f;
+        d+=0.001f;
         //fixes zbuffer issue
         if(w==0){
             x-=0.005f;

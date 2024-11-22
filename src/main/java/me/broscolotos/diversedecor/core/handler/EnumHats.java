@@ -9,7 +9,8 @@ public enum EnumHats {
     umbrella(new ModelUmbrella()),
     ashBaseballHat(new ModelBaseballHat()),
     foxyGrandpaBaseballHat(new ModelBaseballHat()),
-    strawHat(new ModelStrawHat())
+    strawHat(new ModelStrawHat()),
+    vrGoggles(new ModelVRGoggles())
 
     ;
 

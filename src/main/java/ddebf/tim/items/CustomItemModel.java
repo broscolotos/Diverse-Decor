@@ -3,6 +3,7 @@ package ddebf.tim.items;
 
 import ddfexcraft.fvtm.ModelCustomArmor;
 import ddfexcraft.tmt.slim.Tessellator;
+import ddfexcraft.tmt.slim.Vec3f;
 import me.broscolotos.diversedecor.core.ClientProxy;
 import me.broscolotos.diversedecor.core.handler.ItemIDs;
 import me.broscolotos.diversedecor.items.armor.GenericArmor;
@@ -63,6 +64,9 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
         return true;//models.containsKey(new ResourceLocation(item.getUnlocalizedName()));
     }
     float scale;
+
+    Vec3f scaleVec;
+    Vec3f offsetVec;
     @Override
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         if(item==null){return;}
@@ -76,10 +80,13 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
 
             GL11.glPopMatrix();
 
-        } else if (item.getItem() instanceof GenericArmor) {
+        }
+        else if (item.getItem() instanceof GenericArmor) {
             GL11.glPushMatrix();
-            scale = 1;
-            GL11.glScalef(scale,scale,scale);
+            scaleVec = ((GenericArmor)item.getItem()).scale;
+            offsetVec = ((GenericArmor)item.getItem()).offset;
+            GL11.glScalef(scaleVec.xCoord,scaleVec.yCoord,scaleVec.zCoord);
+            GL11.glTranslatef(offsetVec.xCoord,offsetVec.yCoord,offsetVec.zCoord);
             switch (type) {
                 case EQUIPPED_FIRST_PERSON:{
                     GL11.glRotatef(180,1,0,1);
