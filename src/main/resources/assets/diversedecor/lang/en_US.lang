@@ -121,14 +121,6 @@ tile.blockcolored7_stair.name=Extremely Dark Gray Stairs
 tile.blockcolored8_stair.name=Black Stairs
 tile.blockcolored9_stair.name=Eggshell Stairs
 
-
-
-
-
-
-
-
-
 <!-- ## PROPS ## -->
 tile.Picnic Table.name=Picnic Table
 tile.Fancy Hanging Light.name=Fancy Hanging Light
@@ -137,5 +129,16 @@ tile.Post Topper.name=Post Topper
 tile.Post Curve.name=Light Post Bracket
 tile.Top Post Light.name=Center Post Light
 tile.Cash Register.name=Cash Register
+
+<!-- ## COSMETICS ## -->
+item.diversedecor:testhat.name=Bowler Hat
+item.diversedecor:conehat.name=Cone Hat
+item.diversedecor:umbrella.name=Umbrella
+item.diversedecor:ashBaseballHat.name=Ash's Hat
+item.diversedecor:foxyGrandpaBaseballHat.name=Foxy Grandpa Hat
+item.diversedecor:strawHat.name=Straw Hat
+
+
+
 
 <!-- ## ITEMS ## -->

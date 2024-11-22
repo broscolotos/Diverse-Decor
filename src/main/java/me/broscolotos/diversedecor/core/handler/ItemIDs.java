@@ -10,6 +10,7 @@ public enum ItemIDs {
     umbrella("umbrella","umbrella","umbrella"),
     ashBaseballHat("ashBaseballHat","ashBaseballHat","ashBaseballHat"),
     foxyGrandpaBaseballHat("foxyGrandpaBaseballHat","foxyGrandpaBaseballHat","foxyGrandpaBaseballHat"),
+    strawHat("strawHat","strawHat","strawHat"),
 
     ;
 

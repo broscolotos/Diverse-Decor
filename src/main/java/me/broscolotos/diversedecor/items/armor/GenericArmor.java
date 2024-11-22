@@ -17,37 +17,27 @@ public class GenericArmor extends ItemArmor {
 
 
     private IIcon iconOverlay;
-    private String iconName = "";
     private ModelCustomArmor model;
     private String texture = "";
 
-    public GenericArmor(String icon, ArmorMaterial material, int par3, int par4) {
+    public GenericArmor(ArmorMaterial material, int par3, int par4) {
         super(material, par3, par4);
         setCreativeTab(DiverseDecor.diverseDecorCosmeticsTab);
-        iconName = icon;
     }
     @SideOnly(Side.CLIENT)
-    public GenericArmor(String icon, ArmorMaterial material, int par3, int par4, ModelCustomArmor hat, String texture) {
+    public GenericArmor(ArmorMaterial material, int par3, int par4, ModelCustomArmor hat, String texture) {
         super(material, par3, par4);
         setCreativeTab(DiverseDecor.diverseDecorCosmeticsTab);
-        iconName = icon;
         this.model = hat;
         this.texture = texture;
     }
 
     @SideOnly(Side.SERVER)
-    public GenericArmor(String icon, ArmorMaterial material, int par3, int par4, String texture) {
+    public GenericArmor(ArmorMaterial material, int par3, int par4, String texture) {
         super(material, par3, par4);
         setCreativeTab(DiverseDecor.diverseDecorCosmeticsTab);
-        iconName = icon;
         this.model = null;
         this.texture = texture;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister) {
-        this.itemIcon = iconRegister.registerIcon(DiverseDecor.MODID.toLowerCase() + ":armor/" + this.iconName);
     }
 
 

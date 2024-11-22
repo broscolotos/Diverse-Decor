@@ -8,7 +8,8 @@ public enum EnumHats {
     coneHat(new ModelTrafficConeHat()),
     umbrella(new ModelUmbrella()),
     ashBaseballHat(new ModelBaseballHat()),
-    foxyGrandpaBaseballHat(new ModelBaseballHat())
+    foxyGrandpaBaseballHat(new ModelBaseballHat()),
+    strawHat(new ModelStrawHat())
 
     ;
 
