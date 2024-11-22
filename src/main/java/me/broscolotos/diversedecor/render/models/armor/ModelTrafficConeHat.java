@@ -25,6 +25,8 @@ public class ModelTrafficConeHat extends ModelCustomArmor {
 		headModel[1] = new ModelRendererTurbo("box2", 41, 0, textureX, textureY);
 		headModel[1].addShapeBox(-1f, -20, -1f, 2, 11, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 3, 0, 3, 3, 0, 3, 3, 0, 3);
 		headModel[1].setRotationPoint(0.0f, 0.0f, 0.0f);
+
+		cacheRotations();
 	}
 
 }

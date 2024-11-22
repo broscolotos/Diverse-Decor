@@ -1,6 +1,7 @@
 package ddfexcraft.fvtm;
 
 import ddfexcraft.tmt.slim.ModelRendererTurbo;
+import ddfexcraft.tmt.slim.Vec3f;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -10,9 +11,14 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 
+import java.util.HashMap;
+
 public class ModelCustomArmor extends ModelBiped {
 
     public float scale = 1f;
+    public HashMap<ModelRendererTurbo, Vec3f> nativeRotations = new HashMap<>();
+    public HashMap<ModelRendererTurbo, Vec3f> nativePositions = new HashMap<>();
+
 
     public ModelRendererTurbo[] headModel = new ModelRendererTurbo[0];
     public ModelRendererTurbo[] bodyModel = new ModelRendererTurbo[0];
@@ -46,12 +52,12 @@ public class ModelCustomArmor extends ModelBiped {
             }
         }
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        render(headModel, bipedHead, f5, scale);/*
+        render(headModel, bipedHead, f5, scale);
         render(bodyModel, bipedBody, f5, scale);
         render(leftArmModel, bipedLeftArm, f5, scale);
         render(rightArmModel, bipedRightArm, f5, scale);
         render(leftLegModel, bipedLeftLeg, f5, scale);
-        render(rightLegModel, bipedRightLeg, f5, scale);*/
+        render(rightLegModel, bipedRightLeg, f5, scale);
         //Skirt front
         {
             for(ModelRendererTurbo mod : skirtFrontModel)
@@ -86,22 +92,58 @@ public class ModelCustomArmor extends ModelBiped {
         setBodyPart(models, bodyPart, scale);
         for(ModelRendererTurbo part : models)
         {
-            part.rotateAngleX = (float)Math.toDegrees(bodyPart.rotateAngleX);
-            part.rotateAngleY = (float)Math.toDegrees(bodyPart.rotateAngleY);
-            part.rotateAngleZ = (float)Math.toDegrees(bodyPart.rotateAngleZ);
+            part.rotateAngleX = (float) Math.toDegrees(bodyPart.rotateAngleX + nativeRotations.get(part).xCoord);
+            part.rotateAngleY = (float) Math.toDegrees(bodyPart.rotateAngleY + nativeRotations.get(part).yCoord);
+            part.rotateAngleZ = (float) Math.toDegrees(bodyPart.rotateAngleZ + nativeRotations.get(part).zCoord);
             part.render(f5);
         }
     }
 
     public void setBodyPart(ModelRendererTurbo[] models, ModelRenderer bodyPart, float scale)
     {
+        if (bodyPart == bipedRightArm) {
+            GL11.glTranslatef(0.3125f,-0.125f,0);
+        }
         for(ModelRendererTurbo mod : models)
-        {/*
-            GL11.glTranslatef(mod.rotationPointX/16,mod.rotationPointY/16,mod.rotationPointZ/16);
-            System.out.println(mod.rotationPointX);*/
-            mod.rotationPointX = bodyPart.rotationPointX / scale;
-            mod.rotationPointY = bodyPart.rotationPointY / scale;
-            mod.rotationPointZ = bodyPart.rotationPointZ / scale;
+        {
+            mod.rotationPointX = (bodyPart.rotationPointX + nativePositions.get(mod).xCoord) / scale;
+            mod.rotationPointY = (bodyPart.rotationPointY + nativePositions.get(mod).yCoord) / scale;
+            mod.rotationPointZ = (bodyPart.rotationPointZ + nativePositions.get(mod).zCoord) / scale;
+        }
+    }
+
+    public void cacheRotations() {
+        for(ModelRendererTurbo t: headModel) {
+            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
+            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
+        }
+        for(ModelRendererTurbo t: bodyModel) {
+            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
+            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
+        }
+        for(ModelRendererTurbo t: leftArmModel) {
+            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
+            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
+        }
+        for(ModelRendererTurbo t: rightArmModel) {
+            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
+            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
+        }
+        for(ModelRendererTurbo t: leftLegModel) {
+            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
+            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
+        }
+        for(ModelRendererTurbo t: rightLegModel) {
+            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
+            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
+        }
+        for(ModelRendererTurbo t: skirtFrontModel) {
+            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
+            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
+        }
+        for(ModelRendererTurbo t: skirtRearModel) {
+            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
+            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
         }
     }
 

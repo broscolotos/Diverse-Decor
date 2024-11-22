@@ -50,6 +50,7 @@ public class BaseStairBlock extends BlockStairs {
         setHarvestLevel("pickaxe", 1);
         setStepSound(soundTypeStone);
         setCreativeTab(DiverseDecor.diverseDecorBlockTab);
+        useNeighborBrightness = true;
     }
 
     public void standardRegister(String tool) {
@@ -58,6 +59,7 @@ public class BaseStairBlock extends BlockStairs {
         setHarvestLevel(tool, 1);
         setStepSound(soundTypeWood);
         setCreativeTab(DiverseDecor.diverseDecorBlockTab);
+        useNeighborBrightness = true;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package ddfexcraft.tmt.slim;
 
+import ddfexcraft.fvtm.ModelCustomArmor;
 import ddfexcraft.fvtm.TurboList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelRenderer;
@@ -91,6 +92,35 @@ public class ModelRendererTurbo {
             textureHeight = 512;
         }
     }
+    public ModelRendererTurbo(ModelCustomArmor modelbase, int textureX, int textureY){
+        mirror = false;
+        showModel = true;
+        faces = new ArrayList<>();
+        boxName = "";
+        textureOffsetX = textureX;
+        textureOffsetY = textureY;
+        if(modelbase!=null){
+            textureWidth=modelbase.textureWidth;
+            textureHeight=modelbase.textureHeight;
+        } else {
+            textureWidth = 512;
+            textureHeight = 512;
+        }
+    }
+
+
+    public ModelRendererTurbo(ModelCustomArmor modelbase, int textureX, int textureY, float textureU, float textureV){
+        mirror = false;
+        showModel = true;
+        faces = new ArrayList<>();
+        boxName = "";
+        textureOffsetX = textureX;
+        textureOffsetY = textureY;
+        textureWidth = textureU;
+        textureHeight = textureV;
+    }
+
+
 
     public ModelRendererTurbo(ModelBase modelbase, String s){this(s);}
     public ModelRendererTurbo(TurboList modelbase, String s){this(s);}
@@ -1520,6 +1550,24 @@ public class ModelRendererTurbo {
 
     //stub for FMT compatibility.
     public ModelRendererTurbo setLines(boolean b){
+        return this;
+    }
+
+    /**
+     * Copies an array of vertices and polygons to the current shape. This mainly is
+     * used to copy each shape to the main class, but you can just use it to copy
+     * your own shapes, for example from other classes, into the current class.
+     * @param verts the array of vertices you want to copy
+     * @param poly the array of polygons you want to copy
+     * @return
+     */
+    public ModelRendererTurbo copyTo(TexturedPolygon... poly){
+        faces.addAll(Arrays.asList(poly));
+        return this;
+    }
+
+    public ModelRendererTurbo copyTo(java.util.Collection<TexturedPolygon> coll){
+        faces.addAll(coll);
         return this;
     }
 

@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 
-public class DiverseHelmet extends ItemArmor {
+public class GenericArmor extends ItemArmor {
 
 
     private IIcon iconOverlay;
@@ -21,13 +21,13 @@ public class DiverseHelmet extends ItemArmor {
     private ModelCustomArmor model;
     private String texture = "";
 
-    public DiverseHelmet(String icon, ArmorMaterial material, int par3, int par4) {
+    public GenericArmor(String icon, ArmorMaterial material, int par3, int par4) {
         super(material, par3, par4);
         setCreativeTab(DiverseDecor.diverseDecorCosmeticsTab);
         iconName = icon;
     }
     @SideOnly(Side.CLIENT)
-    public DiverseHelmet(String icon, ArmorMaterial material, int par3, int par4, ModelCustomArmor hat, String texture) {
+    public GenericArmor(String icon, ArmorMaterial material, int par3, int par4, ModelCustomArmor hat, String texture) {
         super(material, par3, par4);
         setCreativeTab(DiverseDecor.diverseDecorCosmeticsTab);
         iconName = icon;
@@ -36,7 +36,7 @@ public class DiverseHelmet extends ItemArmor {
     }
 
     @SideOnly(Side.SERVER)
-    public DiverseHelmet(String icon, ArmorMaterial material, int par3, int par4, String texture) {
+    public GenericArmor(String icon, ArmorMaterial material, int par3, int par4, String texture) {
         super(material, par3, par4);
         setCreativeTab(DiverseDecor.diverseDecorCosmeticsTab);
         iconName = icon;

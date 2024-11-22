@@ -7,6 +7,9 @@ public enum ItemIDs {
     //bulb("bulb", "bulb", "bulb"),
     testhat("testhat","testhat","testhat"),
     conehat("conehat","conehat","conehat"),
+    umbrella("umbrella","umbrella","umbrella"),
+    ashBaseballHat("ashBaseballHat","ashBaseballHat","ashBaseballHat"),
+    foxyGrandpaBaseballHat("foxyGrandpaBaseballHat","foxyGrandpaBaseballHat","foxyGrandpaBaseballHat"),
 
     ;
 

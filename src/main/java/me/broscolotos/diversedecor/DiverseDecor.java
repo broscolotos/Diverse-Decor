@@ -38,7 +38,7 @@ public class DiverseDecor {
     @SidedProxy(clientSide = "me.broscolotos.diversedecor.core.ClientProxy", serverSide = "me.broscolotos.diversedecor.core.CommonProxy")
     public static CommonProxy proxy;
 
-    public ItemArmor.ArmorMaterial armor = EnumHelper.addArmorMaterial("helm", 5, new int[] {1}, 25);
+    public ItemArmor.ArmorMaterial armor = EnumHelper.addArmorMaterial("helm", 5, new int[] {1,2, 3, 4}, 25);
     @EventHandler
     public void preInit(FMLPreInitializationEvent PreEvent){
 

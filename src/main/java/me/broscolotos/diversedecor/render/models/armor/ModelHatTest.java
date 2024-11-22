@@ -21,5 +21,7 @@ public class ModelHatTest extends ModelCustomArmor //Same as Filename
 		headModel[1].addBox(-6F, -7F, -6F, 12, 1, 12, 0F); // Box 1
 		headModel[1].setRotationPoint(0F, 0F, 0F);
 
+		cacheRotations();
+
 	}
 }
