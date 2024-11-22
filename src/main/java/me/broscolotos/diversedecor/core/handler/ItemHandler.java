@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import me.broscolotos.diversedecor.DiverseDecor;
 import me.broscolotos.diversedecor.items.armor.GenericArmor;
+import net.minecraftforge.client.MinecraftForgeClient;
 
 
 public class ItemHandler {
@@ -36,6 +37,7 @@ public class ItemHandler {
             if (items.item != null) {
                 items.item.setUnlocalizedName(DiverseDecor.MODID + ":" + items.name());
                 GameRegistry.registerItem(items.item, items.name());
+                MinecraftForgeClient.registerItemRenderer(items.item, ddebf.tim.items.CustomItemModel.instance);
             }
         }
         //GameRegistry.registerItem(ItemIDs.bulb.item, ItemIDs.bulb.name());

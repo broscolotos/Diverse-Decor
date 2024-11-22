@@ -11,7 +11,9 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class ModelCustomArmor extends ModelBiped {
 
@@ -28,6 +30,26 @@ public class ModelCustomArmor extends ModelBiped {
     public ModelRendererTurbo[] rightLegModel = new ModelRendererTurbo[0];
     public ModelRendererTurbo[] skirtFrontModel = new ModelRendererTurbo[0]; //Acts like a leg piece, but its pitch is set to the maximum of the two legs
     public ModelRendererTurbo[] skirtRearModel = new ModelRendererTurbo[0]; //Acts like a leg piece, but its pitch is set to the minimum of the two legs
+
+    public void render(ModelCustomArmor model, float scale) {
+        for (ModelRendererTurbo t : model.getParts()) {
+            t.setRotationAngle(0,0,0);
+            t.render(scale);
+        }
+    }
+
+    public ModelRendererTurbo[] getParts() {
+        LinkedList<ModelRendererTurbo> parts = new LinkedList<ModelRendererTurbo>();
+        parts.addAll(Arrays.asList(headModel));
+        parts.addAll(Arrays.asList(bodyModel));
+        parts.addAll(Arrays.asList(leftArmModel));
+        parts.addAll(Arrays.asList(rightArmModel));
+        parts.addAll(Arrays.asList(leftLegModel));
+        parts.addAll(Arrays.asList(rightLegModel));
+        parts.addAll(Arrays.asList(skirtFrontModel));
+        parts.addAll(Arrays.asList(skirtRearModel));
+        return parts.toArray(new ModelRendererTurbo[parts.size()]);
+    }
 
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {

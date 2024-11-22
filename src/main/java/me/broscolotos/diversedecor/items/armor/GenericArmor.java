@@ -60,9 +60,17 @@ public class GenericArmor extends ItemArmor {
     }
 
     @SideOnly(Side.CLIENT)
-    public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot)
-    {
+    public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
         return model;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public ModelCustomArmor getArmorModel() {
+        return model;
+    }
+
+    public String getTexture() {
+        return DiverseDecor.MODID + ":textures/armor/" + texture + ".png";
     }
 
 }
