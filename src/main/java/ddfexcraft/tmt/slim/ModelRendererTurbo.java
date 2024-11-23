@@ -35,6 +35,7 @@ public class ModelRendererTurbo {
     public boolean mirror;
     public float rotateAngleX=0,rotateAngleY=0,rotateAngleZ=0;
     public float rotationPointX=0,rotationPointY=0,rotationPointZ=0;
+    public float offsetX=0,offsetY=0,offsetZ=0;
     public boolean showModel; //previously known as !field_1402_i
     public boolean noCull=false;
     public boolean ignoresLighting=false;
@@ -261,6 +262,9 @@ public class ModelRendererTurbo {
      * @param scale
      */
     public ModelRendererTurbo addBox(float x, float y, float z, float w, float h, float d, float expansion, float scale, boolean[] sides){
+        this.offsetX = x;
+        this.offsetY = y;
+        this.offsetZ = z;
         expansion +=0.005f;
         float x1 = (x + w+expansion)*scale;
         float y1 = (y + h+expansion)*scale;
@@ -302,6 +306,9 @@ public class ModelRendererTurbo {
      * @param dir the side the scaling is applied to
      */
     public void addTrapezoid(float x, float y, float z, int w, int h, int d, float scale, float bottomScale, int dir){
+        this.offsetX = x;
+        this.offsetY = y;
+        this.offsetZ = z;
         float f4 = x + w;
         float f5 = y + h;
         float f6 = z + d;
@@ -414,6 +421,10 @@ public class ModelRendererTurbo {
      */
     public void addFlexTrapezoid(float x, float y, float z, int w, int h, int d, float scale, float bScale1, float bScale2, float bScale3, float bScale4, float fScale1, float fScale2, int dir)
     {
+
+        this.offsetX = x;
+        this.offsetY = y;
+        this.offsetZ = z;
         float f4 = x + w;
         float f5 = y + h;
         float f6 = z + d;
@@ -696,6 +707,9 @@ public class ModelRendererTurbo {
      * @Ferdinand
      */
     public ModelRendererTurbo addShape3D(float x, float y, float z, Shape2D shape, float depth, int shapeTextureWidth, int shapeTextureHeight, int sideTextureWidth, int sideTextureHeight, float rotX, float rotY, float rotZ, float[] faceLengths){
+        this.offsetX = x;
+        this.offsetY = y;
+        this.offsetZ = z;
         faces.addAll(Arrays.asList(shape.extrude(-x, y, -z, rotX, rotY, rotZ, depth, textureOffsetX, textureOffsetY, textureWidth, textureHeight, shapeTextureWidth, shapeTextureHeight, sideTextureWidth, sideTextureHeight, faceLengths)));
         return this;
     }
@@ -711,6 +725,9 @@ public class ModelRendererTurbo {
      * @param extrude the expansion of the sprite on the axis that would otherwise be 0.
      */
     public ModelRendererTurbo addSprite(float x, float y, float z, int w, int h, int d, float extrude){
+        this.offsetX = x;
+        this.offsetY = y;
+        this.offsetZ = z;
         float x1,y1,z1,x2,y2,z2;
         for(float expansion=0;expansion<=extrude;expansion+=0.2f){
             x1=(w==0?expansion:x);
@@ -746,6 +763,9 @@ public class ModelRendererTurbo {
      * @param textureH
      */
     public ModelRendererTurbo addSphere(float x, float y, float z, float r, int segs, int rings, int textureW, int textureH){
+        this.offsetX = x;
+        this.offsetY = y;
+        this.offsetZ = z;
         if(segs < 3){
             segs = 3;
         }
@@ -996,6 +1016,9 @@ public class ModelRendererTurbo {
      * @param textureH the height of the texture of the body
      */
     public ModelRendererTurbo addCylinder(float x, float y, float z, float radius, float length, int segments, float baseScale, float topScale, int baseDirection, int textureCircleDiameterW, int textureCircleDiameterH, int textureH, Vec3f topoff){
+        this.offsetX = x;
+        this.offsetY = y;
+        this.offsetZ = z;
         if(radius < 1){ textureCircleDiameterW = 1; textureCircleDiameterH = 1; } if(length < 1){ textureH = 1; }
         boolean dirTop = (baseDirection == MR_TOP || baseDirection == MR_BOTTOM);
         boolean dirSide = (baseDirection == MR_RIGHT || baseDirection == MR_LEFT);
@@ -1087,6 +1110,9 @@ public class ModelRendererTurbo {
 
 
     public ModelRendererTurbo addHollowCylinder(float x, float y, float z, float radius, float radius2, float length, int segments, int seglimit, float baseScale, float topScale, int baseDirection, int textureCircleDiameterW, int textureCircleDiameterH, int textureH, Vec3f topoff, boolean[] bools){
+        this.offsetX = x;
+        this.offsetY = y;
+        this.offsetZ = z;
         if(radius < 1){ textureCircleDiameterW = 2; textureCircleDiameterH = 2; } if(length < 1){ textureH = 2; }
         boolean dirTop = (baseDirection == MR_TOP || baseDirection == MR_BOTTOM);
         boolean dirSide = (baseDirection == MR_RIGHT || baseDirection == MR_LEFT);
@@ -1484,6 +1510,9 @@ public class ModelRendererTurbo {
     //ETERNAL: changed w/h/d to floats for better support of the custom render on the rails.
     public ModelRendererTurbo addShapeBox(float x, float y, float z, float w, float h, float d, float scale, float x0, float y0, float z0, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4, float x5, float y5, float z5, float x6, float y6, float z6, float x7, float y7, float z7){
         //fixes weird triangle bug
+        this.offsetX = x;
+        this.offsetY = y;
+        this.offsetZ = z;
         w+=0.001f;
         h+=0.001f;
         d+=0.001f;
@@ -1525,6 +1554,9 @@ public class ModelRendererTurbo {
 
 
     public ModelRendererTurbo addShapeBox(float x, float y, float z, float w, float h, float d, float scale, float x0, float y0, float z0, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4, float x5, float y5, float z5, float x6, float y6, float z6, float x7, float y7, float z7, boolean[] sides){
+        this.offsetX = x;
+        this.offsetY = y;
+        this.offsetZ = z;
         float xw = x + w, yh = y + h, zd = z + d; x -= scale; y -= scale; z -= scale; xw += scale; yh += scale; zd += scale;
         if(mirror){ float fl = xw; xw = x; x = fl; }
         float[] v0 = {x  - x0, y  - y0, z  - z0}, v1 = {xw + x1, y  - y1, z  - z1}, v2 = {xw + x5, yh + y5, z  - z5};

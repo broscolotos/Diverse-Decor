@@ -24,9 +24,11 @@ public class Render2x1FlatTV extends RenderTileEntity {
         switch(dir) {
             case 0:{// north
                 GL11.glRotated(90,0,1,0);
+                GL11.glTranslatef(0.5f,0,-0.5f);
                 break;
             }
             case 3: {//west
+                GL11.glTranslatef(0,0,-1);
                 break;
             }
             case 1: {//east
@@ -35,6 +37,7 @@ public class Render2x1FlatTV extends RenderTileEntity {
             }
             case 2: {//south
                 GL11.glRotated(270,0,1,0);
+                GL11.glTranslatef(-0.5f,0,-0.5f);
                 break;
             }
         }

@@ -20,6 +20,7 @@ public class ModelCustomArmor extends ModelBiped {
     public float scale = 1f;
     public HashMap<ModelRendererTurbo, Vec3f> nativeRotations = new HashMap<>();
     public HashMap<ModelRendererTurbo, Vec3f> nativePositions = new HashMap<>();
+    public HashMap<ModelRendererTurbo, Vec3f> nativeOffset = new HashMap<>();
 
 
     public ModelRendererTurbo[] headModel = new ModelRendererTurbo[0];
@@ -55,7 +56,6 @@ public class ModelCustomArmor extends ModelBiped {
     {
         GL11.glPushMatrix();
         GL11.glScalef(scale,scale,scale);
-        //GL11.glScalef(type.modelScale, type.modelScale, type.modelScale);
         isSneak = entity.isSneaking();
         ItemStack itemstack = ((EntityLivingBase)entity).getEquipmentInSlot(0);
         heldItemRight = itemstack != null ? 1 : 0;
@@ -109,63 +109,71 @@ public class ModelCustomArmor extends ModelBiped {
         GL11.glPopMatrix();
     }
 
-    public void render(ModelRendererTurbo[] models, ModelRenderer bodyPart, float f5, float scale)
-    {
-        setBodyPart(models, bodyPart, scale);
-        for(ModelRendererTurbo part : models)
-        {
-            part.rotateAngleX = (float) Math.toDegrees(bodyPart.rotateAngleX + nativeRotations.get(part).xCoord);
-            part.rotateAngleY = (float) Math.toDegrees(bodyPart.rotateAngleY + nativeRotations.get(part).yCoord);
-            part.rotateAngleZ = (float) Math.toDegrees(bodyPart.rotateAngleZ + nativeRotations.get(part).zCoord);
-            part.render(f5);
+    public void render(ModelRendererTurbo[] models, ModelRenderer bodyPart, float f5, float scale) {
+        scale = scale * 0.0625f;
+        for(ModelRendererTurbo part : models) {
+
+            /**
+             * handle body rotations.
+             * Because math, we need to offset, then rotate for each axis *SEPARATELY* so we do:
+             * (offset Y-axis, rotate Y-axis),
+             * (offset X-axis, rotate X-axis),
+             * (offset Z-axis, rotate Z-axis),
+             */
+            GL11.glTranslatef(0, bodyPart.offsetY, 0);
+            GL11.glRotatef((float)Math.toDegrees(bodyPart.rotateAngleY), 0, 1, 0);
+
+            GL11.glTranslatef(bodyPart.offsetX,0,0);
+            GL11.glRotatef((float)Math.toDegrees(bodyPart.rotateAngleX), 1, 0, 0);
+
+            GL11.glTranslatef(0, 0, bodyPart.offsetZ);
+            GL11.glRotatef((float)Math.toDegrees(bodyPart.rotateAngleZ), 0, 0, 1);
+
+
+
+            /**
+             * handle part rotations.
+             * Simply rotate all 3 axis of the part by its rotations.
+             * */
+            GL11.glRotatef((float)Math.toDegrees(nativeRotations.get(part).xCoord), 1,0,0);
+            GL11.glRotatef((float)Math.toDegrees(nativeRotations.get(part).yCoord), 0,1,0);
+            GL11.glRotatef((float)Math.toDegrees(nativeRotations.get(part).zCoord), 0,0,1);
+
+
+            //render
+            part.render(scale);
+
+
+            /**
+             * Because of how OpenGL works, we need to undo everything we did previously so the
+             * next part can be processed properly.
+             * */
+            GL11.glRotatef((float)Math.toDegrees(-nativeRotations.get(part).xCoord), 1,0,0);
+            GL11.glRotatef((float)Math.toDegrees(-nativeRotations.get(part).yCoord), 0,1,0);
+            GL11.glRotatef((float)Math.toDegrees(-nativeRotations.get(part).zCoord), 0,0,1);
+
+            GL11.glRotatef((float)Math.toDegrees(bodyPart.rotateAngleZ), 0, 0, -1);
+            GL11.glTranslatef(0,0,-bodyPart.offsetZ);
+
+
+            GL11.glRotatef((float)Math.toDegrees(bodyPart.rotateAngleX), -1, 0, 0);
+            GL11.glTranslatef(-bodyPart.offsetX,0,0);
+
+            GL11.glRotatef((float)Math.toDegrees(bodyPart.rotateAngleY), 0, -1, 0);
+            GL11.glTranslatef(0,-bodyPart.offsetY,0);
+
+            GL11.glTranslatef(-bodyPart.offsetX,0,0);
+
+
         }
     }
 
-    public void setBodyPart(ModelRendererTurbo[] models, ModelRenderer bodyPart, float scale)
-    {
-        if (bodyPart == bipedRightArm) {
-            GL11.glTranslatef(0.3125f,-0.125f,0);
-        }
-        for(ModelRendererTurbo mod : models)
-        {
-            mod.rotationPointX = (bodyPart.rotationPointX + nativePositions.get(mod).xCoord) / scale;
-            mod.rotationPointY = (bodyPart.rotationPointY + nativePositions.get(mod).yCoord) / scale;
-            mod.rotationPointZ = (bodyPart.rotationPointZ + nativePositions.get(mod).zCoord) / scale;
-        }
-    }
 
     public void cacheRotations() {
-        for(ModelRendererTurbo t: headModel) {
+        for(ModelRendererTurbo t: getParts()) {
             nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
             nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
-        }
-        for(ModelRendererTurbo t: bodyModel) {
-            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
-            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
-        }
-        for(ModelRendererTurbo t: leftArmModel) {
-            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
-            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
-        }
-        for(ModelRendererTurbo t: rightArmModel) {
-            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
-            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
-        }
-        for(ModelRendererTurbo t: leftLegModel) {
-            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
-            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
-        }
-        for(ModelRendererTurbo t: rightLegModel) {
-            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
-            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
-        }
-        for(ModelRendererTurbo t: skirtFrontModel) {
-            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
-            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
-        }
-        for(ModelRendererTurbo t: skirtRearModel) {
-            nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
-            nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
+            nativeOffset.put(t, new Vec3f(t.offsetX, t.offsetY, t.offsetZ));
         }
     }
 
