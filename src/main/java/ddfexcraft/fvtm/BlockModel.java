@@ -117,6 +117,15 @@ public class BlockModel extends ModelBase {
         }
     }
 
+
+    public void renderAsItem(float scale) {
+        for(TurboList tlist : groups) {
+            if(tlist!=null) {
+                tlist.render(tlist.boxList);
+            }
+        }
+    }
+
     @Override
     public List<ModelRendererTurbo> getnamedParts(){
         if(init){

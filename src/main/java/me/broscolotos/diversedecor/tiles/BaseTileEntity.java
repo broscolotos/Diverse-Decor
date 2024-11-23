@@ -1,12 +1,19 @@
 package me.broscolotos.diversedecor.tiles;
 
+import ddfexcraft.fvtm.BlockModel;
+import me.broscolotos.diversedecor.DiverseDecor;
+import me.broscolotos.diversedecor.render.RenderTileEntity;
+import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 
 public class BaseTileEntity extends TileEntity {
     public int dir=0;
+    public BlockModel model;
+    public ResourceLocation texture;
 
     public BaseTileEntity(int dir) {
         super();
@@ -65,5 +72,13 @@ public class BaseTileEntity extends TileEntity {
         dir = (byte) direction;
         this.markDirty();
         return this;
+    }
+
+    public ResourceLocation getTexture() {
+        return this.texture;
+    }
+
+    public void setTexture(String texture) {
+        this.texture = new ResourceLocation(DiverseDecor.MODID, "textures/blocks/" + texture + ".png");
     }
 }

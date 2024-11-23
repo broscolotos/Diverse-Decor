@@ -15,6 +15,7 @@ public class RenderBlockHandler {
         ClientRegistry.bindTileEntitySpecialRenderer(TilePostCurve.class, new RenderParkPostCurve("posts/park_post_curve_metal"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileTopPostLight.class, new RenderTopPostLight("lights/post lights/top_post_light"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileCashRegister.class, new RenderCashRegister("cash-register"));
+        ClientRegistry.bindTileEntitySpecialRenderer(Tile2x1FlatTV.class, new Render2x1FlatTV("2x1 flat tv"));
 
         //RenderingRegistry.registerBlockHandler(transparentRenderID, new BlockRenderTransparent(transparentRenderID));
     }

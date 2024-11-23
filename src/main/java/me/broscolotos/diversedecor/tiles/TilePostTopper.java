@@ -2,14 +2,17 @@ package me.broscolotos.diversedecor.tiles;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import me.broscolotos.diversedecor.render.models.PostTopper;
 import net.minecraft.util.AxisAlignedBB;
 
 public class TilePostTopper extends BaseTileEntity {
     public TilePostTopper(int dir) {
         super(dir);
+        model = new PostTopper();
     }
 
     public TilePostTopper() {
+        model = new PostTopper();
 
     }
     @SideOnly(Side.CLIENT)

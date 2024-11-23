@@ -2,17 +2,17 @@ package me.broscolotos.diversedecor.tiles;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import me.broscolotos.diversedecor.render.models.CashRegister;
+import me.broscolotos.diversedecor.render.models.Model2x1FlatTV;
 import net.minecraft.util.AxisAlignedBB;
 
-public class TileCashRegister extends BaseTileEntity {
-    public TileCashRegister(int dir) {
+public class Tile2x1FlatTV extends BaseTileEntity {
+    public Tile2x1FlatTV(int dir) {
         super(dir);
-        model = new CashRegister();
+        model = new Model2x1FlatTV();
     }
 
-    public TileCashRegister() {
-        model = new CashRegister();
+    public Tile2x1FlatTV() {
+        model = new Model2x1FlatTV();
 
     }
     @SideOnly(Side.CLIENT)

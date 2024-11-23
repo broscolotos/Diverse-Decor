@@ -25,18 +25,20 @@ package me.broscolotos.diversedecor.core.handler;
 
 import me.broscolotos.diversedecor.blocks.itemblocks.GenericItemBlock;
 //import me.broscolotos.diversedecor.blocks.itemblocks.ItemBrickSlab;
+import me.broscolotos.diversedecor.blocks.itemblocks.GenericPropItemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 
 public enum BlockIDs
 {
-    picnicTable(false,null,"picnic_table", -1),
-    fancyWallLight(false,null,"fancy_wall_light", -1),
-    fancyWallLightDiagonal(false,null,"fancy_wall_light_diagonal", -1),
-    postTopper(false,null,"post_topper", -1),
-    postCurve(false,null,"post_curve", -1),
-    postLight(false,null,"post_light", -1),
-    cashRegister(false,null,"cash_register", -1),
+    picnicTable(false, GenericPropItemBlock.class,"picnic_table", -1),
+    fancyWallLight(false, GenericPropItemBlock.class,"fancy_wall_light", -1),
+    fancyWallLightDiagonal(false, GenericPropItemBlock.class,"fancy_wall_light_diagonal", -1),
+    postTopper(false, GenericPropItemBlock.class,"post_topper", -1),
+    postCurve(false, GenericPropItemBlock.class,"post_curve", -1),
+    postLight(false, GenericPropItemBlock.class,"post_light", -1),
+    cashRegister(false, GenericPropItemBlock.class,"cash_register", -1),
+    flatTV2x1(false, GenericPropItemBlock.class, "flat_tv2x1", -1),
 
     blockBrickOrange(true, GenericItemBlock.class, "blockBrickOrange", 1, true),
     blockBrickBrown(true, GenericItemBlock.class, "blockBrickBrown", 1, true),

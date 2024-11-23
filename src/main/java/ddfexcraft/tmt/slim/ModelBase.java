@@ -17,7 +17,8 @@ import java.util.Map;
 public class ModelBase extends ArrayList<ModelRendererTurbo> {
 
 	public static final float degreesF = (float) (180.0d / Math.PI);
-	@Deprecated //box list for static parts should be completley unnecessary by making a displaylist of it as a whole.
+	@Deprecated
+	//box list for static parts should be completley unnecessary by making a displaylist of it as a whole.
 	//improvements can be further made by having a Map<Class, GLID> for the static parts, so each intance ever only
 	//    exists once on GPU, so 40 boxcar bases would still be the animated parts
 	//    and a single static to cover all of them.

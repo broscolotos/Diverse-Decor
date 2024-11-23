@@ -42,5 +42,21 @@ public class TexturedVertex {
 		textureY=v;
 	}
 
+	public String dumpInfo() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Vector Values: (X: ");
+		sb.append(vector3F.xCoord);
+		sb.append(", Y: ");
+		sb.append(vector3F.yCoord);
+		sb.append(", Z: ");
+		sb.append(vector3F.zCoord);
+		sb.append(") | TextureX Value: ");
+		sb.append(textureX);
+		sb.append(",  TextureY Value: ");
+		sb.append(textureY);
+		sb.append(".");
+		return sb.toString();
+	}
+
 	
 }

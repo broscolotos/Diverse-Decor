@@ -141,64 +141,64 @@ public class ModelRendererTurbo {
     private TexturedPolygon textureQuad(TexturedVertex vert1, TexturedVertex vert2, TexturedVertex vert3, TexturedVertex vert4, float f, float g, float h, float j){
         List<TexturedVertex> verts = new ArrayList<>();
         //casting to int will floor the input, this SHOULD fix the pixel offsets in weird shapeboxes
-        verts.add(vert1.setTexturePosition((float)Math.floor(h) / textureWidth, (float)Math.floor(g) / textureHeight));
-        verts.add(vert2.setTexturePosition((float)Math.floor(f) / textureWidth, (float)Math.floor(g) / textureHeight));
-        verts.add(vert3.setTexturePosition((float)Math.floor(f) / textureWidth, (float)Math.floor(j) / textureHeight));
-        verts.add(vert4.setTexturePosition((float)Math.floor(h) / textureWidth, (float)Math.floor(j) / textureHeight));
+        verts.add(vert1.setTexturePosition(h / textureWidth, g / textureHeight));
+        verts.add(vert2.setTexturePosition(f / textureWidth, g / textureHeight));
+        verts.add(vert3.setTexturePosition(f / textureWidth, j / textureHeight));
+        verts.add(vert4.setTexturePosition(h / textureWidth, j / textureHeight));
         return new TexturedPolygon(verts);
     }
 
     /**
      * Adds a rectangular shape. Basically, you can make any eight-pointed shape you want,
      * as the method requires eight vector coordinates.
-     * @param v a float array with three values, the x, y and z coordinates of the vertex
-     * @param v1 a float array with three values, the x, y and z coordinates of the vertex
-     * @param v2 a float array with three values, the x, y and z coordinates of the vertex
-     * @param v3 a float array with three values, the x, y and z coordinates of the vertex
-     * @param v4 a float array with three values, the x, y and z coordinates of the vertex
-     * @param v5 a float array with three values, the x, y and z coordinates of the vertex
-     * @param v6 a float array with three values, the x, y and z coordinates of the vertex
-     * @param v7 a float array with three values, the x, y and z coordinates of the vertex
-     * @param w the width of the shape, used in determining the texture
-     * @param h the height of the shape, used in determining the texture
-     * @param d the depth of the shape, used in determining the texture
+     * @param vector1 a float array with three values, the x, y and z coordinates of the vertex
+     * @param vector2 a float array with three values, the x, y and z coordinates of the vertex
+     * @param vector3 a float array with three values, the x, y and z coordinates of the vertex
+     * @param vector4 a float array with three values, the x, y and z coordinates of the vertex
+     * @param vector5 a float array with three values, the x, y and z coordinates of the vertex
+     * @param vector6 a float array with three values, the x, y and z coordinates of the vertex
+     * @param vector7 a float array with three values, the x, y and z coordinates of the vertex
+     * @param vector8 a float array with three values, the x, y and z coordinates of the vertex
+     * @param width the width of the shape, used in determining the texture
+     * @param height the height of the shape, used in determining the texture
+     * @param depth the depth of the shape, used in determining the texture
      */
-    public ModelRendererTurbo addRectShape(float[] v, float[] v1, float[] v2, float[] v3, float[] v4, float[] v5, float[] v6, float[] v7, float w, float h, float d, boolean[] sides){
+    public ModelRendererTurbo addRectShape(float[] vector1, float[] vector2, float[] vector3, float[] vector4, float[] vector5, float[] vector6, float[] vector7, float[] vector8, float width, float height, float depth, boolean[] sides){
         List<TexturedPolygon> poly = new ArrayList<>();
-        TexturedVertex vert0 = new TexturedVertex(v[0], v[1], v[2], 0.0F, 0.0F);
-        TexturedVertex vert1 = new TexturedVertex(v1[0], v1[1], v1[2], 0.0F, 8.0F);
-        TexturedVertex vert2 = new TexturedVertex(v2[0], v2[1], v2[2], 8.0F, 8.0F);
-        TexturedVertex vert3 = new TexturedVertex(v3[0], v3[1], v3[2], 8.0F, 0.0F);
-        TexturedVertex vert4 = new TexturedVertex(v4[0], v4[1], v4[2], 0.0F, 0.0F);
-        TexturedVertex vert5 = new TexturedVertex(v5[0], v5[1], v5[2], 0.0F, 8.0F);
-        TexturedVertex vert6 = new TexturedVertex(v6[0], v6[1], v6[2], 8.0F, 8.0F);
-        TexturedVertex vert7 = new TexturedVertex(v7[0], v7[1], v7[2], 8.0F, 0.0F);
+        TexturedVertex vert1 = new TexturedVertex(vector1[0], vector1[1], vector1[2], 0.0F, 0.0F);
+        TexturedVertex vert2 = new TexturedVertex(vector2[0], vector2[1], vector2[2], 0.0F, 8.0F);
+        TexturedVertex vert3 = new TexturedVertex(vector3[0], vector3[1], vector3[2], 8.0F, 8.0F);
+        TexturedVertex vert4 = new TexturedVertex(vector4[0], vector4[1], vector4[2], 8.0F, 0.0F);
+        TexturedVertex vert5 = new TexturedVertex(vector5[0], vector5[1], vector5[2], 0.0F, 0.0F);
+        TexturedVertex vert6 = new TexturedVertex(vector6[0], vector6[1], vector6[2], 0.0F, 8.0F);
+        TexturedVertex vert7 = new TexturedVertex(vector7[0], vector7[1], vector7[2], 8.0F, 8.0F);
+        TexturedVertex vert8 = new TexturedVertex(vector8[0], vector8[1], vector8[2], 8.0F, 0.0F);
 
-        if(w % 1 != 0){
-            w = w < 1 ? 1 : (int)w + (w % 1 > 0.5f ? 1 : 0);
+        if(width % 1 != 0){
+            width = width < 1 ? width % 1 < 0.5f ? 0 : 1 : (int)width + (width % 1 >= 0.5f ? 1 : 0);
         }
-        if(h % 1 != 0){
-            h = h < 1 ? 1 : (int)h + (h % 1 > 0.5f ? 1 : 0);
+        if(height % 1 != 0){
+            height = height < 1 ? height % 1 < 0.5f ? 0 : 1 : (int)height + (height % 1 >= 0.5f ? 1 : 0);
         }
-        if(d % 1 != 0){
-            d = d < 1 ? 1 : (int)d + (d % 1 > 0.5f ? 1 : 0);
+        if(depth % 1 != 0){
+            depth = depth < 1 ? depth % 1 < 0.5f ? 0 : 1 : (int)depth + (depth % 1 >= 0.5f ? 1 : 0);
         }
         if(sides == null){
-            poly.add(textureQuad(vert5, vert1, vert2, vert6, textureOffsetX + d + w, textureOffsetY + d, textureOffsetX + d + w + d, textureOffsetY + d + h));
-            poly.add(textureQuad(vert0, vert4, vert7, vert3, textureOffsetX, textureOffsetY + d, textureOffsetX + d, textureOffsetY + d + h));
-            poly.add(textureQuad(vert5, vert4, vert0, vert1, textureOffsetX + d, textureOffsetY, textureOffsetX + d + w, textureOffsetY + d));
-            poly.add(textureQuad(vert2, vert3, vert7, vert6, textureOffsetX + d + w, textureOffsetY, textureOffsetX + d + w + w, textureOffsetY + d));
-            poly.add(textureQuad(vert1, vert0, vert3, vert2, textureOffsetX + d, textureOffsetY + d, textureOffsetX + d + w, textureOffsetY + d + h));
-            poly.add(textureQuad(vert4, vert5, vert6, vert7, textureOffsetX + d + w + d, textureOffsetY + d, textureOffsetX + d + w + d + w, textureOffsetY + d + h));
+            poly.add(textureQuad(vert6, vert2, vert3, vert7, textureOffsetX + depth + width, textureOffsetY + depth, textureOffsetX + depth + width + depth, textureOffsetY + depth + height));
+            poly.add(textureQuad(vert1, vert5, vert8, vert4, textureOffsetX, textureOffsetY + depth, textureOffsetX + depth, textureOffsetY + depth + height));
+            poly.add(textureQuad(vert6, vert5, vert1, vert2, textureOffsetX + depth, textureOffsetY, textureOffsetX + depth + width, textureOffsetY + depth));
+            poly.add(textureQuad(vert3, vert4, vert8, vert7, textureOffsetX + depth + width, textureOffsetY, textureOffsetX + depth + width + width, textureOffsetY + depth));
+            poly.add(textureQuad(vert2, vert1, vert4, vert3, textureOffsetX + depth, textureOffsetY + depth, textureOffsetX + depth + width, textureOffsetY + depth + height));
+            poly.add(textureQuad(vert5, vert6, vert7, vert8, textureOffsetX + depth + width + depth, textureOffsetY + depth, textureOffsetX + depth + width + depth + width, textureOffsetY + depth + height));
         } else{
-            float v0 = sides[2] && sides[3] ? 0 : d;
-            float u0 = sides[1] ? 0 : d, u1 = sides[2] ? 0 : w, u2 = sides[4] ? 0 : w, u3 = sides[0] ? 0 : d;
-            if(!sides[0]){poly.add(textureQuad(vert5, vert1, vert2, vert6, textureOffsetX + u0 + u2, textureOffsetY + v0, textureOffsetX + u0 + u2 + d, textureOffsetY + v0 + h));}
-            if(!sides[1]){poly.add(textureQuad(vert0, vert4, vert7, vert3, textureOffsetX, textureOffsetY + v0, textureOffsetX + d, textureOffsetY + v0 + h));}
-            if(!sides[2]){poly.add(textureQuad(vert5, vert4, vert0, vert1, textureOffsetX + u0, textureOffsetY, textureOffsetX + u0 + w, textureOffsetY + d));}
-            if(!sides[3]){poly.add(textureQuad(vert2, vert3, vert7, vert6, textureOffsetX + u0 + u1, textureOffsetY, textureOffsetX + u0 + u1 + w, textureOffsetY + d));}
-            if(!sides[4]){poly.add(textureQuad(vert1, vert0, vert3, vert2, textureOffsetX + u0, textureOffsetY + v0, textureOffsetX + u0 + w, textureOffsetY + v0 + h));}
-            if(sides.length > 5 && !sides[5]){poly.add(textureQuad(vert4, vert5, vert6, vert7, textureOffsetX + u0 + u2 + u3, textureOffsetY + v0, textureOffsetX + u0 + u2 + u3 + w, textureOffsetY + v0 + h));}
+            float v0 = sides[2] && sides[3] ? 0 : depth;
+            float u0 = sides[1] ? 0 : depth, u1 = sides[2] ? 0 : width, u2 = sides[4] ? 0 : width, u3 = sides[0] ? 0 : depth;
+            if(!sides[0]){poly.add(textureQuad(vert6, vert2, vert3, vert7, textureOffsetX + u0 + u2, textureOffsetY + v0, textureOffsetX + u0 + u2 + depth, textureOffsetY + v0 + height));}
+            if(!sides[1]){poly.add(textureQuad(vert1, vert5, vert8, vert4, textureOffsetX, textureOffsetY + v0, textureOffsetX + depth, textureOffsetY + v0 + height));}
+            if(!sides[2]){poly.add(textureQuad(vert6, vert5, vert1, vert2, textureOffsetX + u0, textureOffsetY, textureOffsetX + u0 + width, textureOffsetY + depth));}
+            if(!sides[3]){poly.add(textureQuad(vert3, vert4, vert8, vert7, textureOffsetX + u0 + u1, textureOffsetY, textureOffsetX + u0 + u1 + width, textureOffsetY + depth));}
+            if(!sides[4]){poly.add(textureQuad(vert2, vert1, vert4, vert3, textureOffsetX + u0, textureOffsetY + v0, textureOffsetX + u0 + width, textureOffsetY + v0 + height));}
+            if(sides.length > 5 && !sides[5]){poly.add(textureQuad(vert5, vert6, vert7, vert8, textureOffsetX + u0 + u2 + u3, textureOffsetY + v0, textureOffsetX + u0 + u2 + u3 + width, textureOffsetY + v0 + height));}
         }
         if(mirror){
             for(TexturedPolygon p : poly){

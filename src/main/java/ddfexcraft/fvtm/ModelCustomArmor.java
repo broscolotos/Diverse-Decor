@@ -39,7 +39,7 @@ public class ModelCustomArmor extends ModelBiped {
     }
 
     public ModelRendererTurbo[] getParts() {
-        LinkedList<ModelRendererTurbo> parts = new LinkedList<ModelRendererTurbo>();
+        LinkedList<ModelRendererTurbo> parts = new LinkedList<>();
         parts.addAll(Arrays.asList(headModel));
         parts.addAll(Arrays.asList(bodyModel));
         parts.addAll(Arrays.asList(leftArmModel));

@@ -1,16 +1,13 @@
 package ddebf.tim.items;
 
 
-import ddfexcraft.fvtm.ModelCustomArmor;
 import ddfexcraft.tmt.slim.Tessellator;
 import ddfexcraft.tmt.slim.Vec3f;
 import me.broscolotos.diversedecor.core.ClientProxy;
-import me.broscolotos.diversedecor.core.handler.ItemIDs;
 import me.broscolotos.diversedecor.items.armor.GenericArmor;
 import me.broscolotos.diversedecor.tiles.BaseTileEntity;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
