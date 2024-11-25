@@ -76,8 +76,10 @@ public class DecorationBlock extends BlockContainer {
         } catch (InstantiationException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
-        this.hasSeat = true;
-        this.seatPos = seatPos;
+        if (seatPos != null) {
+            this.hasSeat = true;
+            this.seatPos = seatPos;
+        }
         opaque = false; //may need an option for
         renderType = -1; //may need an option for
         normalBlock = false; //may need an option for
@@ -99,8 +101,10 @@ public class DecorationBlock extends BlockContainer {
         } catch (InstantiationException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
-        this.hasSeat = true;
-        this.seatPos = seatPos;
+        if (seatPos != null) {
+            this.hasSeat = true;
+            this.seatPos = seatPos;
+        }
         opaque = false; //may need an option for
         renderType = -1; //may need an option for
         normalBlock = false; //may need an option for
@@ -170,7 +174,10 @@ public class DecorationBlock extends BlockContainer {
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-        return mountBlock(world, x, y, z, player);
+        if (hasSeat) {
+            return mountBlock(world, x, y, z, player);
+        }
+        return false;
     }
     public static boolean mountBlock(World world, int x, int y, int z, EntityPlayer player) {
         if(world.isRemote) {

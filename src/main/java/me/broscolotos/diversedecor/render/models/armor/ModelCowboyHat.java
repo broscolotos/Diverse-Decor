@@ -29,7 +29,7 @@ public class ModelCowboyHat extends ModelCustomArmor {
 		headModel[2] = new ModelRendererTurbo(this, 37, 15, textureX, textureY);
 		headModel[2].addBox(-3, -1, -5, 3, 1, 10, 0f);
 		headModel[2].setRotationPoint(-5.5f, -5.0f, 0.0f);
-		headModel[2].rotateAngleZ = 0.6632251f;
+		headModel[2].rotateAngleZ = -0.6632251f;
 
 		headModel[3] = new ModelRendererTurbo(this, 0, 27, textureX, textureY);
 		headModel[3].addBox(0, 0, 0, 9, 1, 1, 0f);
@@ -38,22 +38,23 @@ public class ModelCowboyHat extends ModelCustomArmor {
 		headModel[4] = new ModelRendererTurbo(this, 35, 3, textureX, textureY);
 		headModel[4].addBox(0, -1, -5, 3, 1, 10, 0f);
 		headModel[4].setRotationPoint(5.5f, -5.0f, 0.0f);
-		headModel[4].rotateAngleZ = -0.6632251f;
+		headModel[4].rotateAngleZ = 0.6632251f;
 
 		headModel[5] = new ModelRendererTurbo(this, 32, 27, textureX, textureY);
 		headModel[5].addBox(-4, -1, -5, 1, 1, 8, 0f);
 		headModel[5].setRotationPoint(-5.5f, -5.0f, 1.0f);
-		headModel[5].rotateAngleZ = 0.6632251f;
+		headModel[5].rotateAngleZ = -0.6632251f;
 
 		headModel[6] = new ModelRendererTurbo(this, 13, 27, textureX, textureY);
 		headModel[6].addBox(3, -1, -4, 1, 1, 8, 0f);
 		headModel[6].setRotationPoint(5.5f, -5.0f, 0.0f);
-		headModel[6].rotateAngleZ = -0.6632251f;
+		headModel[6].rotateAngleZ = 0.6632251f;
 
 		headModel[7] = new ModelRendererTurbo(this, 34, 0, textureX, textureY);
 		headModel[7].addBox(0, 0, 0, 9, 1, 1, 0f);
 		headModel[7].setRotationPoint(-4.5f, -6.0f, 5.5f);
 
+		flipRotations();
 		cacheRotations();
 	}
 

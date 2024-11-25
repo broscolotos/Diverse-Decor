@@ -207,4 +207,12 @@ public class ModelCustomArmor extends ModelBiped {
             nativeOffset.put(t, new Vec3f(t.offsetX, t.offsetY, t.offsetZ));
         }
     }
+
+    public void flipRotations() {
+        for(ModelRendererTurbo t: getParts()) {
+            t.rotateAngleZ *= -1;
+        }
+    }
+
+
 }

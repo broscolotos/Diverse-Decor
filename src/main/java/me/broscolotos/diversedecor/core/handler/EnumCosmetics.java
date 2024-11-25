@@ -15,6 +15,7 @@ public enum EnumCosmetics {
     shoulderTrain(new ModelWoodenTrain()),
     cowboyHat(new ModelCowboyHat()),
     santaHat(new ModelSantaHat()),
+    santaHatSideways(new ModelSantaHatSideways())
     ;
 
     public ModelCustomArmor model;
