@@ -28,7 +28,7 @@ public class TexturedVertex {
 	}
 
 	public TexturedVertex(Vec3f vector, float u, float v){
-		vector3F = new Vec3f(vector.xCoord, vector.yCoord, vector.zCoord);
+		vector3F = new Vec3f(vector.x, vector.y, vector.z);
 		textureX = u;
 		textureY = v;
 	}
@@ -45,11 +45,11 @@ public class TexturedVertex {
 	public String dumpInfo() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Vector Values: (X: ");
-		sb.append(vector3F.xCoord);
+		sb.append(vector3F.x);
 		sb.append(", Y: ");
-		sb.append(vector3F.yCoord);
+		sb.append(vector3F.y);
 		sb.append(", Z: ");
-		sb.append(vector3F.zCoord);
+		sb.append(vector3F.z);
 		sb.append(") | TextureX Value: ");
 		sb.append(textureX);
 		sb.append(",  TextureY Value: ");

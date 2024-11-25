@@ -10,6 +10,8 @@ import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -118,12 +120,32 @@ public class BlockModel extends ModelBase {
     }
 
 
-    public void renderAsItem(float scale) {
-        for(TurboList tlist : groups) {
-            if(tlist!=null) {
-                tlist.render(tlist.boxList);
+    public void render(BlockModel model, float scale) {
+        for (ModelRendererTurbo t : model.getParts()) {
+            if (t.rotateAngleX != 0 || t.rotateAngleY != 0|| t.rotateAngleZ != 0) {
+                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleX), 1, 0, 0);
+                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleY), 0, 1, 0);
+                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleZ), 0, 0, 1);
+            }
+            t.render(scale);
+
+            if (t.rotateAngleX != 0 || t.rotateAngleY != 0|| t.rotateAngleZ != 0) {
+                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleX), -1, 0, 0);
+                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleY), 0, -1, 0);
+                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleZ), 0, 0, -1);
             }
         }
+    }
+
+    public ModelRendererTurbo[] getParts() {
+        LinkedList<ModelRendererTurbo> parts = new LinkedList<>();
+        for(TurboList t: this.groups) {
+            parts.addAll(t.boxList);
+        }
+        if (bodyModel != null) {
+            parts.addAll(Arrays.asList(bodyModel));
+        }
+        return parts.toArray(new ModelRendererTurbo[parts.size()]);
     }
 
     @Override

@@ -16,14 +16,14 @@ import java.io.Serializable;
 public class Vec3f implements Serializable {
 
     public static final float radianF = (float) Math.PI / 180.0f;
-    public float xCoord;
-    public float yCoord;
-    public float zCoord;
+    public float x;
+    public float y;
+    public float z;
 
     public Vec3f(){
-        xCoord = 0;
-        yCoord = 0;
-        zCoord = 0;
+        x = 0;
+        y = 0;
+        z = 0;
     }
 
     public Vec3f(double xVec, double yVec, double zVec) {
@@ -31,38 +31,38 @@ public class Vec3f implements Serializable {
     }
 
     public Vec3f(Vec3 v){
-        xCoord = (float)v.xCoord;
-        yCoord = (float)v.yCoord;
-        zCoord= (float)v.zCoord;
+        x = (float)v.xCoord;
+        y = (float)v.yCoord;
+        z = (float)v.zCoord;
     }
     public Vec3f(Vec3f v){
-        xCoord = v.xCoord;
-        yCoord = v.yCoord;
-        zCoord= v.zCoord;
+        x = v.x;
+        y = v.y;
+        z = v.z;
     }
 
     public Vec3f(float f, float g, float h){
-        xCoord = f;
-        yCoord = g;
-        zCoord = h;
+        x = f;
+        y = g;
+        z = h;
     }
 
     public Vec3f(float[] v){
-        xCoord = v[0];
-        yCoord = v[1];
-        zCoord= v[2];
+        x = v[0];
+        y = v[1];
+        z = v[2];
     }
 
     public Vec3f crossProduct(Vec3f p_72431_1_) {
-        return new Vec3f(this.yCoord * p_72431_1_.zCoord - this.zCoord * p_72431_1_.yCoord, this.zCoord * p_72431_1_.xCoord - this.xCoord * p_72431_1_.zCoord, this.xCoord * p_72431_1_.yCoord - this.yCoord * p_72431_1_.xCoord);
+        return new Vec3f(this.y * p_72431_1_.z - this.z * p_72431_1_.y, this.z * p_72431_1_.x - this.x * p_72431_1_.z, this.x * p_72431_1_.y - this.y * p_72431_1_.x);
     }
 
     public Vec3f scale(float scale){
-        return new Vec3f(this.xCoord * scale, this.yCoord * scale, this.zCoord * scale);
+        return new Vec3f(this.x * scale, this.y * scale, this.z * scale);
     }
 
     public Vec3f scale(float scaleX, float scaleY, float scaleZ){
-        return new Vec3f(this.xCoord * scaleX, this.yCoord * scaleY, this.zCoord * scaleZ);
+        return new Vec3f(this.x * scaleX, this.y * scaleY, this.z * scaleZ);
     }
 
     public Vec3f subtract(float x, float y, float z){
@@ -70,43 +70,43 @@ public class Vec3f implements Serializable {
     }
 
     public Vec3f add(Vec3f vec){
-        return this.addVector(vec.xCoord, vec.yCoord, vec.zCoord);
+        return this.addVector(vec.x, vec.y, vec.z);
     }
 
     //todo: this probably broke everything, undo
     public Vec3f addVector(float x, float y, float z){
-        xCoord+=x;
-        yCoord+=y;
-        zCoord+=z;
+        this.x +=x;
+        this.y +=y;
+        this.z +=z;
         return this;
     }
 
     public Vec3f addVector(double x, double y, double z){
-        xCoord+=x;
-        yCoord+=y;
-        zCoord+=z;
+        this.x +=x;
+        this.y +=y;
+        this.z +=z;
         return this;
     }
 
     public Vec3f subtract(Vec3f vec){
-        return new Vec3f(xCoord-vec.xCoord,
-        yCoord-vec.yCoord,
-        zCoord-vec.zCoord);
+        return new Vec3f(x -vec.x,
+        y -vec.y,
+        z -vec.z);
     }
 
 
     public Vec3f normalize(){
-        double d0 = Math.sqrt(this.xCoord * this.xCoord + this.yCoord * this.yCoord + this.zCoord * this.zCoord);
-        return d0 < 1.0E-4D ? new Vec3f() : new Vec3f(this.xCoord / d0, this.yCoord / d0, this.zCoord / d0);
+        double d0 = Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+        return d0 < 1.0E-4D ? new Vec3f() : new Vec3f(this.x / d0, this.y / d0, this.z / d0);
     }
 
     public float dotProduct(Vec3f vec){
-        return this.xCoord * vec.xCoord + this.yCoord * vec.yCoord + this.zCoord * vec.zCoord;
+        return this.x * vec.x + this.y * vec.y + this.z * vec.z;
     }
 
 
     public float dot2D(Vec3f other){
-        return this.xCoord * other.xCoord + this.zCoord * other.zCoord;
+        return this.x * other.x + this.z * other.z;
     }
 
     public static Vec3f direction(float... arr){
@@ -114,34 +114,34 @@ public class Vec3f implements Serializable {
     }
 
     public static Vec3f direction(Vec3f vec){
-        double l = length(vec.xCoord, vec.yCoord, vec.zCoord); return new Vec3f(vec.xCoord / l, vec.yCoord / l, vec.zCoord / l);
+        double l = length(vec.x, vec.y, vec.z); return new Vec3f(vec.x / l, vec.y / l, vec.z / l);
     }
 
     //based on fvtm rail entity stuff
     public Vec3f distance(Vec3f dest, float am){
-        Vec3f vec = new Vec3f((xCoord + dest.xCoord) * 0.5, (yCoord + dest.yCoord) * 0.5, (zCoord + dest.zCoord) * 0.5);
-        vec = direction(vec.xCoord - xCoord, vec.yCoord - yCoord, vec.zCoord - zCoord);
-        return new Vec3f(xCoord + (vec.xCoord * am), yCoord + (vec.yCoord * am), zCoord + (vec.zCoord * am));
+        Vec3f vec = new Vec3f((x + dest.x) * 0.5, (y + dest.y) * 0.5, (z + dest.z) * 0.5);
+        vec = direction(vec.x - x, vec.y - y, vec.z - z);
+        return new Vec3f(x + (vec.x * am), y + (vec.y * am), z + (vec.z * am));
     }
 
     public Vec3f distance(Vec3f dest, double am){
-        Vec3f vec = new Vec3f((xCoord + dest.xCoord) * 0.5, (yCoord + dest.yCoord) * 0.5, (zCoord + dest.zCoord) * 0.5);
-        vec = direction(vec.xCoord - xCoord, vec.yCoord - yCoord, vec.zCoord - zCoord);
-        return new Vec3f(xCoord + (vec.xCoord * am), yCoord + (vec.yCoord * am), zCoord + (vec.zCoord * am));
+        Vec3f vec = new Vec3f((x + dest.x) * 0.5, (y + dest.y) * 0.5, (z + dest.z) * 0.5);
+        vec = direction(vec.x - x, vec.y - y, vec.z - z);
+        return new Vec3f(x + (vec.x * am), y + (vec.y * am), z + (vec.z * am));
     }
     public Vec3f distance(float[] dest, float am){
-        Vec3f vec = new Vec3f((xCoord + dest[0]) * 0.5, (yCoord + dest[1]) * 0.5, (zCoord + dest[2]) * 0.5);
-        vec = direction(vec.xCoord - xCoord, vec.yCoord - yCoord, vec.zCoord - zCoord);
-        return new Vec3f(xCoord + (vec.xCoord * am), yCoord + (vec.yCoord * am), zCoord + (vec.zCoord * am));
+        Vec3f vec = new Vec3f((x + dest[0]) * 0.5, (y + dest[1]) * 0.5, (z + dest[2]) * 0.5);
+        vec = direction(vec.x - x, vec.y - y, vec.z - z);
+        return new Vec3f(x + (vec.x * am), y + (vec.y * am), z + (vec.z * am));
     }
 
     public double length(){
-        return Math.sqrt(xCoord * xCoord + yCoord * yCoord + zCoord * zCoord);
+        return Math.sqrt(x * x + y * y + z * z);
     }
 
 
     public double length2d(){
-        return Math.sqrt(xCoord * xCoord + zCoord * zCoord);
+        return Math.sqrt(x * x + z * z);
     }
 
     public static double length(float... arr){
@@ -149,7 +149,7 @@ public class Vec3f implements Serializable {
     }
 
     public static double length(Vec3f vec){
-        return Math.sqrt(vec.xCoord * vec.xCoord + vec.yCoord * vec.yCoord + vec.zCoord * vec.zCoord);
+        return Math.sqrt(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z);
     }
 
     public boolean equals(Object obj){
@@ -161,85 +161,85 @@ public class Vec3f implements Serializable {
         }
         else{
             Vec3f vec3d = (Vec3f)obj;
-            return Float.compare(vec3d.xCoord, this.xCoord) != 0 ? false : (Float.compare(vec3d.yCoord, this.yCoord) != 0 ? false : Float.compare(vec3d.zCoord, this.zCoord) == 0);
+            return Float.compare(vec3d.x, this.x) != 0 ? false : (Float.compare(vec3d.y, this.y) != 0 ? false : Float.compare(vec3d.z, this.z) == 0);
         }
     }
 
     public int hashCode(){
-        long j = Float.floatToIntBits(this.xCoord);
+        long j = Float.floatToIntBits(this.x);
         int i = (int)(j ^ j >>> 32);
-        j = Float.floatToIntBits(this.yCoord);
+        j = Float.floatToIntBits(this.y);
         i = 31 * i + (int)(j ^ j >>> 32);
-        j = Float.floatToIntBits(this.zCoord);
+        j = Float.floatToIntBits(this.z);
         i = 31 * i + (int)(j ^ j >>> 32);
         return i;
     }
 
     public float distance(Vec3f vec){
-        float d0 = vec.xCoord - this.xCoord;
-        float d1 = vec.yCoord - this.yCoord;
-        float d2 = vec.zCoord - this.zCoord;
+        float d0 = vec.x - this.x;
+        float d1 = vec.y - this.y;
+        float d2 = vec.z - this.z;
         return (float)Math.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
     }
 
     public float distance2d(Vec3f vec){
-        return Math.abs(this.xCoord - vec.xCoord)+Math.abs(this.zCoord - vec.zCoord);
+        return Math.abs(this.x - vec.x)+Math.abs(this.z - vec.z);
     }
 
     @Override
     public String toString(){
-        return String.format("Vec3f[ %s, %s, %s ]", xCoord, yCoord, zCoord);
+        return String.format("Vec3f[ %s, %s, %s ]", x, y, z);
     }
 
 
     //this could be moved to vec3f
     public Vec3f getRelativeVector(Vec3f vec){
         Matrix4f mat = new Matrix4f();
-        mat.m00 = vec.xCoord; mat.m10 = vec.yCoord; mat.m20 = vec.zCoord;
-        Matrix4f.rotate(zCoord  * 3.14159265F / 180, new Vector3f(1F, 0F, 0F), mat, mat);
-        Matrix4f.rotate(yCoord * 3.14159265F / 180, new Vector3f(0F, 0F, 1F), mat, mat);
-        Matrix4f.rotate(xCoord   * 3.14159265F / 180, new Vector3f(0F, 1F, 0F), mat, mat);
+        mat.m00 = vec.x; mat.m10 = vec.y; mat.m20 = vec.z;
+        Matrix4f.rotate(z * 3.14159265F / 180, new Vector3f(1F, 0F, 0F), mat, mat);
+        Matrix4f.rotate(y * 3.14159265F / 180, new Vector3f(0F, 0F, 1F), mat, mat);
+        Matrix4f.rotate(x * 3.14159265F / 180, new Vector3f(0F, 1F, 0F), mat, mat);
         return new Vec3f(mat.m00, mat.m10, mat.m20);
     }
 
     public Vec3f rotatePoint(float pitch, float yaw, float roll) {
-        float cos,sin,x=xCoord,y=yCoord,z=zCoord;
+        float cos,sin,x= this.x,y= this.y,z= this.z;
         //rotate pitch
         if (pitch != 0.0F) {
             cos = (float)Math.cos(pitch*radianF);
             sin = (float)Math.sin(pitch*radianF);
 
-            xCoord = (y * sin) + (x * cos);
-            yCoord = (y * cos) - (x * sin);
+            this.x = (y * sin) + (x * cos);
+            this.y = (y * cos) - (x * sin);
         }
         //rotate yaw
         if (yaw != 0.0F) {
             cos = (float)Math.cos(yaw*radianF);
             sin = (float)Math.sin(yaw*radianF);
 
-            xCoord = (x * cos) - (z * sin);
-            zCoord = (x * sin) + (z * cos);
+            this.x = (x * cos) - (z * sin);
+            this.z = (x * sin) + (z * cos);
         }
         //rotate roll
         if (roll != 0.0F) {
             cos = (float)Math.cos(roll*radianF);
             sin = (float)Math.sin(roll*radianF);
 
-            yCoord = (z * cos) - (y * sin);
-            zCoord = (z * sin) + (y * cos);
+            this.y = (z * cos) - (y * sin);
+            this.z = (z * sin) + (y * cos);
         }
         return this;
     }
 
     public Vec3f rotateOnYaw(float yaw) {
-        float cos,sin,x=xCoord,z=zCoord;
+        float cos,sin,x= this.x,z= this.z;
         //rotate yaw
         if (yaw != 0.0F) {
             cos = (float)Math.cos(yaw*radianF);
             sin = (float)Math.sin(yaw*radianF);
 
-            xCoord = (x * cos) - (z * sin);
-            zCoord = (x * sin) + (z * cos);
+            this.x = (x * cos) - (z * sin);
+            this.z = (x * sin) + (z * cos);
         }
         return this;
     }

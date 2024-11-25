@@ -10,13 +10,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 
 public class GenericArmor extends ItemArmor {
 
-
-    private IIcon iconOverlay;
     private ModelCustomArmor model;
     private String texture = "";
     public Vec3f scale = new Vec3f(1,1,1);

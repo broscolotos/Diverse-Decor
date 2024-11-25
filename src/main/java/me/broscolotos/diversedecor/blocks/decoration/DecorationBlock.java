@@ -8,14 +8,12 @@ import me.broscolotos.diversedecor.entities.EntityChair;
 import me.broscolotos.diversedecor.tiles.BaseTileEntity;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -24,10 +22,6 @@ import java.util.Iterator;
 import java.util.List;
 
 public class DecorationBlock extends BlockContainer {
-
-    public IIcon texture;
-    public String icon;
-
     public boolean opaque;
     public int renderType;
     public boolean normalBlock;
@@ -37,6 +31,7 @@ public class DecorationBlock extends BlockContainer {
 
     public Vec3f offset = new Vec3f(0,0,0);
     public Vec3f scale = new Vec3f(1,1,1);
+    public Vec3f rotation = new Vec3f(0, 0, 0);
 
     public DecorationBlock(Material material) {
         super(material);
@@ -65,7 +60,7 @@ public class DecorationBlock extends BlockContainer {
     }
 
 
-    public DecorationBlock(String name, float hardness, float resistance, String tool, int toolLevel, SoundType soundType, Material material, Vec3f scale, Vec3f offset, BaseTileEntity tileEntity, Vec3f seatPos) {
+    public DecorationBlock(String name, float hardness, float resistance, String tool, int toolLevel, SoundType soundType, Material material, Vec3f scale, Vec3f offset, Vec3f rotation, BaseTileEntity tileEntity, Vec3f seatPos) {
         super(material);
         setBlockName(name);
         setHardness(hardness);
@@ -73,8 +68,9 @@ public class DecorationBlock extends BlockContainer {
         setHarvestLevel(tool,toolLevel);
         setStepSound(soundType);
         setCreativeTab(DiverseDecor.diverseDecorCreativeTab);
-        this.offset = offset;
-        this.scale = scale;
+        this.offset = offset!=null?offset:this.offset;
+        this.scale = scale!=null?scale:this.scale;
+        this.rotation = rotation!=null?rotation:this.rotation;
         try {
             this.tileEntity = tileEntity.getClass().newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
@@ -87,7 +83,7 @@ public class DecorationBlock extends BlockContainer {
         normalBlock = false; //may need an option for
     }
 
-    public DecorationBlock(String name, float hardness, float resistance, String tool, int toolLevel, SoundType soundType, Material material, Vec3f scale, Vec3f offset, BaseTileEntity tileEntity, Vec3f seatPos, float lightLevel) {
+    public DecorationBlock(String name, float hardness, float resistance, String tool, int toolLevel, SoundType soundType, Material material, Vec3f scale, Vec3f offset, Vec3f rotation, BaseTileEntity tileEntity, Vec3f seatPos, float lightLevel) {
         super(material);
         setBlockName(name);
         setHardness(hardness);
@@ -95,8 +91,9 @@ public class DecorationBlock extends BlockContainer {
         setHarvestLevel(tool,toolLevel);
         setStepSound(soundType);
         setCreativeTab(DiverseDecor.diverseDecorCreativeTab);
-        this.offset = offset;
-        this.scale = scale;
+        this.offset = offset!=null?offset:this.offset;
+        this.scale = scale!=null?scale:this.scale;
+        this.rotation = rotation!=null?rotation:this.rotation;
         try {
             this.tileEntity = tileEntity.getClass().newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
@@ -135,16 +132,6 @@ public class DecorationBlock extends BlockContainer {
         return normalBlock;
     }
 
-    @Override
-    public IIcon getIcon(int i, int j) {
-        return texture;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        texture = iconRegister.registerIcon(DiverseDecor.MODID + ":items/" + icon);
-    }
 
 
     // Helper to get the Direction

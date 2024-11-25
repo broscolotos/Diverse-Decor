@@ -139,14 +139,14 @@ public class BoxBuilder {
         xw += expansion;  yh += expansion; zd += expansion;
         if(host.mirror){ float fl = xw; xw = x; x = fl; }
         List<TexturedPolygon> poly = new ArrayList<>();
-        TexturedVertex tv0 = new TexturedVertex(x  - corners[0].xCoord, y  - corners[0].yCoord, z  - corners[0].zCoord, 0.0F, 0.0F);
-        TexturedVertex tv1 = new TexturedVertex(xw + corners[1].xCoord, y  - corners[1].yCoord, z  - corners[1].zCoord, 0.0F, 8.0F);
-        TexturedVertex tv2 = new TexturedVertex(xw + corners[5].xCoord, yh + corners[5].yCoord, z  - corners[5].zCoord, 8.0F, 8.0F);
-        TexturedVertex tv3 = new TexturedVertex(x  - corners[4].xCoord, yh + corners[4].yCoord, z  - corners[4].zCoord, 8.0F, 0.0F);
-        TexturedVertex tv4 = new TexturedVertex(x  - corners[3].xCoord, y  - corners[3].yCoord, zd + corners[3].zCoord, 0.0F, 0.0F);
-        TexturedVertex tv5 = new TexturedVertex(xw + corners[2].xCoord, y  - corners[2].yCoord, zd + corners[2].zCoord, 0.0F, 8.0F);
-        TexturedVertex tv6 = new TexturedVertex(xw + corners[6].xCoord, yh + corners[6].yCoord, zd + corners[6].zCoord, 8.0F, 8.0F);
-        TexturedVertex tv7 = new TexturedVertex(x  - corners[7].xCoord, yh + corners[7].yCoord, zd + corners[7].zCoord, 8.0F, 0.0F);
+        TexturedVertex tv0 = new TexturedVertex(x  - corners[0].x, y  - corners[0].y, z  - corners[0].z, 0.0F, 0.0F);
+        TexturedVertex tv1 = new TexturedVertex(xw + corners[1].x, y  - corners[1].y, z  - corners[1].z, 0.0F, 8.0F);
+        TexturedVertex tv2 = new TexturedVertex(xw + corners[5].x, yh + corners[5].y, z  - corners[5].z, 8.0F, 8.0F);
+        TexturedVertex tv3 = new TexturedVertex(x  - corners[4].x, yh + corners[4].y, z  - corners[4].z, 8.0F, 0.0F);
+        TexturedVertex tv4 = new TexturedVertex(x  - corners[3].x, y  - corners[3].y, zd + corners[3].z, 0.0F, 0.0F);
+        TexturedVertex tv5 = new TexturedVertex(xw + corners[2].x, y  - corners[2].y, zd + corners[2].z, 0.0F, 8.0F);
+        TexturedVertex tv6 = new TexturedVertex(xw + corners[6].x, yh + corners[6].y, zd + corners[6].z, 8.0F, 8.0F);
+        TexturedVertex tv7 = new TexturedVertex(x  - corners[7].x, yh + corners[7].y, zd + corners[7].z, 8.0F, 0.0F);
         if(w % 1 != 0){
             w = w < 1 ? 1 : (int)w + 1;
         }

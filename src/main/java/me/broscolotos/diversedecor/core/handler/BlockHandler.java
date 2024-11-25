@@ -5,15 +5,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import ddfexcraft.tmt.slim.Vec3f;
 import me.broscolotos.diversedecor.DiverseDecor;
 import me.broscolotos.diversedecor.blocks.decoration.*;
-import me.broscolotos.diversedecor.blocks.itemblocks.GenericItemBlock;
-import me.broscolotos.diversedecor.blocks.itemblocks.GenericPropItemBlock;
-import me.broscolotos.diversedecor.blocks.itemblocks.GenericSlabItemBlock;
-import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.DynamicBlock;
-import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.DynamicPillarBlock;
-import me.broscolotos.diversedecor.blocks.normal.blocks.standard.BaseStairBlock;
-import me.broscolotos.diversedecor.blocks.normal.blocks.standard.BaseSlabBlock;
-import me.broscolotos.diversedecor.blocks.normal.blocks.standard.StandardBlock;
-import me.broscolotos.diversedecor.render.ItemRenderer;
+import me.broscolotos.diversedecor.blocks.itemblocks.*;
+import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.*;
+import me.broscolotos.diversedecor.blocks.normal.blocks.standard.*;
 import me.broscolotos.diversedecor.tiles.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -25,28 +19,28 @@ public class BlockHandler {
 
     public static void initBlockRegister(FMLInitializationEvent e){
 
-        BlockIDs.picnicTable.block = new DecorationBlock("Picnic Table", 1, 2, "axe", 1, Block.soundTypeWood, Material.wood, new Vec3f(0,0,0), new Vec3f(0,0,0), new TilePicnicTable(), new Vec3f(0,0,0));
+        BlockIDs.picnicTable.block = new DecorationBlock("Picnic Table", 1, 2, "axe", 1, Block.soundTypeWood, Material.wood, new Vec3f(0.45,0.45,0.45), null, null, new TilePicnicTable(), new Vec3f(0,0,0));
         GameRegistry.registerTileEntity(TilePicnicTable.class, "picnictable.tile");
 
-        BlockIDs.fancyWallLight.block = new DecorationBlock("Fancy Hanging Light", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(0,0,0), new Vec3f(0,0,0), new TileFancyWallLight(), new Vec3f(0,0,0), 0.6f);
+        BlockIDs.fancyWallLight.block = new DecorationBlock("Fancy Hanging Light", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1.15,1.15,1.15), new Vec3f(0,0.625f,0), new Vec3f(0,-45,0), new TileFancyWallLight(), null, 0.6f);
         GameRegistry.registerTileEntity(TileFancyWallLight.class, "fancywalllight.tile");
 
-        BlockIDs.fancyWallLightDiagonal.block = new DecorationBlock("Fancy Hanging Light Diagonal", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(0,0,0), new Vec3f(0,0,0), new TileFancyWallLightDiagonal(), new Vec3f(0,0,0), 0.6f);
+        BlockIDs.fancyWallLightDiagonal.block = new DecorationBlock("Fancy Hanging Light Diagonal", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1.15,1.15,1.15), new Vec3f(-0.875,0.125,0), null, new TileFancyWallLightDiagonal(), null, 0.6f);
         GameRegistry.registerTileEntity(TileFancyWallLightDiagonal.class, "fancywalllightdiagonal.tile");
 
-        BlockIDs.postLight.block = new DecorationBlock("Top Post Light", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(0,0,0), new Vec3f(0,0,0), new TileTopPostLight(), new Vec3f(0,0,0), 0.6f);
+        BlockIDs.postLight.block = new DecorationBlock("Top Post Light", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1,1,1), new Vec3f(0,0,0), null, new TileTopPostLight(), null, 0.6f);
         GameRegistry.registerTileEntity(TileTopPostLight.class, "toppostlight.tile");
 
-        BlockIDs.postCurve.block = new DecorationBlock("Post Curve", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(0,0,0), new Vec3f(0,0,0), new TilePostCurve(), new Vec3f(0,0,0));
+        BlockIDs.postCurve.block = new DecorationBlock("Post Curve", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1,1,1), new Vec3f(0,0,0), null, new TilePostCurve(), null);
         GameRegistry.registerTileEntity(TilePostCurve.class, "postcurve.tile");
 
-        BlockIDs.postTopper.block = new DecorationBlock("Post Topper", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(0,0,0), new Vec3f(0,0,0), new TilePostTopper(), new Vec3f(0,0,0));
+        BlockIDs.postTopper.block = new DecorationBlock("Post Topper", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1,1,1), new Vec3f(0,0,0), null, new TilePostTopper(), null);
         GameRegistry.registerTileEntity(TilePostTopper.class, "posttopper.tile");
 
-        BlockIDs.cashRegister.block = new DecorationBlock("Cash Register", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(0,0,0), new Vec3f(0,0,0), new TileCashRegister(), new Vec3f(0,0,0));
+        BlockIDs.cashRegister.block = new DecorationBlock("Cash Register", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1,1,1), new Vec3f(0,0,0), null, new TileCashRegister(), null);
         GameRegistry.registerTileEntity(TileCashRegister.class, "cashregister.tile");
 
-        BlockIDs.flatTV2x1.block = new DecorationBlock("Flatscreen TV (2x1)", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron,new Vec3f(0,0,0), new Vec3f(0,0,0), new Tile2x1FlatTV(), new Vec3f(0,0,0));
+        BlockIDs.flatTV2x1.block = new DecorationBlock("Flatscreen TV (2x1)", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1,1,1), new Vec3f(0,0,0), null, new Tile2x1FlatTV(), null);
         GameRegistry.registerTileEntity(Tile2x1FlatTV.class, "2x1flattv.tile");
 
         //dynamic
@@ -89,6 +83,11 @@ public class BlockHandler {
                     GameRegistry.registerBlock(new BaseSlabBlock(true, block.block.getMaterial(), 10f, 2f, block.blockName.toLowerCase() + (byte)(i) + "_doubleslab", block, (byte)(i)), GenericSlabItemBlock.class,  block.blockName.toLowerCase() + (byte)(i) + "_doubleslab"); //register the doubleslab first because the slab needs to reference it when registering.
                     GameRegistry.registerBlock(new BaseSlabBlock(false, block.block.getMaterial(), 10f, 2f, block.blockName.toLowerCase() + (byte)(i) + "_slab", block, (byte)(i)).setCreativeTab(DiverseDecor.diverseDecorBlockTab), GenericSlabItemBlock.class, block.blockName.toLowerCase() + (byte)(i) + "_slab");
                     GameRegistry.registerBlock(new BaseStairBlock(block.blockName.toLowerCase() + i + "_stair", block.block.getMaterial(), block.block, block.tool, (byte)(i)), GenericItemBlock.class, block.blockName.toLowerCase() + i + "_stair");
+                }
+            }
+            if (e.getSide().isClient()) {
+                if (block.block instanceof DecorationBlock){
+                    MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(block.block), ddebf.tim.items.CustomItemModel.instance);
                 }
             }
         }

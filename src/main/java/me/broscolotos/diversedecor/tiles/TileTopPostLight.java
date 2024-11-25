@@ -9,10 +9,12 @@ public class TileTopPostLight extends BaseTileEntity {
     public TileTopPostLight(int dir) {
         super(dir);
         model = new TopPostLight();
+        setTexture("lights/post lights/top_post_light");
     }
 
     public TileTopPostLight() {
         model = new TopPostLight();
+        setTexture("lights/post lights/top_post_light");
 
     }
     @SideOnly(Side.CLIENT)

@@ -50,13 +50,13 @@ public class Shape2D {
 			Vec3f vecCoord = new Vec3f(curCoord.xCoord, curCoord.yCoord, 0);
 			setVectorRotations(vecCoord, rotX, rotY, rotZ);
 			verts[idx] = new TexturedVertex(
-					x + vecCoord.xCoord,
-					y + vecCoord.yCoord,
-					z + vecCoord.zCoord, texU1, texV);
+					x + vecCoord.x,
+					y + vecCoord.y,
+					z + vecCoord.z, texU1, texV);
 			verts[idx + coords.size()] = new TexturedVertex(
-					x + vecCoord.xCoord - extrudeVector.xCoord,
-					y + vecCoord.yCoord - extrudeVector.yCoord,
-					z + vecCoord.zCoord - extrudeVector.zCoord, texU2, texV);
+					x + vecCoord.x - extrudeVector.x,
+					y + vecCoord.y - extrudeVector.y,
+					z + vecCoord.z - extrudeVector.z, texU2, texV);
 			vertsTop[idx] = new TexturedVertex(verts[idx].vector3F, verts[idx].textureX, verts[idx].textureY);
 			vertsBottom[coords.size() - idx - 1] = new TexturedVertex(verts[idx + coords.size()].vector3F, verts[idx + coords.size()].textureX, verts[idx + coords.size()].textureY);
 			if(faceLengths != null){
@@ -99,9 +99,9 @@ public class Shape2D {
 		float zC = MathHelper.cos(zRot);
 		float zS = MathHelper.sin(zRot);
 
-		double xVec = extrudeVector.xCoord;
-		double yVec = extrudeVector.yCoord;
-		double zVec = extrudeVector.zCoord;
+		double xVec = extrudeVector.x;
+		double yVec = extrudeVector.y;
+		double zVec = extrudeVector.z;
 
 		// rotation around x
 		double xy = xC*yVec - xS*zVec;

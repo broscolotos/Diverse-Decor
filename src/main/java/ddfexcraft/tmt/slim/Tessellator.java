@@ -77,9 +77,9 @@ public class Tessellator{
 			GL11.glTexCoord2f(vert.textureX, vert.textureY);
 
 			if (x != null) {
-				GL11.glVertex3f((vert.vector3F.xCoord + x) * scale, (vert.vector3F.yCoord + y) * scale, (vert.vector3F.zCoord + z) * scale);
+				GL11.glVertex3f((vert.vector3F.x + x) * scale, (vert.vector3F.y + y) * scale, (vert.vector3F.z + z) * scale);
 			} else {
-				GL11.glVertex3f(vert.vector3F.xCoord * scale, vert.vector3F.yCoord * scale, vert.vector3F.zCoord * scale);
+				GL11.glVertex3f(vert.vector3F.x * scale, vert.vector3F.y * scale, vert.vector3F.z * scale);
 			}
 		}
 
@@ -90,9 +90,9 @@ public class Tessellator{
 	public static void setNormal(Vec3f vec0, Vec3f vec1, Vec3f vec2) {
 		Vec3f vec = new Vec3f(vec1.subtract(vec2)).crossProduct(vec1.subtract(vec0)).normalize();
 		GL11.glNormal3b(
-				((byte)((int)(vec.xCoord * 100F))),
-				((byte)((int)(vec.yCoord * 100F))),
-				((byte)((int)(vec.zCoord * 100F))));
+				((byte)((int)(vec.x * 100F))),
+				((byte)((int)(vec.y * 100F))),
+				((byte)((int)(vec.z * 100F))));
 	}
 
 }

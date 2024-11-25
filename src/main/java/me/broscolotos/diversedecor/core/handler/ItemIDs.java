@@ -12,6 +12,10 @@ public enum ItemIDs {
     foxyGrandpaBaseballHat("foxyGrandpaBaseballHat","foxyGrandpaBaseballHat","foxyGrandpaBaseballHat"),
     strawHat("strawHat","strawHat","strawHat"),
     vrGoggles("vrGoggles","vrGoggles","vrGoggles"),
+    bearHat("bearHat","bearHat","bearHat"),
+    shoulderTrain("shoulderTrain","shoulderTrain","shoulderTrain"),
+    cowboyHat("cowboyHat","cowboyHat","cowboyHat"),
+    santaHat("santaHat","santaHat","santaHat"),
 
     ;
 

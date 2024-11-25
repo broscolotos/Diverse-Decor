@@ -34,8 +34,23 @@ public class ModelCustomArmor extends ModelBiped {
 
     public void render(ModelCustomArmor model, float scale) {
         for (ModelRendererTurbo t : model.getParts()) {
-            t.setRotationAngle(0,0,0);
+            nativePositions.put(t, new Vec3f(t.rotationPointX,t.rotationPointY,t.rotationPointZ));
+            GL11.glTranslatef(nativePositions.get(t).x*scale, nativePositions.get(t).y*scale,nativePositions.get(t).z*scale);
+            if (t.rotateAngleX != 0 || t.rotateAngleY != 0|| t.rotateAngleZ != 0) {
+                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleX), 1, 0, 0);
+                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleY), 0, 1, 0);
+                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleZ), 0, 0, 1);
+            }
+            GL11.glTranslatef(-nativePositions.get(t).x*scale, -nativePositions.get(t).y*scale,-nativePositions.get(t).z*scale);
             t.render(scale);
+
+            GL11.glTranslatef(nativePositions.get(t).x*scale, nativePositions.get(t).y*scale,nativePositions.get(t).z*scale);
+            if (t.rotateAngleX != 0 || t.rotateAngleY != 0|| t.rotateAngleZ != 0) {
+                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleX), -1, 0, 0);
+                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleY), 0, -1, 0);
+                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleZ), 0, 0, -1);
+            }
+            GL11.glTranslatef(-nativePositions.get(t).x*scale, -nativePositions.get(t).y*scale,-nativePositions.get(t).z*scale);
         }
     }
 
@@ -113,6 +128,10 @@ public class ModelCustomArmor extends ModelBiped {
         scale = scale * 0.0625f;
         for(ModelRendererTurbo part : models) {
 
+            if (isSneak) {
+                GL11.glTranslatef(0,0.0625f,0);
+            }
+
             /**
              * handle body rotations.
              * Because math, we need to offset, then rotate for each axis *SEPARATELY* so we do:
@@ -129,28 +148,35 @@ public class ModelCustomArmor extends ModelBiped {
             GL11.glTranslatef(0, 0, bodyPart.offsetZ);
             GL11.glRotatef((float)Math.toDegrees(bodyPart.rotateAngleZ), 0, 0, 1);
 
-
-
             /**
              * handle part rotations.
              * Simply rotate all 3 axis of the part by its rotations.
              * */
-            GL11.glRotatef((float)Math.toDegrees(nativeRotations.get(part).xCoord), 1,0,0);
-            GL11.glRotatef((float)Math.toDegrees(nativeRotations.get(part).yCoord), 0,1,0);
-            GL11.glRotatef((float)Math.toDegrees(nativeRotations.get(part).zCoord), 0,0,1);
 
+            GL11.glTranslatef(nativePositions.get(part).x*scale, nativePositions.get(part).y*scale,nativePositions.get(part).z*scale);
+
+            GL11.glRotatef((float)Math.copySign(Math.toDegrees(nativeRotations.get(part).x), nativeRotations.get(part).x), 1,0,0);
+            GL11.glRotatef((float)Math.copySign(Math.toDegrees(nativeRotations.get(part).y), nativeRotations.get(part).y), 0,1,0);
+            GL11.glRotatef((float)Math.copySign(Math.toDegrees(nativeRotations.get(part).z), nativeRotations.get(part).z), 0,0,1);
+
+            GL11.glTranslatef(-nativePositions.get(part).x*scale, -nativePositions.get(part).y*scale,-nativePositions.get(part).z*scale);
 
             //render
             part.render(scale);
-
 
             /**
              * Because of how OpenGL works, we need to undo everything we did previously so the
              * next part can be processed properly.
              * */
-            GL11.glRotatef((float)Math.toDegrees(-nativeRotations.get(part).xCoord), 1,0,0);
-            GL11.glRotatef((float)Math.toDegrees(-nativeRotations.get(part).yCoord), 0,1,0);
-            GL11.glRotatef((float)Math.toDegrees(-nativeRotations.get(part).zCoord), 0,0,1);
+
+
+            GL11.glTranslatef(nativePositions.get(part).x*scale, nativePositions.get(part).y*scale,nativePositions.get(part).z*scale);
+
+            GL11.glRotatef((float)Math.copySign(Math.toDegrees(nativeRotations.get(part).x), nativeRotations.get(part).x), -1,0,0);
+            GL11.glRotatef((float)Math.copySign(Math.toDegrees(nativeRotations.get(part).y), nativeRotations.get(part).y), 0,-1,0);
+            GL11.glRotatef((float)Math.copySign(Math.toDegrees(nativeRotations.get(part).z), nativeRotations.get(part).z), 0,0,-1);
+
+            GL11.glTranslatef(-nativePositions.get(part).x*scale, -nativePositions.get(part).y*scale,-nativePositions.get(part).z*scale);
 
             GL11.glRotatef((float)Math.toDegrees(bodyPart.rotateAngleZ), 0, 0, -1);
             GL11.glTranslatef(0,0,-bodyPart.offsetZ);
@@ -164,6 +190,9 @@ public class ModelCustomArmor extends ModelBiped {
 
             GL11.glTranslatef(-bodyPart.offsetX,0,0);
 
+            if (isSneak) {
+                GL11.glTranslatef(0,-0.0625f,0);
+            }
 
         }
     }
@@ -171,10 +200,11 @@ public class ModelCustomArmor extends ModelBiped {
 
     public void cacheRotations() {
         for(ModelRendererTurbo t: getParts()) {
+            t.rotateAngleY *= -1;
+
             nativeRotations.put(t, new Vec3f(t.rotateAngleX, t.rotateAngleY, t.rotateAngleZ));
             nativePositions.put(t, new Vec3f(t.rotationPointX, t.rotationPointY, t.rotationPointZ));
             nativeOffset.put(t, new Vec3f(t.offsetX, t.offsetY, t.offsetZ));
         }
     }
-
 }

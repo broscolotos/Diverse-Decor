@@ -11,10 +11,12 @@ public class TilePostCurve extends BaseTileEntity {
     public TilePostCurve(int dir) {
         super(dir);
         model = new ParkPostCurve();
+        setTexture("posts/park_post_curve_metal");
     }
 
     public TilePostCurve() {
         model = new ParkPostCurve();
+        setTexture("posts/park_post_curve_metal");
 
     }
     @SideOnly(Side.CLIENT)

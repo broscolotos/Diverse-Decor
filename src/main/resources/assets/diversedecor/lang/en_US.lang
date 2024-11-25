@@ -129,17 +129,20 @@ tile.Post Topper.name=Post Topper
 tile.Post Curve.name=Light Post Bracket
 tile.Top Post Light.name=Center Post Light
 tile.Cash Register.name=Cash Register
-tile.Flatscreen TV(2x1).name=Flatscreen TV (2x1)
+tile.Flatscreen TV (2x1).name=Flatscreen TV (2x1)
 
 <!-- ## COSMETICS ## -->
-item.diversedecor:testhat.name=Bowler Hat
+item.diversedecor:testhat.name=Capotain
 item.diversedecor:conehat.name=Cone Hat
 item.diversedecor:umbrella.name=Umbrella
 item.diversedecor:ashBaseballHat.name=Ash's Hat
 item.diversedecor:foxyGrandpaBaseballHat.name=Foxy Grandpa Hat
 item.diversedecor:strawHat.name=Straw Hat
 item.diversedecor:vrGoggles.name=VR Goggles
-
+item.diversedecor:bearHat.name=Bear Beanie
+item.diversedecor:shoulderTrain.name=Shoulder Train
+item.diversedecor:cowboyHat.name=Cowboy Hat
+item.diversedecor:santaHat.name=Santa Hat
 
 
 

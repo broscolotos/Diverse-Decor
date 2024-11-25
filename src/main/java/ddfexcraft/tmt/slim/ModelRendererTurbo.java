@@ -3,10 +3,7 @@ package ddfexcraft.tmt.slim;
 import ddfexcraft.fvtm.ModelCustomArmor;
 import ddfexcraft.fvtm.TurboList;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import java.io.IOException;
@@ -1035,9 +1032,9 @@ public class ModelRendererTurbo {
         float xStart = (dirMirror ? x + xLength : x);
         float yStart = (dirMirror ? y + yLength : y);
         float zStart = (dirMirror ? z + zLength : z);
-        float xEnd = (!dirMirror ? x + xLength : x) + (topoff == null ? 0 : topoff.xCoord);
-        float yEnd = (!dirMirror ? y + yLength : y) + (topoff == null ? 0 : topoff.yCoord);
-        float zEnd = (!dirMirror ? z + zLength : z) + (topoff == null ? 0 : topoff.zCoord);
+        float xEnd = (!dirMirror ? x + xLength : x) + (topoff == null ? 0 : topoff.x);
+        float yEnd = (!dirMirror ? y + yLength : y) + (topoff == null ? 0 : topoff.y);
+        float zEnd = (!dirMirror ? z + zLength : z) + (topoff == null ? 0 : topoff.z);
         tempVerts[0] = new TexturedVertex(xStart, yStart, zStart, 0, 0);
         tempVerts[tempVerts.length - 1] = new TexturedVertex(xEnd, yEnd, zEnd, 0, 0);
         float xCur = xStart;
@@ -1126,9 +1123,9 @@ public class ModelRendererTurbo {
         float xStart = (dirMirror ? x + xLength : x);
         float yStart = (dirMirror ? y + yLength : y);
         float zStart = (dirMirror ? z + zLength : z);
-        float xEnd = (!dirMirror ? x + xLength : x) + (topoff == null ? 0 : topoff.xCoord);
-        float yEnd = (!dirMirror ? y + yLength : y) + (topoff == null ? 0 : topoff.yCoord);
-        float zEnd = (!dirMirror ? z + zLength : z) + (topoff == null ? 0 : topoff.zCoord);
+        float xEnd = (!dirMirror ? x + xLength : x) + (topoff == null ? 0 : topoff.x);
+        float yEnd = (!dirMirror ? y + yLength : y) + (topoff == null ? 0 : topoff.y);
+        float zEnd = (!dirMirror ? z + zLength : z) + (topoff == null ? 0 : topoff.z);
         float xCur = xStart, yCur = yStart, zCur = zStart, sCur = baseScale;
         //Texture
         float uScale = 1.0F / textureWidth, vScale = 1.0F / textureHeight;
@@ -1373,9 +1370,9 @@ public class ModelRendererTurbo {
             List<TexturedVertex> verts = face.vertices;
             for(TexturedVertex vert : verts){
                 vert.vector3F.addVector(
-                        vert.vector3F.xCoord * (x ? -1 : 1),
-                        vert.vector3F.xCoord * (y ? -1 : 1),
-                        vert.vector3F.xCoord * (z ? -1 : 1));
+                        vert.vector3F.x * (x ? -1 : 1),
+                        vert.vector3F.x * (y ? -1 : 1),
+                        vert.vector3F.x * (z ? -1 : 1));
             }
             if(x^y^z){
                 Collections.reverse(face.vertices);

@@ -9,10 +9,12 @@ public class TilePostTopper extends BaseTileEntity {
     public TilePostTopper(int dir) {
         super(dir);
         model = new PostTopper();
+        setTexture("posts/topper/metal_topper");
     }
 
     public TilePostTopper() {
         model = new PostTopper();
+        setTexture("posts/topper/metal_topper");
 
     }
     @SideOnly(Side.CLIENT)

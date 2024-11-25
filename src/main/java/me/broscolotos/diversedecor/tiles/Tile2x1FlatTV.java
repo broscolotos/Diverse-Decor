@@ -9,10 +9,12 @@ public class Tile2x1FlatTV extends BaseTileEntity {
     public Tile2x1FlatTV(int dir) {
         super(dir);
         model = new Model2x1FlatTV();
+        setTexture("2x1 flat tv");
     }
 
     public Tile2x1FlatTV() {
         model = new Model2x1FlatTV();
+        setTexture("2x1 flat tv");
 
     }
     @SideOnly(Side.CLIENT)

@@ -9,10 +9,12 @@ public class TileCashRegister extends BaseTileEntity {
     public TileCashRegister(int dir) {
         super(dir);
         model = new CashRegister();
+        setTexture("cash-register");
     }
 
     public TileCashRegister() {
         model = new CashRegister();
+        setTexture("cash-register");
 
     }
     @SideOnly(Side.CLIENT)

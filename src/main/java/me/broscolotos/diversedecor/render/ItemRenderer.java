@@ -40,16 +40,16 @@ public class ItemRenderer implements IItemRenderer {
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         switch (type) {
             case ENTITY: {
-                render(position.xCoord, position.yCoord, position.zCoord, this.scale); //default 0,0,0, 0.5;
+                render(position.x, position.y, position.z, this.scale); //default 0,0,0, 0.5;
                 return;
             }
             case EQUIPPED:
             case EQUIPPED_FIRST_PERSON: {
-                render(position.xCoord, position.yCoord, position.zCoord, this.scale); //default 0,0.5, 0.5, 0.4;
+                render(position.x, position.y, position.z, this.scale); //default 0,0.5, 0.5, 0.4;
                 return;
             }
             case INVENTORY: {
-                render(position.xCoord, position.yCoord, position.zCoord, this.scale); //default 0, -0.34, 0, 0.4;
+                render(position.x, position.y, position.z, this.scale); //default 0, -0.34, 0, 0.4;
                 return;
             }
             default:
@@ -61,10 +61,10 @@ public class ItemRenderer implements IItemRenderer {
         GL11.glPushMatrix();
 
         GL11.glTranslatef(x,y,z);
-        GL11.glScalef(scale.xCoord,scale.yCoord,scale.zCoord);
+        GL11.glScalef(scale.x,scale.y,scale.z);
 
         Tessellator.bindTexture(texture);
-        model.renderAsItem(scale.yCoord);
+        model.render();
         GL11.glPopMatrix();
     }
 }

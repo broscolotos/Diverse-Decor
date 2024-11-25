@@ -90,7 +90,7 @@ public class CylinderBuilder {
     }
 
     public CylinderBuilder setTopRotation(Vec3f vec){
-        return setTopRotation(vec.xCoord, vec.yCoord, vec.zCoord);
+        return setTopRotation(vec.x, vec.y, vec.z);
     }
 
     public CylinderBuilder removePolygon(int index){
@@ -138,9 +138,9 @@ public class CylinderBuilder {
         float xStart = (dirMirror ? x + xLength : x);
         float yStart = (dirMirror ? y + yLength : y);
         float zStart = (dirMirror ? z + zLength : z);
-        float xEnd = (!dirMirror ? x + xLength : x) + (topoff == null ? 0 : topoff.xCoord);
-        float yEnd = (!dirMirror ? y + yLength : y) + (topoff == null ? 0 : topoff.yCoord);
-        float zEnd = (!dirMirror ? z + zLength : z) + (topoff == null ? 0 : topoff.zCoord);
+        float xEnd = (!dirMirror ? x + xLength : x) + (topoff == null ? 0 : topoff.x);
+        float yEnd = (!dirMirror ? y + yLength : y) + (topoff == null ? 0 : topoff.y);
+        float zEnd = (!dirMirror ? z + zLength : z) + (topoff == null ? 0 : topoff.z);
         float xCur = xStart, yCur = yStart, zCur = zStart, sCur = base_scale;
         //Texture
         float uScale = 1.0F / root.textureWidth, vScale = 1.0F / root.textureHeight;

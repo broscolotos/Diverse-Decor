@@ -9,10 +9,12 @@ public class TileFancyWallLight extends BaseTileEntity {
     public TileFancyWallLight(int dir) {
         super(dir);
         model = new FancyWallLight();
+        setTexture("lights/wall lights/fancy_lantern");
     }
 
     public TileFancyWallLight() {
         model = new FancyWallLight();
+        setTexture("lights/wall lights/fancy_lantern");
 
     }
     @SideOnly(Side.CLIENT)

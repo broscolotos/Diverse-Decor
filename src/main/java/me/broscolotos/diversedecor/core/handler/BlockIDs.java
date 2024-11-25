@@ -31,7 +31,7 @@ import net.minecraft.item.ItemBlock;
 
 public enum BlockIDs
 {
-    picnicTable(false, GenericPropItemBlock.class,"picnic_table", -1),
+    picnicTable(true, GenericPropItemBlock.class,"picnic_table", -1),
     fancyWallLight(false, GenericPropItemBlock.class,"fancy_wall_light", -1),
     fancyWallLightDiagonal(false, GenericPropItemBlock.class,"fancy_wall_light_diagonal", -1),
     postTopper(false, GenericPropItemBlock.class,"post_topper", -1),

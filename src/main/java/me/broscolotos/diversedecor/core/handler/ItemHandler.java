@@ -14,25 +14,39 @@ public class ItemHandler {
 
     @SideOnly(Side.CLIENT)
     public static void initItemRegisterClient(FMLInitializationEvent e) {
-        ItemIDs.testhat.item = new GenericArmor(DiverseDecor.instance.armor,0,0, EnumHats.testHat.model, "hattest");
-        ItemIDs.conehat.item = new GenericArmor(DiverseDecor.instance.armor,0,0, EnumHats.coneHat.model, "traffic_cone");
-        ItemIDs.umbrella.item = new GenericArmor(DiverseDecor.instance.armor,0,1,EnumHats.umbrella.model,"umbrella", new Vec3f(0.7f,0.7f,0.7f), new Vec3f(0.125f,0.5f,0));
-        ItemIDs.ashBaseballHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumHats.ashBaseballHat.model,"baseball hat/ash");
-        ItemIDs.foxyGrandpaBaseballHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumHats.foxyGrandpaBaseballHat.model,"baseball hat/foxy grandpa");
-        ItemIDs.strawHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumHats.strawHat.model,"straw hat/cyan");;
-        ItemIDs.vrGoggles.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumHats.vrGoggles.model, "vr goggles");
+        //helmet
+        ItemIDs.testhat.item = new GenericArmor(DiverseDecor.instance.armor,0,0, EnumCosmetics.capotain.model, "capotain");
+        ItemIDs.conehat.item = new GenericArmor(DiverseDecor.instance.armor,0,0, EnumCosmetics.coneHat.model, "traffic_cone");
+        ItemIDs.ashBaseballHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.ashBaseballHat.model,"baseball hat/ash");
+        ItemIDs.foxyGrandpaBaseballHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.foxyGrandpaBaseballHat.model,"baseball hat/foxy grandpa");
+        ItemIDs.strawHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.strawHat.model,"straw hat/cyan");;
+        ItemIDs.vrGoggles.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.vrGoggles.model, "vr goggles");
+        ItemIDs.bearHat.item = new GenericArmor(DiverseDecor.instance.armor, 0,0,EnumCosmetics.bearHat.model,"bear hat");
+        ItemIDs.santaHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.santaHat.model, "santa hat");
+
+        //chestplate
+        ItemIDs.shoulderTrain.item = new GenericArmor(DiverseDecor.instance.armor, 0, 1, EnumCosmetics.shoulderTrain.model,"wooden train", new Vec3f(2.5f, 2.5f, 2.5f), new Vec3f(0.375f,0.625f,0));
+        ItemIDs.umbrella.item = new GenericArmor(DiverseDecor.instance.armor,0,1,EnumCosmetics.umbrella.model,"umbrella", new Vec3f(0.7f,0.7f,0.7f), new Vec3f(0.125f,0.5f,0));
+        ItemIDs.cowboyHat.item = new GenericArmor(DiverseDecor.instance.armor, 0,0,EnumCosmetics.cowboyHat.model, "cowboy hat");
         register();
     }
 
     @SideOnly(Side.SERVER)
     public static void initItemRegisterServer(FMLInitializationEvent e) {
+        //helmet
         ItemIDs.testhat.item = new GenericArmor(DiverseDecor.instance.armor,0,0);
         ItemIDs.conehat.item = new GenericArmor(DiverseDecor.instance.armor,0,0);
-        ItemIDs.umbrella.item = new GenericArmor(DiverseDecor.instance.armor,1,0);
         ItemIDs.ashBaseballHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0);
         ItemIDs.foxyGrandpaBaseballHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0);
         ItemIDs.strawHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0);
         ItemIDs.vrGoggles.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0);
+        ItemIDs.bearHat.item = new GenericArmor(DiverseDecor.instance.armor, 0,0);
+        ItemIDs.cowboyHat.item = new GenericArmor(DiverseDecor.instance.armor, 0,0);
+        ItemIDs.santaHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0);
+
+        //chesplate
+        ItemIDs.umbrella.item = new GenericArmor(DiverseDecor.instance.armor,0,1);
+        ItemIDs.shoulderTrain.item = new GenericArmor(DiverseDecor.instance.armor,0, 1);
         register();
     }
 
