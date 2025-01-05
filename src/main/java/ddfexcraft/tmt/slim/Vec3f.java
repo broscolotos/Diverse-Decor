@@ -243,4 +243,8 @@ public class Vec3f implements Serializable {
         }
         return this;
     }
+
+    public Vec3d toVec3D() {
+        return new Vec3d(x, y, z);
+    }
 }

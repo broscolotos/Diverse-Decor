@@ -14,12 +14,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 
+import java.util.ArrayList;
+
 
 public class BlockHandler {
 
     public static void initBlockRegister(FMLInitializationEvent e){
 
-        BlockIDs.picnicTable.block = new DecorationBlock("Picnic Table", 1, 2, "axe", 1, Block.soundTypeWood, Material.wood, new Vec3f(0.45,0.45,0.45), null, null, new TilePicnicTable(), new Vec3f(0,0,0));
+        BlockIDs.picnicTable.block = new DecorationBlock("Picnic Table", 1, 2, "axe", 1, Block.soundTypeWood, Material.wood, new Vec3f(0.45,0.45,0.45), null, null, new TilePicnicTable(), new Vec3f[]{new Vec3f(-0.35,0.4,0.5), new Vec3f(0.35,0.4,0.5)});
         GameRegistry.registerTileEntity(TilePicnicTable.class, "picnictable.tile");
 
         BlockIDs.fancyWallLight.block = new DecorationBlock("Fancy Hanging Light", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1.15,1.15,1.15), new Vec3f(0,0.625f,0), new Vec3f(0,-45,0), new TileFancyWallLight(), null, 0.6f);

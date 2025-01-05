@@ -704,9 +704,9 @@ public class ModelRendererTurbo {
      * @Ferdinand
      */
     public ModelRendererTurbo addShape3D(float x, float y, float z, Shape2D shape, float depth, int shapeTextureWidth, int shapeTextureHeight, int sideTextureWidth, int sideTextureHeight, float rotX, float rotY, float rotZ, float[] faceLengths){
-        this.offsetX = x;
+        this.offsetX = -x;
         this.offsetY = y;
-        this.offsetZ = z;
+        this.offsetZ = -z;
         faces.addAll(Arrays.asList(shape.extrude(-x, y, -z, rotX, rotY, rotZ, depth, textureOffsetX, textureOffsetY, textureWidth, textureHeight, shapeTextureWidth, shapeTextureHeight, sideTextureWidth, sideTextureHeight, faceLengths)));
         return this;
     }
@@ -1502,9 +1502,6 @@ public class ModelRendererTurbo {
         GL11.glPopMatrix();
     }
 
-
-
-    //ETERNAL: changed w/h/d to floats for better support of the custom render on the rails.
     public ModelRendererTurbo addShapeBox(float x, float y, float z, float w, float h, float d, float scale, float x0, float y0, float z0, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4, float x5, float y5, float z5, float x6, float y6, float z6, float x7, float y7, float z7){
         //fixes weird triangle bug
         this.offsetX = x;

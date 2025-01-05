@@ -10,7 +10,7 @@ import org.lwjgl.opengl.GL11;
 * 
 */
 @SideOnly(Side.CLIENT)
-public class Tessellator{
+public class Tessellator {
 
 	public static Tessellator INSTANCE = new Tessellator();
 

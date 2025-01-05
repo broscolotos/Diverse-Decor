@@ -2,29 +2,70 @@ package me.broscolotos.diversedecor.entities;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import ddfexcraft.tmt.slim.Vec3d;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 public class EntityChair extends Entity {
 
+    public Vec3 blockPos;
+
     public EntityChair(World world) {
         super(world);
+        this.noClip = true;
+        this.height = 0.01f;
+        this.width = 0.01f;
     }
 
-    @Override
-    protected void entityInit() {
-
+    public EntityChair(World world, Vec3 pos, Vec3d offset) {
+        this(world);
+        this.blockPos = pos;
+        setPosition(pos.xCoord + 0.5D + offset.xCoord, pos.yCoord + offset.yCoord, pos.zCoord + offset.zCoord);
     }
 
+    public EntityChair(World world, Vec3 pos, Vec3d offset, int rotation) {
+        this(world);
+        this.blockPos = pos;
+        setPostionConsideringRotation(offset, rotation);
+    }
+
+    public void setPostionConsideringRotation(Vec3d offset, int rotation) {
+        Vec3d rotPos = new Vec3d(offset.xCoord, offset.yCoord, offset.zCoord);
+        switch(rotation) {
+            case 2:
+                rotPos.xCoord = -offset.xCoord;
+                rotPos.zCoord = -offset.zCoord;
+                break;
+            case 0:
+                rotPos.xCoord = offset.zCoord;
+                rotPos.zCoord = -(offset.xCoord+Math.copySign(1,offset.xCoord));
+                break;
+            case 3:
+                rotPos.xCoord = -(offset.xCoord+Math.copySign(1,offset.xCoord));
+                rotPos.zCoord = offset.zCoord;
+                break;
+        }
+        setPosition(blockPos.xCoord + rotPos.xCoord, blockPos.yCoord + rotPos.yCoord, blockPos.zCoord + rotPos.zCoord);
+    }
 
     @Override
     public void onEntityUpdate() {
-        super.onEntityUpdate();
-        if(super.worldObj != null && !super.worldObj.isRemote && super.riddenByEntity == null) {
-            super.isDead = true;
+        if (!this.worldObj.isRemote) {
+            if (this.riddenByEntity == null || this.worldObj.isAirBlock((int)blockPos.xCoord, (int)blockPos.yCoord, (int)blockPos.zCoord)) {
+                this.setDead();
+            }
         }
+    }
+    @Override
+    public double getMountedYOffset() {
+        return 0;
+    }
 
+    @Override
+    protected boolean shouldSetPosAfterLoading() {
+        return false;
     }
 
     @Override
@@ -40,24 +81,6 @@ public class EntityChair extends Entity {
     @Override
     public void moveEntity(double p_70091_1_, double p_70091_3_, double p_70091_5_) {}
 
-    @Override
-    protected void readEntityFromNBT(NBTTagCompound p_70037_1_) {}
-
-    @Override
-    protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {}
-
-    @Override
-    public boolean canBeCollidedWith() {
-        return false;
-    }
-
-    @Override
-    public boolean canBePushed() {
-        return false;
-    }
-
-    @Override
-    protected void fall(float p_70069_1_) {}
 
     @SideOnly(Side.CLIENT)
     public void setPositionAndRotation2(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_, float p_70056_8_, int p_70056_9_) {
@@ -65,7 +88,15 @@ public class EntityChair extends Entity {
         this.setRotation(p_70056_7_, p_70056_8_);
     }
 
-    public double getMountedYOffset() {
-        return 0.5D;
-    }
+    @Override
+    protected void entityInit() {}
+
+    @Override
+    protected void readEntityFromNBT(NBTTagCompound p_70037_1_) {}
+
+    @Override
+    protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {}
+
+    @Override
+    protected void fall(float p_70069_1_) {}
 }

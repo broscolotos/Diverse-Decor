@@ -58,6 +58,9 @@ public class RenderParkPostCurve extends RenderTileEntity {
             GL11.glTranslatef(0.375f,0,0);
             ((TilePostCurve)tileEntity).offset = -0.375f;
         }
+        else {
+            ((TilePostCurve)tileEntity).offset = 0f;
+        }
         model.render(null, 0, 0, 0, 0, 0, 0.0625f);
         GL11.glPopMatrix();
     }

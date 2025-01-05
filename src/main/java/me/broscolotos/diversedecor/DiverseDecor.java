@@ -7,17 +7,21 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import ddfexcraft.tmt.slim.TextureManager;
 import me.broscolotos.diversedecor.core.CommonProxy;
 import me.broscolotos.diversedecor.core.handler.*;
+import me.broscolotos.diversedecor.entities.EntityChair;
 import me.broscolotos.diversedecor.plugins.fmp.ForgeMultiPart;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.lang.reflect.InvocationTargetException;
 
 
 @Mod(modid = DiverseDecor.MODID, version = DiverseDecor.VERSION, name = DiverseDecor.NAME, dependencies = "after:ForgeMultipart")
@@ -40,8 +44,8 @@ public class DiverseDecor {
 
     public ItemArmor.ArmorMaterial armor = EnumHelper.addArmorMaterial("helm", 5, new int[] {1,2, 3, 4}, 25);
     @EventHandler
-    public void preInit(FMLPreInitializationEvent PreEvent){
-
+    public void preInit(FMLPreInitializationEvent preEvent){
+        proxy.loadConfig(preEvent);
     }
 
     @EventHandler
@@ -88,6 +92,7 @@ public class DiverseDecor {
         if (Loader.isModLoaded("ForgeMultipart")) {
             ForgeMultiPart.registerBlocks();
         }
+        EntityRegistry.registerModEntity(EntityChair.class, "EntityChair", 0, DiverseDecor.instance, 80, 1, false);
     }
 
     @EventHandler

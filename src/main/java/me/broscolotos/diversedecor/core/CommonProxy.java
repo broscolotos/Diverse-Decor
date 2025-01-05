@@ -1,5 +1,6 @@
 package me.broscolotos.diversedecor.core;
 
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -17,5 +18,9 @@ public class CommonProxy implements IGuiHandler {
 
     public boolean isClient() {
         return false;
+    }
+
+    public void loadConfig(FMLPreInitializationEvent event) {
+
     }
 }

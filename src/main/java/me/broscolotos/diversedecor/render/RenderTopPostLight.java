@@ -23,7 +23,7 @@ public class RenderTopPostLight extends RenderTileEntity {
         GL11.glTranslated(x+.5, y+.625, z+0.5);
         GL11.glRotatef(180F, 1F, 0F, 0F);
         Block block1 = tileEntity.getWorldObj().getBlock(tileEntity.xCoord,tileEntity.yCoord-1,tileEntity.zCoord);
-       if (block1 instanceof DecorationBlock && block1.getUnlocalizedName().equalsIgnoreCase("post_curve")) {
+       if (block1 instanceof DecorationBlock && block1.getUnlocalizedName().equalsIgnoreCase("tile.Post Curve")) {
             TilePostCurve tile = (TilePostCurve) tileEntity.getWorldObj().getTileEntity(tileEntity.xCoord,tileEntity.yCoord-1,tileEntity.zCoord);
             if (tile.dir == 0) {
                 GL11.glTranslated(0, 0, tile.offset);

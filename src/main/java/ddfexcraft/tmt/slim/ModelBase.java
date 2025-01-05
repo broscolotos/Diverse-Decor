@@ -26,7 +26,7 @@ public class ModelBase extends ArrayList<ModelRendererTurbo> {
 	public List<ModelRendererTurbo> namedList = new ArrayList<>();
 	public List<String> creators = new ArrayList<>();
 	public boolean init=true;
-	public ModelRendererTurbo base[],bodyModel[],open[],closed[],r1[],r2[],r3[],r4[],r5[],r6[],r7[],r8[],r9[],r0[];
+	public ModelRendererTurbo[] base,bodyModel,open,closed,r1,r2,r3,r4,r5,r6,r7,r8,r9,r0;
 
 	public List<Integer> displayList=new ArrayList<>();
 
@@ -62,7 +62,6 @@ public class ModelBase extends ArrayList<ModelRendererTurbo> {
 			GL11.glCallList(localGLID);
 		}
 
-
 		if(namedList ==null){return;}
 		ModelRendererTurbo part;
 		for(int i = 0; i< namedList.size(); i++){
@@ -76,6 +75,9 @@ public class ModelBase extends ArrayList<ModelRendererTurbo> {
 				GL11.glPushMatrix();
 				if (part.ignoresLighting){
 					Minecraft.getMinecraft().entityRenderer.disableLightmap(1D);
+				}
+				if (part.noCull) {
+					GL11.glDisable(GL11.GL_CULL_FACE);
 				}
 				GL11.glTranslatef(part.rotationPointX * 0.0625F, part.rotationPointY * 0.0625F, part.rotationPointZ * 0.0625F);
 				GL11.glRotatef(part.rotateAngleY, 0.0F, 1.0F, 0.0F);
@@ -96,6 +98,9 @@ public class ModelBase extends ArrayList<ModelRendererTurbo> {
 				GL11.glTranslatef(-part.rotationPointX * 0.0625F, -part.rotationPointY * 0.0625F, -part.rotationPointZ * 0.0625F);
 				if (part.ignoresLighting){
 					Minecraft.getMinecraft().entityRenderer.enableLightmap(1D);
+				}
+				if (part.noCull){
+					GL11.glEnable(GL11.GL_CULL_FACE);
 				}
 				GL11.glPopMatrix();
 
@@ -332,10 +337,4 @@ public class ModelBase extends ArrayList<ModelRendererTurbo> {
 	public float[] getTrans(){return null;}
 	public float[] getRotate(){return null;}
 	public float[] getScale(){return null;}
-
-	/**
-	 * MOVE TO ENTITY CLASS
-	 */
-	@Deprecated
-	public ArrayList<double[]> getSmokePosition() {return null;}
 }

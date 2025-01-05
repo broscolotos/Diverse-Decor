@@ -24,6 +24,7 @@ public class ItemHandler {
         ItemIDs.bearHat.item = new GenericArmor(DiverseDecor.instance.armor, 0,0,EnumCosmetics.bearHat.model,"bear hat");
         ItemIDs.santaHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.santaHat.model, "santa hat");
         ItemIDs.santaHatSideways.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.santaHatSideways.model, "santa hat sideways");
+        ItemIDs.deerHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.deerHat.model, "deer hat");
 
         //chestplate
         ItemIDs.shoulderTrain.item = new GenericArmor(DiverseDecor.instance.armor, 0, 1, EnumCosmetics.shoulderTrain.model,"wooden train", new Vec3f(2.5f, 2.5f, 2.5f), new Vec3f(0.375f,0.625f,0));
@@ -45,6 +46,7 @@ public class ItemHandler {
         ItemIDs.cowboyHat.item = new GenericArmor(DiverseDecor.instance.armor, 0,0);
         ItemIDs.santaHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0);
         ItemIDs.santaHatSideways.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0);
+        ItemIDs.deerHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0);
 
         //chesplate
         ItemIDs.umbrella.item = new GenericArmor(DiverseDecor.instance.armor,0,1);

@@ -1,14 +1,12 @@
 package me.broscolotos.diversedecor.blocks.decoration;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import ddfexcraft.tmt.slim.Vec3d;
 import ddfexcraft.tmt.slim.Vec3f;
 import me.broscolotos.diversedecor.DiverseDecor;
-import me.broscolotos.diversedecor.entities.EntityChair;
+import me.broscolotos.diversedecor.core.ChairUtility;
 import me.broscolotos.diversedecor.tiles.BaseTileEntity;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -18,16 +16,13 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.Iterator;
-import java.util.List;
-
 public class DecorationBlock extends BlockContainer {
     public boolean opaque;
     public int renderType;
     public boolean normalBlock;
     public BaseTileEntity tileEntity;
     public boolean hasSeat = false;
-    public Vec3f seatPos;
+    public Vec3f[] seatPos;
 
     public Vec3f offset = new Vec3f(0,0,0);
     public Vec3f scale = new Vec3f(1,1,1);
@@ -60,7 +55,7 @@ public class DecorationBlock extends BlockContainer {
     }
 
 
-    public DecorationBlock(String name, float hardness, float resistance, String tool, int toolLevel, SoundType soundType, Material material, Vec3f scale, Vec3f offset, Vec3f rotation, BaseTileEntity tileEntity, Vec3f seatPos) {
+    public DecorationBlock(String name, float hardness, float resistance, String tool, int toolLevel, SoundType soundType, Material material, Vec3f scale, Vec3f offset, Vec3f rotation, BaseTileEntity tileEntity, Vec3f[] seatPos) {
         super(material);
         setBlockName(name);
         setHardness(hardness);
@@ -85,7 +80,7 @@ public class DecorationBlock extends BlockContainer {
         normalBlock = false; //may need an option for
     }
 
-    public DecorationBlock(String name, float hardness, float resistance, String tool, int toolLevel, SoundType soundType, Material material, Vec3f scale, Vec3f offset, Vec3f rotation, BaseTileEntity tileEntity, Vec3f seatPos, float lightLevel) {
+    public DecorationBlock(String name, float hardness, float resistance, String tool, int toolLevel, SoundType soundType, Material material, Vec3f scale, Vec3f offset, Vec3f rotation, BaseTileEntity tileEntity, Vec3f[] seatPos, float lightLevel) {
         super(material);
         setBlockName(name);
         setHardness(hardness);
@@ -175,36 +170,13 @@ public class DecorationBlock extends BlockContainer {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         if (hasSeat) {
-            return mountBlock(world, x, y, z, player);
+            for (Vec3f pos : seatPos) {
+                if (!ChairUtility.isSomeoneSitting(world,  x+pos.x, y+pos.y, z+pos.z)) {
+                    ChairUtility.sitOnBlockWithRotationOffset(world, new Vec3d(x, y, z), player, pos.toVec3D(), ((BaseTileEntity)world.getTileEntity(x,y,z)).dir);
+                    return true;
+                }
+            }
         }
         return false;
-    }
-    public static boolean mountBlock(World world, int x, int y, int z, EntityPlayer player) {
-        if(world.isRemote) {
-            return true;
-        } else {
-            List list = world.getEntitiesWithinAABB(Entity.class, AxisAlignedBB.getBoundingBox((double)x-2, (double)y-1, (double)z-2, (double)(x + 2), (double)(y + 2), (double)(z + 2)));
-            Iterator mount = list.iterator();
-
-            Entity entity;
-            EntityChair mount1 = null;
-            boolean t = false;
-            do {
-                if(!mount.hasNext()) {
-                    mount1 = new EntityChair(world);
-                    mount1.setPosition((double)((float)x + 0.5F), (double)y, (double)z + 0.5D);
-                    world.spawnEntityInWorld(mount1);
-                    t = true;
-                    break;
-                }
-
-                entity = (Entity)mount.next();
-            } while(!(entity instanceof EntityChair));
-            if (t) {
-                player.mountEntity(mount1);
-                player.updateRidden();
-            }
-            return false;
-        }
     }
 }
