@@ -1,8 +1,9 @@
-package me.broscolotos.diversedecor.render;
+package me.broscolotos.diversedecor.render.tilerenders;
 
 import ddfexcraft.tmt.slim.Tessellator;
 import me.broscolotos.diversedecor.blocks.decoration.DecorationBlock;
-import me.broscolotos.diversedecor.render.models.TopPostLight;
+import me.broscolotos.diversedecor.render.RenderTileEntity;
+import me.broscolotos.diversedecor.render.models.ModelTopPostLight;
 import me.broscolotos.diversedecor.tiles.TilePostCurve;
 import me.broscolotos.diversedecor.tiles.TileTopPostLight;
 import net.minecraft.block.Block;
@@ -13,7 +14,7 @@ public class RenderTopPostLight extends RenderTileEntity {
 
     public RenderTopPostLight(String texture) {
         setTexture(texture);
-        this.model = new TopPostLight();
+        this.model = new ModelTopPostLight();
     }
     @Override
     public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {

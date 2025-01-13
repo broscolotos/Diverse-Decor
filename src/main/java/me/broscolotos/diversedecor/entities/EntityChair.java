@@ -33,21 +33,34 @@ public class EntityChair extends Entity {
 
     public void setPostionConsideringRotation(Vec3d offset, int rotation) {
         Vec3d rotPos = new Vec3d(offset.xCoord, offset.yCoord, offset.zCoord);
+
+        //center our pos
+        double posX = blockPos.xCoord < 0 ? blockPos.xCoord + 0.5 : blockPos.xCoord - 0.5;
+        double posY = blockPos.yCoord < 0 ? 1 : blockPos.yCoord;
+        double posZ = blockPos.zCoord < 0 ? blockPos.zCoord + 0.5 : blockPos.zCoord - 0.5;
+
+        //rotate offset
         switch(rotation) {
             case 2:
-                rotPos.xCoord = -offset.xCoord;
-                rotPos.zCoord = -offset.zCoord;
+                rotPos.xCoord = -offset.zCoord;
+                rotPos.zCoord = offset.xCoord;
                 break;
             case 0:
                 rotPos.xCoord = offset.zCoord;
-                rotPos.zCoord = -(offset.xCoord+Math.copySign(1,offset.xCoord));
+                rotPos.zCoord = -(offset.xCoord);
                 break;
             case 3:
-                rotPos.xCoord = -(offset.xCoord+Math.copySign(1,offset.xCoord));
+                rotPos.xCoord = -(offset.xCoord);
                 rotPos.zCoord = offset.zCoord;
                 break;
         }
-        setPosition(blockPos.xCoord + rotPos.xCoord, blockPos.yCoord + rotPos.yCoord, blockPos.zCoord + rotPos.zCoord);
+
+        //apply offset
+        posX += rotPos.xCoord;
+        posY += rotPos.yCoord;
+        posZ += rotPos.zCoord;
+
+        setPosition(posX, posY, posZ);
     }
 
     @Override

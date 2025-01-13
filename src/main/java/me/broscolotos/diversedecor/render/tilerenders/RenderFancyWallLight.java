@@ -1,7 +1,8 @@
-package me.broscolotos.diversedecor.render;
+package me.broscolotos.diversedecor.render.tilerenders;
 
 import ddfexcraft.tmt.slim.Tessellator;
-import me.broscolotos.diversedecor.render.models.FancyWallLight;
+import me.broscolotos.diversedecor.render.RenderTileEntity;
+import me.broscolotos.diversedecor.render.models.ModelFancyWallLight;
 import me.broscolotos.diversedecor.tiles.TileFancyWallLight;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
@@ -12,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 public class RenderFancyWallLight extends RenderTileEntity {
     public RenderFancyWallLight(String texture) {
         setTexture(texture);
-        this.model = new FancyWallLight();
+        this.model = new ModelFancyWallLight();
     }
     @Override
     public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {

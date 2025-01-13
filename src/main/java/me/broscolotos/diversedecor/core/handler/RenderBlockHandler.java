@@ -2,7 +2,7 @@ package me.broscolotos.diversedecor.core.handler;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import me.broscolotos.diversedecor.render.*;
+import me.broscolotos.diversedecor.render.tilerenders.*;
 import me.broscolotos.diversedecor.tiles.*;
 
 public class RenderBlockHandler {
@@ -16,6 +16,8 @@ public class RenderBlockHandler {
         ClientRegistry.bindTileEntitySpecialRenderer(TileTopPostLight.class, new RenderTopPostLight("lights/post lights/top_post_light"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileCashRegister.class, new RenderCashRegister("cash-register"));
         ClientRegistry.bindTileEntitySpecialRenderer(Tile2x1FlatTV.class, new Render2x1FlatTV("2x1 flat tv"));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileLogChair.class, new RenderLogChair());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileMonitor.class, new RenderMonitor("monitor"));
 
         //RenderingRegistry.registerBlockHandler(transparentRenderID, new BlockRenderTransparent(transparentRenderID));
     }

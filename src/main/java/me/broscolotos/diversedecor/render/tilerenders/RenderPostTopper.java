@@ -1,7 +1,8 @@
-package me.broscolotos.diversedecor.render;
+package me.broscolotos.diversedecor.render.tilerenders;
 
 import ddfexcraft.tmt.slim.Tessellator;
-import me.broscolotos.diversedecor.render.models.PostTopper;
+import me.broscolotos.diversedecor.render.RenderTileEntity;
+import me.broscolotos.diversedecor.render.models.ModelPostTopper;
 import me.broscolotos.diversedecor.tiles.TilePostTopper;
 import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
@@ -9,7 +10,7 @@ import org.lwjgl.opengl.GL11;
 public class RenderPostTopper extends RenderTileEntity {
     public RenderPostTopper(String texture) {
         setTexture(texture);
-        this.model = new PostTopper();
+        this.model = new ModelPostTopper();
     }
     @Override
     public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {

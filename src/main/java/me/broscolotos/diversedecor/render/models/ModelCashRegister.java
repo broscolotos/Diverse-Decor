@@ -9,13 +9,13 @@ import ddfexcraft.tmt.slim.ModelRendererTurbo;
  *  FMT (Fex's Modelling Toolbox) v.2.7.5 &copy; 2024 - Fexcraft.net<br>
  *  All rights reserved. For this Model's License contact the Author/Creator.
  */
-public class CashRegister extends BlockModel {
+public class ModelCashRegister extends BlockModel {
 
-	public CashRegister(){
+	public ModelCashRegister(){
 		super();
 		textureX = 64;
 		textureY = 64;
-		addToCreators("broscolotos");
+		addToCreators("sokejoke");
 		//
 		TurboList group0 = new TurboList("group0");
 		group0.add(new ModelRendererTurbo(group0, 0, 0, textureX, textureY).addBox(0, 0, 0, 12, 4, 12)

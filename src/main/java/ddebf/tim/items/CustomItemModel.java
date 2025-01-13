@@ -5,6 +5,7 @@ import ddfexcraft.fvtm.BlockModel;
 import ddfexcraft.tmt.slim.Tessellator;
 import ddfexcraft.tmt.slim.Vec3f;
 import me.broscolotos.diversedecor.blocks.decoration.DecorationBlock;
+import me.broscolotos.diversedecor.blocks.decoration.LogChairBlock;
 import me.broscolotos.diversedecor.blocks.itemblocks.GenericPropItemBlock;
 import me.broscolotos.diversedecor.core.ClientProxy;
 import me.broscolotos.diversedecor.items.armor.GenericArmor;
@@ -109,13 +110,13 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
         if (Block.getBlockFromItem(item.getItem()) instanceof DecorationBlock) {
             GL11.glPushMatrix();
             DecorationBlock b = (DecorationBlock)Block.getBlockFromItem(item.getItem());
-            this.scaleVec = new Vec3f(b.scale.x*0.0625,b.scale.y*0.0625,b.scale.z*0.0625);
-            this.offsetVec = new Vec3f(b.offset.x,b.offset.y,b.offset.z);
+            this.scaleVec = new Vec3f(b.itemScale.x*0.0625,b.itemScale.y*0.0625,b.itemScale.z*0.0625);
+            this.offsetVec = new Vec3f(b.itemOffset.x,b.itemOffset.y,b.itemOffset.z);
             GL11.glTranslatef(offsetVec.x,offsetVec.y,offsetVec.z);
             GL11.glScalef(scaleVec.x,scaleVec.y,scaleVec.z);
-            GL11.glRotatef(b.rotation.x,1,0,0);
-            GL11.glRotatef(b.rotation.y,0,1,0);
-            GL11.glRotatef(b.rotation.z,0,0,1);
+            GL11.glRotatef(b.itemRotation.x,1,0,0);
+            GL11.glRotatef(b.itemRotation.y,0,1,0);
+            GL11.glRotatef(b.itemRotation.z,0,0,1);
             switch (type) {
                 case EQUIPPED_FIRST_PERSON:{
                     GL11.glRotatef(180,1,0,1);
@@ -139,6 +140,9 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
                     GL11.glRotatef(90,0,0,1);
                     GL11.glTranslatef(0f,0.3125f,0);
                 }
+            }
+            if (b instanceof LogChairBlock) { //need a better solution to this
+                b.tileEntity.setTexture(((LogChairBlock) b).textures.get(item.getItemDamage()));
             }
             ResourceLocation texture = b.tileEntity.getTexture();
             Tessellator.bindTexture(texture);

@@ -14,36 +14,115 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 
-import java.util.ArrayList;
-
 
 public class BlockHandler {
 
     public static void initBlockRegister(FMLInitializationEvent e){
 
-        BlockIDs.picnicTable.block = new DecorationBlock("Picnic Table", 1, 2, "axe", 1, Block.soundTypeWood, Material.wood, new Vec3f(0.45,0.45,0.45), null, null, new TilePicnicTable(), new Vec3f[]{new Vec3f(-0.35,0.4,0.5), new Vec3f(0.35,0.4,0.5)});
+        BlockIDs.picnicTable.block = new DecorationBlock(Material.wood)
+                .setName("Picnic Table")
+                .setSeatPos(new Vec3f[]{new Vec3f(-0.85,0.4,0), new Vec3f(0.85,0.4,0.0)})
+                .bounds(new float[][]{{0,0,-1,1,0.8125f,2}})
+                .setTileEntity(new TilePicnicTable())
+                .setTool("axe",1)
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeWood);
         GameRegistry.registerTileEntity(TilePicnicTable.class, "picnictable.tile");
 
-        BlockIDs.fancyWallLight.block = new DecorationBlock("Fancy Hanging Light", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1.15,1.15,1.15), new Vec3f(0,0.625f,0), new Vec3f(0,-45,0), new TileFancyWallLight(), null, 0.6f);
+        BlockIDs.fancyWallLight.block = new DecorationBlock(Material.iron)
+                .setName("Fancy Hanging Light")
+                .setTileEntity(new TileFancyWallLight())
+                .setTool("pickaxe", 1)
+                .setItemScale(new Vec3f(1.15, 1.15, 1.15))
+                .setItemOffset(new Vec3f(0, 0.0625, 0))
+                .setItemRotation(new Vec3f(0,-45,0))
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeMetal)
+                .setLightLevel(0.6f);
         GameRegistry.registerTileEntity(TileFancyWallLight.class, "fancywalllight.tile");
 
-        BlockIDs.fancyWallLightDiagonal.block = new DecorationBlock("Fancy Hanging Light Diagonal", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1.15,1.15,1.15), new Vec3f(-0.875,0.125,0), null, new TileFancyWallLightDiagonal(), null, 0.6f);
+
+        BlockIDs.fancyWallLightDiagonal.block = new DecorationBlock(Material.iron)
+                .setName("Fancy Hanging Light Diagonal")
+                .setTileEntity(new TileFancyWallLightDiagonal())
+                .setTool("pickaxe", 1)
+                .setItemScale(new Vec3f(1.15, 1.15, 1.15))
+                .setItemOffset(new Vec3f(-0.875, 0.0625, 0))
+                .setItemRotation(new Vec3f(0,-45,0))
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeMetal)
+                .setLightLevel(0.6f);
         GameRegistry.registerTileEntity(TileFancyWallLightDiagonal.class, "fancywalllightdiagonal.tile");
 
-        BlockIDs.postLight.block = new DecorationBlock("Top Post Light", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1,1,1), new Vec3f(0,0,0), null, new TileTopPostLight(), null, 0.6f);
+        BlockIDs.postLight.block = new DecorationBlock(Material.iron)
+                .setName("Top Post Light")
+                .setTileEntity(new TileTopPostLight())
+                .setTool("pickaxe", 1)
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeMetal)
+                .setLightLevel(0.6f);
         GameRegistry.registerTileEntity(TileTopPostLight.class, "toppostlight.tile");
 
-        BlockIDs.postCurve.block = new DecorationBlock("Post Curve", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1,1,1), new Vec3f(0,0,0), null, new TilePostCurve(), null);
+        BlockIDs.postCurve.block = new DecorationBlock(Material.iron)
+                .setName("Post Curve")
+                .setTileEntity(new TilePostCurve())
+                .setTool("pickaxe", 1)
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeMetal);
         GameRegistry.registerTileEntity(TilePostCurve.class, "postcurve.tile");
 
-        BlockIDs.postTopper.block = new DecorationBlock("Post Topper", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1,1,1), new Vec3f(0,0,0), null, new TilePostTopper(), null);
+        BlockIDs.postTopper.block = new DecorationBlock(Material.iron)
+                .setName("Post Topper")
+                .setTileEntity(new TilePostTopper())
+                .setTool("pickaxe",1)
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeMetal);
         GameRegistry.registerTileEntity(TilePostTopper.class, "posttopper.tile");
 
-        BlockIDs.cashRegister.block = new DecorationBlock("Cash Register", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1,1,1), new Vec3f(0,0,0), null, new TileCashRegister(), null);
+        BlockIDs.cashRegister.block = new DecorationBlock(Material.iron)
+                .setName("Cash Register")
+                .setTileEntity(new TileCashRegister())
+                .setTool("pickaxe",1)
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeMetal);
         GameRegistry.registerTileEntity(TileCashRegister.class, "cashregister.tile");
 
-        BlockIDs.flatTV2x1.block = new DecorationBlock("Flatscreen TV (2x1)", 1, 2, "pickaxe", 1, Block.soundTypeMetal, Material.iron, new Vec3f(1,1,1), new Vec3f(0,0,0), null, new Tile2x1FlatTV(), null);
+        BlockIDs.flatTV2x1.block = new DecorationBlock(Material.iron)
+                .setName("Flatscreen TV (2x1)")
+                .setTileEntity(new Tile2x1FlatTV())
+                .setTool("pickaxe",1)
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeMetal);
         GameRegistry.registerTileEntity(Tile2x1FlatTV.class, "2x1flattv.tile");
+
+        BlockIDs.logChair.block = new LogChairBlock(Material.wood)
+                .setName("Log Chair")
+                .setTileEntity(new TileLogChair())
+                .setSeatPos(new Vec3f[]{new Vec3f(0,0.375,0)})
+                .setItemOffset(new Vec3f(0,0.25f,0))
+                .bounds(new float[][]{{0.25f, 0, 0f, 0.75f, 0.5f, 1f}})
+                .setTool("axe",1)
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeWood);
+        GameRegistry.registerTileEntity(TileLogChair.class, "logchair.tile");
+
+        BlockIDs.monitor.block = new DecorationBlock(Material.iron)
+                .setName("Monitor")
+                .setTileEntity(new TileMonitor())
+                .setTool("pickaxe", 1)
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeMetal);
+        GameRegistry.registerTileEntity(TileMonitor.class, "monitor.tile");
 
         //dynamic
         BlockIDs.blockBrickOrange.block = new DynamicBlock(Material.rock, "orange_brick", DiverseDecor.MODID+":bricks/orange/orange_brick", 3);

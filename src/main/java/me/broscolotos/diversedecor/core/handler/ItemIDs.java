@@ -18,6 +18,7 @@ public enum ItemIDs {
     santaHat("santaHat","santaHat","santaHat"),
     santaHatSideways("santaHatSideways","santaHatSideways","santaHatSideways"),
     deerHat("deerHat","deerHat","deerHat"),
+    beanieHat("beanieHat","beanieHat","beanieHat"),
 
     ;
 

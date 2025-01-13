@@ -1,9 +1,9 @@
-package me.broscolotos.diversedecor.render;
+package me.broscolotos.diversedecor.render.tilerenders;
 
-import blusunrize.immersiveengineering.common.blocks.metal.BlockMetalDecoration;
 import ddfexcraft.tmt.slim.Tessellator;
 import ddfexcraft.tmt.slim.Vec3f;
-import me.broscolotos.diversedecor.render.models.ParkPostCurve;
+import me.broscolotos.diversedecor.render.RenderTileEntity;
+import me.broscolotos.diversedecor.render.models.ModelParkPostCurve;
 import me.broscolotos.diversedecor.tiles.TilePostCurve;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockAir;
@@ -18,7 +18,7 @@ public class RenderParkPostCurve extends RenderTileEntity {
 
     public RenderParkPostCurve(String texture) {
         setTexture(texture);
-        this.model = new ParkPostCurve();
+        this.model = new ModelParkPostCurve();
     }
     @Override
     public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {

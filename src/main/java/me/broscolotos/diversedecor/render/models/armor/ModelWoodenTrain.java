@@ -1,4 +1,5 @@
 //FMT-Marker DFM-1.0
+//Creator: broscolotos
 
 package me.broscolotos.diversedecor.render.models.armor;
 

@@ -130,6 +130,8 @@ tile.Post Curve.name=Light Post Bracket
 tile.Top Post Light.name=Center Post Light
 tile.Cash Register.name=Cash Register
 tile.Flatscreen TV (2x1).name=Flatscreen TV (2x1)
+tile.Log Chair.name=Log Chair
+tile.Monitor.name=Computer Monitor
 
 <!-- ## COSMETICS ## -->
 item.diversedecor:testhat.name=Capotain

@@ -2,18 +2,18 @@ package me.broscolotos.diversedecor.tiles;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import me.broscolotos.diversedecor.render.models.TopPostLight;
+import me.broscolotos.diversedecor.render.models.ModelTopPostLight;
 import net.minecraft.util.AxisAlignedBB;
 
 public class TileTopPostLight extends BaseTileEntity {
     public TileTopPostLight(int dir) {
         super(dir);
-        model = new TopPostLight();
+        model = new ModelTopPostLight();
         setTexture("lights/post lights/top_post_light");
     }
 
     public TileTopPostLight() {
-        model = new TopPostLight();
+        model = new ModelTopPostLight();
         setTexture("lights/post lights/top_post_light");
 
     }

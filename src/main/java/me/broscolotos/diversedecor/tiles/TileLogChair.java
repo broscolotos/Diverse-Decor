@@ -2,20 +2,22 @@ package me.broscolotos.diversedecor.tiles;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import me.broscolotos.diversedecor.render.models.ModelPicnicTable;
+import me.broscolotos.diversedecor.render.models.ModelLogChair;
 import net.minecraft.util.AxisAlignedBB;
 
-public class TilePicnicTable extends BaseTileEntity {
-    public TilePicnicTable(int dir) {
+public class TileLogChair extends BaseTileEntity {
+    public TileLogChair(int dir, String texture) {
         super(dir);
-        model = new ModelPicnicTable();
-        setTexture("picnic table/picnic table spruce");
+        model = new ModelLogChair();
+        setTexture(texture);
     }
 
-    public TilePicnicTable() {
-        model = new ModelPicnicTable();
-        setTexture("picnic table/picnic table spruce");
+    public TileLogChair() {
+        super();
+        model = new ModelLogChair();
+        setTexture("log chair/oak_log_chair");
     }
+
     @SideOnly(Side.CLIENT)
     @Override
     public AxisAlignedBB getRenderBoundingBox()

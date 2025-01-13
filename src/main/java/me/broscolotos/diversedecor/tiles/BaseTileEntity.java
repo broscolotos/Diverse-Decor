@@ -1,5 +1,6 @@
 package me.broscolotos.diversedecor.tiles;
 
+import com.sun.org.apache.xpath.internal.operations.Div;
 import ddfexcraft.fvtm.BlockModel;
 import me.broscolotos.diversedecor.DiverseDecor;
 import me.broscolotos.diversedecor.render.RenderTileEntity;
@@ -21,7 +22,7 @@ public class BaseTileEntity extends TileEntity {
     }
 
     public BaseTileEntity() {
-
+        super();
     }
 
     @Override
@@ -54,6 +55,7 @@ public class BaseTileEntity extends TileEntity {
     {
         super.writeToNBT(tag);
         tag.setInteger("direction", dir);
+        tag.setString("texture", texture.getResourcePath());
     }
 
     @Override
@@ -61,6 +63,11 @@ public class BaseTileEntity extends TileEntity {
     {
         super.readFromNBT(tag);
         dir = tag.getInteger("direction");
+        String t = tag.getString("texture");
+        if (!t.isEmpty())
+            t = t.substring(9);
+        t = "textures/" + t;
+        texture = new ResourceLocation(DiverseDecor.MODID,t);
         if(worldObj != null && worldObj.isRemote)
         {
             markDirty();

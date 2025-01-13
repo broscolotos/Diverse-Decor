@@ -9,9 +9,9 @@ import ddfexcraft.tmt.slim.ModelRendererTurbo;
  *  FMT (Fex's Modelling Toolbox) v.2.7.5 &copy; 2024 - Fexcraft.net<br>
  *  All rights reserved. For this Model's License contact the Author/Creator.
  */
-public class PicnicTable extends BlockModel {
+public class ModelPicnicTable extends BlockModel {
 
-	public PicnicTable(){
+	public ModelPicnicTable(){
 		super();
 		textureX = 128;
 		textureY = 64;
