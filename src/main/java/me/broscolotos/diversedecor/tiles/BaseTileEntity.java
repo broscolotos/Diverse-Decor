@@ -1,10 +1,7 @@
 package me.broscolotos.diversedecor.tiles;
 
-import com.sun.org.apache.xpath.internal.operations.Div;
 import ddfexcraft.fvtm.BlockModel;
 import me.broscolotos.diversedecor.DiverseDecor;
-import me.broscolotos.diversedecor.render.RenderTileEntity;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;

@@ -6,13 +6,13 @@ package ddfexcraft.tmt.slim;
 */
 public class ModelConverter extends ModelBase {
 
-	public ModelRendererTurbo model[],bodyDoorOpenModel[], bodyDoorCloseModel[],trailerModel[],steeringWheelModel[];
+	public ModelRendererTurbo[] model,bodyDoorOpenModel, bodyDoorCloseModel,trailerModel,steeringWheelModel;
 
-	public ModelRendererTurbo turretModel[],barrelModel[];
-	public ModelRendererTurbo frontWheelModel[],backWheelModel[],
-			leftFrontWheelModel[],rightFrontWheelModel[],leftBackWheelModel[],rightBackWheelModel[];
-	public ModelRendererTurbo rightTrackModel[],leftTrackModel[],
-			rightTrackWheelModels[],leftTrackWheelModels[];
+	public ModelRendererTurbo[] turretModel,barrelModel;
+	public ModelRendererTurbo[] frontWheelModel,backWheelModel,
+			leftFrontWheelModel,rightFrontWheelModel,leftBackWheelModel,rightBackWheelModel;
+	public ModelRendererTurbo[] rightTrackModel,leftTrackModel,
+			rightTrackWheelModels,leftTrackWheelModels;
 
 	@Override
 	public void initAllParts(){

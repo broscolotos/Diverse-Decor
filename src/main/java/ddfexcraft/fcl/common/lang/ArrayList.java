@@ -3,8 +3,6 @@ package ddfexcraft.fcl.common.lang;
 import javax.annotation.Nullable;
 import java.util.List;
 
-;
-
 /**
  * @author Ferdinand Calo' (FEX___96)
  *

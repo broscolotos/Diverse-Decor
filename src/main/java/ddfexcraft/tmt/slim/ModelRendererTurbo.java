@@ -1586,7 +1586,6 @@ public class ModelRendererTurbo {
      * Copies an array of vertices and polygons to the current shape. This mainly is
      * used to copy each shape to the main class, but you can just use it to copy
      * your own shapes, for example from other classes, into the current class.
-     * @param verts the array of vertices you want to copy
      * @param poly the array of polygons you want to copy
      * @return
      */

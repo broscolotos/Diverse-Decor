@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 import java.util.*;
-import java.util.List;
 
 import static org.lwjgl.opengl.GL11.*;
 

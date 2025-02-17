@@ -19,9 +19,6 @@ package me.broscolotos.diversedecor.core.handler;
  *
  */
 
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
-
 public class OreDictHandler {
 
     public static void registerOreDict() {

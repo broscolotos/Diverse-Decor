@@ -19,7 +19,7 @@ public class ItemHandler {
         ItemIDs.conehat.item = new GenericArmor(DiverseDecor.instance.armor,0,0, EnumCosmetics.coneHat.model, "traffic_cone");
         ItemIDs.ashBaseballHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.ashBaseballHat.model,"baseball hat/ash");
         ItemIDs.foxyGrandpaBaseballHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.foxyGrandpaBaseballHat.model,"baseball hat/foxy grandpa");
-        ItemIDs.strawHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.strawHat.model,"straw hat/cyan");;
+        ItemIDs.strawHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.strawHat.model,"straw hat/cyan");
         ItemIDs.vrGoggles.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.vrGoggles.model, "vr goggles");
         ItemIDs.bearHat.item = new GenericArmor(DiverseDecor.instance.armor, 0,0,EnumCosmetics.bearHat.model,"bear hat");
         ItemIDs.santaHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.santaHat.model, "santa hat");

@@ -34,7 +34,7 @@ public class ModelPool {
 		return entry;
 	}
 
-	public static ModelPoolEntry addFileF(String file, Class<?> modelClass) throws IOException{
+	public static ModelPoolEntry addFileF(String file, Class<?> modelClass) {
 		ModelPoolEntry entry = null;
 		if(modelMap.containsKey(file)){
 			entry = modelMap.get(file);

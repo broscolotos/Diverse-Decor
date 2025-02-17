@@ -8,7 +8,6 @@ import me.broscolotos.diversedecor.render.models.ModelParkPostCurve;
 import me.broscolotos.diversedecor.tiles.TilePostCurve;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockAir;
-import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockWall;
 import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;

@@ -7,7 +7,6 @@ import me.broscolotos.diversedecor.render.RenderTileEntity;
 import me.broscolotos.diversedecor.render.models.ModelFancyWallLight;
 import me.broscolotos.diversedecor.tiles.TileFancyWallLightDiagonal;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockWall;
 import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;

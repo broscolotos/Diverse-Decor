@@ -2,16 +2,9 @@ package me.broscolotos.diversedecor.core.handler;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import me.broscolotos.diversedecor.DiverseDecor;
-import me.broscolotos.diversedecor.blocks.decoration.DecorationBlock;
-import me.broscolotos.diversedecor.blocks.itemblocks.GenericItemBlock;
-import me.broscolotos.diversedecor.blocks.itemblocks.GenericSlabItemBlock;
-import me.broscolotos.diversedecor.blocks.normal.blocks.standard.BaseSlabBlock;
-import me.broscolotos.diversedecor.blocks.normal.blocks.standard.BaseStairBlock;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
@@ -83,10 +76,6 @@ public class RecipeHandler {
         ArrayList<ItemStack> dyeBlack = OreDictionary.getOres("dyeBlack");
         ArrayList<ItemStack> dyeGreen = OreDictionary.getOres("dyeGreen");
 
-        /*ArrayList<ItemStack> iron = OreDictionary.getOres("ingotIron");//does this work?
-        for (ItemStack dyepurple : dyePurple) { GameRegistry.addRecipe(new ItemStack(BlockIDs.tile2x2.block, 6, 15), " S ", "SDS", " S ", Character.valueOf('S'), new ItemStack(ItemIDs.ceramic.item, 1), Character.valueOf('D'), dyepurple);
-            GameRegistry.addRecipe(new ItemStack(BlockIDs.tile4.block, 6, 15), "S S", "SDS", "S S", Character.valueOf('S'), new ItemStack(ItemIDs.ceramic.item, 1), Character.valueOf('D'), dyepurple);
-        }*/
 
         for (ItemStack dye : dyeOrange) {
             GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockBrickOrange.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dye);

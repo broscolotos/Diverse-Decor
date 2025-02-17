@@ -1,12 +1,10 @@
 package ddebf.tim.items;
 
 
-import ddfexcraft.fvtm.BlockModel;
 import ddfexcraft.tmt.slim.Tessellator;
 import ddfexcraft.tmt.slim.Vec3f;
 import me.broscolotos.diversedecor.blocks.decoration.DecorationBlock;
 import me.broscolotos.diversedecor.blocks.decoration.LogChairBlock;
-import me.broscolotos.diversedecor.blocks.itemblocks.GenericPropItemBlock;
 import me.broscolotos.diversedecor.core.ClientProxy;
 import me.broscolotos.diversedecor.items.armor.GenericArmor;
 import me.broscolotos.diversedecor.tiles.BaseTileEntity;
@@ -45,7 +43,7 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
     }
 
     //@Override
-    public /*IModel*/ void loadModel(ResourceLocation modelLocation) throws Exception {
+    public /*IModel*/ void loadModel(ResourceLocation modelLocation) {
         renderItem(null, new ItemStack(models.get(modelLocation)), null);
     }
 
@@ -151,14 +149,4 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
 
         }
     }
-
-/*    private void render(BlockModel model, ResourceLocation texture, Vec3f pos, Vec3f scale) {
-        GL11.glPushMatrix();
-
-        GL11.glTranslatef(pos.x,pos.y,pos.z);
-        GL11.glScalef(scale.x,scale.y,scale.z);
-        Tessellator.bindTexture(texture);
-        model.renderAsItem(1);
-        GL11.glPopMatrix();
-    }*/
 }
