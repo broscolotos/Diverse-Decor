@@ -59,8 +59,13 @@ public enum BlockIDs
     blockBrickBlack(true, GenericItemBlock.class, "blockBrickBlack",1, true),
     blockBrickWhite(true, GenericItemBlock.class, "blockBrickWhite",1, true),
     blockLargeBrickGranite(true, GenericItemBlock.class, "blockLargeBrickGranite", 3, true),
-    blockSlate(true, GenericItemBlock.class, "blockSlate", 2, true),
+    blockSlate(true, GenericItemBlock.class, "blockSlate", 10, true),
     blockStone(true, GenericItemBlock.class, "blockColored",10,true),
+    blockTurf(true, GenericItemBlock.class, "blockTurf", 1, true),
+    blockBrickNormal(true, GenericItemBlock.class, "blockBrickNormal", 1, true),
+    blockBrickInlay(true, GenericItemBlock.class, "blockBrickInlay", 1, true),
+    blockColoredSteel(true, GenericItemBlock.class, "blockColoredSteel", 1, true),
+    blockDirt(true, GenericItemBlock.class, "blockDirt", 2, true),
     ;
 
 

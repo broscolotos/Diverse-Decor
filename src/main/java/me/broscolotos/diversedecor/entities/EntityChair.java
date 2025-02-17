@@ -60,6 +60,11 @@ public class EntityChair extends Entity {
         posY += rotPos.yCoord;
         posZ += rotPos.zCoord;
 
+        if (posX > 0)
+            posX++;
+        if (posZ > 0)
+            posZ++;
+
         setPosition(posX, posY, posZ);
     }
 

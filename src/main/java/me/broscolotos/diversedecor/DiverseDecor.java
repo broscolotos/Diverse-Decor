@@ -81,17 +81,17 @@ public class DiverseDecor {
         };
 
         BlockHandler.initBlockRegister(event);
-        if (event.getSide().isClient()) {
+        if (proxy.isClient()) {
             ItemHandler.initItemRegisterClient(event);
         } else {
             ItemHandler.initItemRegisterServer(event);
         }
-        RecipeHandler.initBlockRecipes();
         OreDictHandler.registerOreDict();
 
         if (Loader.isModLoaded("ForgeMultipart")) {
             ForgeMultiPart.registerBlocks();
         }
+        RecipeHandler.initBlockRecipes();
         EntityRegistry.registerModEntity(EntityChair.class, "EntityChair", 0, DiverseDecor.instance, 80, 1, false);
     }
 

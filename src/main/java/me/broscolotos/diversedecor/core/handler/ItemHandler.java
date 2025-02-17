@@ -62,7 +62,9 @@ public class ItemHandler {
             if (items.item != null) {
                 items.item.setUnlocalizedName(DiverseDecor.MODID + ":" + items.name());
                 GameRegistry.registerItem(items.item, items.name());
-                MinecraftForgeClient.registerItemRenderer(items.item, ddebf.tim.items.CustomItemModel.instance);
+                if (DiverseDecor.proxy.isClient()) {
+                    MinecraftForgeClient.registerItemRenderer(items.item, ddebf.tim.items.CustomItemModel.instance);
+                }
             }
         }
         //GameRegistry.registerItem(ItemIDs.bulb.item, ItemIDs.bulb.name());

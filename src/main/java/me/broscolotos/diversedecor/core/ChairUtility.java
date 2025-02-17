@@ -31,7 +31,7 @@ public class ChairUtility {
 
     private static boolean checkForExistingSeat(World world, double x, double y, double z, EntityPlayer player) {
         if(!world.isRemote) {
-            List<EntityChair> seats = world.getEntitiesWithinAABB(EntityChair.class, AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 1.0D, z + 1.0D));
+            List<EntityChair> seats = world.getEntitiesWithinAABB(EntityChair.class, AxisAlignedBB.getBoundingBox(x-5, y-5, z-5, x + 5.0D, y + 5.0D, z + 5.0D));
             for(EntityChair seat : seats) {
                 if(seat.posX == x && seat.posY == y && seat.posZ == z) {
                     if(seat.riddenByEntity == null) {

@@ -2,6 +2,7 @@ package me.broscolotos.diversedecor.render.tilerenders;
 
 import ddfexcraft.tmt.slim.Tessellator;
 import ddfexcraft.tmt.slim.Vec3f;
+import me.broscolotos.diversedecor.core.Utility;
 import me.broscolotos.diversedecor.render.RenderTileEntity;
 import me.broscolotos.diversedecor.render.models.ModelParkPostCurve;
 import me.broscolotos.diversedecor.tiles.TilePostCurve;
@@ -20,6 +21,7 @@ public class RenderParkPostCurve extends RenderTileEntity {
         setTexture(texture);
         this.model = new ModelParkPostCurve();
     }
+
     @Override
     public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
         if(!(tileEntity instanceof TilePostCurve)){return;}
@@ -61,28 +63,18 @@ public class RenderParkPostCurve extends RenderTileEntity {
         }
         if (this.block == null || this.block != block) {
             this.block = block;
-            int damage = block.getDamageValue(tileEntity.getWorldObj(), (int) blockPos.x, (int) blockPos.y, (int) blockPos.z);
-            if (block instanceof BlockWall) {
-                GL11.glTranslatef(0.125f, 0, 0);
-                ((TilePostCurve) tileEntity).offset = -0.125f;
-            } else if (block.getUnlocalizedName().equalsIgnoreCase("tile.railcraft.post") && (damage == 1 || damage == 5)) {
-                GL11.glTranslatef(0.0625f, 0, 0);
-                ((TilePostCurve) tileEntity).offset = -0.0625f;
-            } else if (!(block instanceof BlockAir) && !(block instanceof BlockFence
-                    || (block.getUnlocalizedName().equalsIgnoreCase("tile.immersiveEngineering.metalDecoration") && damage == 0)
-                    || (block.getUnlocalizedName().equalsIgnoreCase("tile.immersiveEngineering.woodenDecoration") && damage == 1)
-                    || block.getUnlocalizedName().equalsIgnoreCase("tile.blockCarpentersBarrier")
-                    || block.getUnlocalizedName().equalsIgnoreCase("tile.railcraft.post.metal")
-                    || block.getUnlocalizedName().equalsIgnoreCase("tile.railcraft.post.metal.platform")
-                    || (block.getUnlocalizedName().equalsIgnoreCase("tile.railcraft.post")) && (damage == 0 || damage == 2 || damage == 4 || damage == 6))) {
-                GL11.glTranslatef(0.375f, 0, 0);
-                ((TilePostCurve) tileEntity).offset = -0.375f;
-            } else {
-                ((TilePostCurve) tileEntity).offset = 0f;
-            }
-        } else {
-            GL11.glTranslatef(-((TilePostCurve) tileEntity).offset, 0, 0);
         }
+        int damage = block.getDamageValue(tileEntity.getWorldObj(), (int) blockPos.x, (int) blockPos.y, (int) blockPos.z);
+        if (block instanceof BlockWall) {
+            ((TilePostCurve) tileEntity).offset = -0.125f;
+        } else if (block.getUnlocalizedName().equalsIgnoreCase("tile.railcraft.post") && (damage == 1 || damage == 5)) {
+            ((TilePostCurve) tileEntity).offset = -0.0625f;
+        } else if (!(block instanceof BlockAir) && !(Utility.isFence(tileEntity.getWorldObj(), (int) blockPos.x, (int) blockPos.y, (int) blockPos.z, block))) {
+            ((TilePostCurve) tileEntity).offset = -0.375f;
+        } else {
+            ((TilePostCurve) tileEntity).offset = 0f;
+        }
+        GL11.glTranslatef(-((TilePostCurve) tileEntity).offset, 0, 0);
         model.render(null, 0, 0, 0, 0, 0, 0.0625f);
         GL11.glPopMatrix();
     }

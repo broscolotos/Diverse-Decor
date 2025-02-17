@@ -1,6 +1,8 @@
 package me.broscolotos.diversedecor.render.tilerenders;
 
 import ddfexcraft.tmt.slim.Tessellator;
+import ddfexcraft.tmt.slim.Vec3f;
+import me.broscolotos.diversedecor.core.Utility;
 import me.broscolotos.diversedecor.render.RenderTileEntity;
 import me.broscolotos.diversedecor.render.models.ModelFancyWallLight;
 import me.broscolotos.diversedecor.tiles.TileFancyWallLightDiagonal;
@@ -24,6 +26,7 @@ public class RenderFancyWallLightDiagonal extends RenderTileEntity {
         GL11.glRotatef(180F, 1F, 0F, 0F);
         int dir = ((TileFancyWallLightDiagonal)tileEntity).dir;
         Block block = tileEntity.getWorldObj().getBlock(tileEntity.xCoord-1, tileEntity.yCoord, tileEntity.zCoord-1);
+        Vec3f blockPos = new Vec3f(tileEntity.xCoord-1, tileEntity.yCoord, tileEntity.zCoord-1);
         switch(dir) {
             case 0:{// north
                 GL11.glRotated(45,0,1,0);
@@ -31,24 +34,27 @@ public class RenderFancyWallLightDiagonal extends RenderTileEntity {
             }
             case 3: {//west
                 block = tileEntity.getWorldObj().getBlock(tileEntity.xCoord-1, tileEntity.yCoord, tileEntity.zCoord+1);
+                blockPos = new Vec3f(tileEntity.xCoord-1, tileEntity.yCoord, tileEntity.zCoord+1);
                 GL11.glTranslated(0, 0, -1.125);
                 GL11.glRotated(-45,0,1,0);
                 break;
             }
             case 1: {//east
                 block = tileEntity.getWorldObj().getBlock(tileEntity.xCoord+1, tileEntity.yCoord, tileEntity.zCoord-1);
+                blockPos = new Vec3f(tileEntity.xCoord+1, tileEntity.yCoord, tileEntity.zCoord-1);
                 GL11.glTranslated(1.125, 0, 0.0);
                 GL11.glRotated(135,0,1,0);
                 break;
             }
             case 2: {//south
                 block = tileEntity.getWorldObj().getBlock(tileEntity.xCoord+1, tileEntity.yCoord, tileEntity.zCoord+1);
+                blockPos = new Vec3f(tileEntity.xCoord+1, tileEntity.yCoord, tileEntity.zCoord+1);
                 GL11.glTranslated(1.125, 0, -1.125);
                 GL11.glRotated(225,0,1,0);
                 break;
             }
         }
-        if (block instanceof BlockFence) {
+        if (Utility.isFence(tileEntity.getWorldObj(), (int) blockPos.x, (int) blockPos.y, (int) blockPos.z, block)) {
             GL11.glTranslatef(-0.5f,0,0);
         }
         if (block instanceof BlockWall) {

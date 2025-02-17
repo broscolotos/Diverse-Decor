@@ -1,6 +1,9 @@
 package me.broscolotos.diversedecor.core;
 
 import me.broscolotos.diversedecor.core.handler.BlockIDs;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFence;
+import net.minecraft.world.World;
 
 public class Utility {
 
@@ -24,5 +27,17 @@ public class Utility {
             }
         }
         return null;
+    }
+
+    public static boolean isFence(World worldObj, int x, int y, int z, Block block) {
+
+        int damage = block.getDamageValue(worldObj, x, y, z);
+        return block instanceof BlockFence
+                || (block.getUnlocalizedName().equalsIgnoreCase("tile.immersiveEngineering.metalDecoration") && damage == 0)
+                || (block.getUnlocalizedName().equalsIgnoreCase("tile.immersiveEngineering.woodenDecoration") && damage == 1)
+                || block.getUnlocalizedName().equalsIgnoreCase("tile.blockCarpentersBarrier")
+                || block.getUnlocalizedName().equalsIgnoreCase("tile.railcraft.post.metal")
+                || block.getUnlocalizedName().equalsIgnoreCase("tile.railcraft.post.metal.platform")
+                || (block.getUnlocalizedName().equalsIgnoreCase("tile.railcraft.post")) && (damage == 0 || damage == 2 || damage == 4 || damage == 6);
     }
 }

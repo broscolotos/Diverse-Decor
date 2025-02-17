@@ -7,6 +7,8 @@ import me.broscolotos.diversedecor.DiverseDecor;
 import me.broscolotos.diversedecor.blocks.decoration.*;
 import me.broscolotos.diversedecor.blocks.itemblocks.*;
 import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.*;
+import me.broscolotos.diversedecor.blocks.normal.blocks.other.InlayBrickBlock;
+import me.broscolotos.diversedecor.blocks.normal.blocks.other.TurfBlock;
 import me.broscolotos.diversedecor.blocks.normal.blocks.standard.*;
 import me.broscolotos.diversedecor.tiles.*;
 import net.minecraft.block.Block;
@@ -145,11 +147,14 @@ public class BlockHandler {
         BlockIDs.blockVerticalBrickPale.block = new StandardBlock(Material.rock, "pale_vertical_brick", DiverseDecor.MODID + ":bricks/vertical/pale_vertical_brick", 1);
         BlockIDs.blockBrickBlack.block = new StandardBlock(Material.rock, "black_brick", DiverseDecor.MODID + ":bricks/black/black_brick",1);
         BlockIDs.blockLargeBrickGranite.block = new StandardBlock(Material.rock, "granite_large_brick", DiverseDecor.MODID + ":bricks/large/granite_large_brick", 3);
-        BlockIDs.blockSlate.block = new StandardBlock(Material.rock, "slate", DiverseDecor.MODID + ":stones/slate/slate", 2);
+        BlockIDs.blockSlate.block = new StandardBlock(Material.rock, "slate", DiverseDecor.MODID + ":stones/slate/slate", 10);
         BlockIDs.blockStone.block = new StandardBlock(Material.rock, "colored_block", DiverseDecor.MODID + ":generic/colored/colored_block",10);
-
-/*        BlockIDs.slabBrick1.block = new SlabBrick1Block(false).setCreativeTab(DiverseDecor.diverseDecorBlockTab);
-        BlockIDs.slabDoubleBrick1.block = new SlabBrick1Block(true);*/
+        BlockIDs.blockBrickNormal.block = new StandardBlock(Material.rock, "normal_brick", DiverseDecor.MODID + ":bricks/darkmortar/normal", 1);
+        BlockIDs.blockColoredSteel.block = new StandardBlock(Material.iron, "colored_steel", DiverseDecor.MODID + ":metal/steel/coloredSteel_0", 1);
+        BlockIDs.blockDirt.block = new StandardBlock(Material.grass, "dirt", DiverseDecor.MODID + ":dirt/dirt", 2);
+        //special beans
+        BlockIDs.blockTurf.block = new TurfBlock();
+        BlockIDs.blockBrickInlay.block = new InlayBrickBlock();
 
 
         for (BlockIDs block : BlockIDs.values()) {
@@ -174,11 +179,7 @@ public class BlockHandler {
         }
         if(e.getSide().isClient()) {
             RenderBlockHandler.initializeCustomModels();
-            //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlockIDs.picnicTable.block), new ItemRenderer(((DecorationBlock)BlockIDs.picnicTable.block).tileEntity.model, ((DecorationBlock)BlockIDs.picnicTable.block).tileEntity.texture, ((DecorationBlock)BlockIDs.picnicTable.block).offset, ((DecorationBlock)BlockIDs.picnicTable.block).scale));
-
         }
-
-        //FoxBlocks.blockLogger.info("BlockRegister Post Init at com.bidahochi.BlockMod.core.handler.blockHandler");
     }
 
 }
