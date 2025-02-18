@@ -16,21 +16,25 @@ public class ItemHandler {
     public static void initItemRegisterClient(FMLInitializationEvent e) {
         //helmet
         ItemIDs.testhat.item = new GenericArmor(DiverseDecor.instance.armor,0,0, EnumCosmetics.capotain.model, "capotain");
-        ItemIDs.conehat.item = new GenericArmor(DiverseDecor.instance.armor,0,0, EnumCosmetics.coneHat.model, "traffic_cone");
+        ItemIDs.conehat.item = new GenericArmor(DiverseDecor.instance.armor,0,0, EnumCosmetics.coneHat.model, "traffic cone");
         ItemIDs.ashBaseballHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.ashBaseballHat.model,"baseball hat/ash");
         ItemIDs.foxyGrandpaBaseballHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.foxyGrandpaBaseballHat.model,"baseball hat/foxy grandpa");
         ItemIDs.strawHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.strawHat.model,"straw hat/cyan");
         ItemIDs.vrGoggles.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.vrGoggles.model, "vr goggles");
         ItemIDs.bearHat.item = new GenericArmor(DiverseDecor.instance.armor, 0,0,EnumCosmetics.bearHat.model,"bear hat");
+        ItemIDs.cowboyHat.item = new GenericArmor(DiverseDecor.instance.armor, 0,0,EnumCosmetics.cowboyHat.model, "cowboy hat");
         ItemIDs.santaHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.santaHat.model, "santa hat");
         ItemIDs.santaHatSideways.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.santaHatSideways.model, "santa hat sideways");
         ItemIDs.deerHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.deerHat.model, "deer hat");
         ItemIDs.beanieHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0, EnumCosmetics.beanieHat.model, "beanie/red_beanie");
+        ItemIDs.constructionHelmet.item = new GenericArmor(DiverseDecor.instance.armor, 0,0, EnumCosmetics.constructionHelmet.model, "construction helmet");
+        ItemIDs.blackHeadphones.item = new GenericArmor(DiverseDecor.instance.armor, 0,0, EnumCosmetics.headphones.model, "headphones/black");
+        ItemIDs.pinkKittyHeadphones.item = new GenericArmor(DiverseDecor.instance.armor, 0,0, EnumCosmetics.kittyHeadphones.model, "kitty headphones/pink");
+        ItemIDs.hotdogHat.item = new GenericArmor(DiverseDecor.instance.armor, 0,0, EnumCosmetics.hotdogHat.model, "hotdog");
 
         //chestplate
         ItemIDs.shoulderTrain.item = new GenericArmor(DiverseDecor.instance.armor, 0, 1, EnumCosmetics.shoulderTrain.model,"wooden train", new Vec3f(2.5f, 2.5f, 2.5f), new Vec3f(0.375f,0.625f,0));
         ItemIDs.umbrella.item = new GenericArmor(DiverseDecor.instance.armor,0,1,EnumCosmetics.umbrella.model,"umbrella", new Vec3f(0.7f,0.7f,0.7f), new Vec3f(0.125f,0.5f,0));
-        ItemIDs.cowboyHat.item = new GenericArmor(DiverseDecor.instance.armor, 0,0,EnumCosmetics.cowboyHat.model, "cowboy hat");
         register();
     }
 
@@ -49,6 +53,10 @@ public class ItemHandler {
         ItemIDs.santaHatSideways.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0);
         ItemIDs.deerHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0);
         ItemIDs.beanieHat.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0);
+        ItemIDs.constructionHelmet.item = new GenericArmor(DiverseDecor.instance.armor, 0, 0);
+        ItemIDs.blackHeadphones.item = new GenericArmor(DiverseDecor.instance.armor, 0,0);
+        ItemIDs.pinkKittyHeadphones.item = new GenericArmor(DiverseDecor.instance.armor, 0,0);
+        ItemIDs.hotdogHat.item = new GenericArmor(DiverseDecor.instance.armor, 0,0);
 
         //chesplate
         ItemIDs.umbrella.item = new GenericArmor(DiverseDecor.instance.armor,0,1);

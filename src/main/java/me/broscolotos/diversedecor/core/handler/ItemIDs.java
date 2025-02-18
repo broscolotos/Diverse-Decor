@@ -5,31 +5,31 @@ import net.minecraft.item.Item;
 public enum ItemIDs {
 
     //bulb("bulb", "bulb", "bulb"),
-    testhat("testhat","testhat","testhat"),
-    conehat("conehat","conehat","conehat"),
-    umbrella("umbrella","umbrella","umbrella"),
-    ashBaseballHat("ashBaseballHat","ashBaseballHat","ashBaseballHat"),
-    foxyGrandpaBaseballHat("foxyGrandpaBaseballHat","foxyGrandpaBaseballHat","foxyGrandpaBaseballHat"),
-    strawHat("strawHat","strawHat","strawHat"),
-    vrGoggles("vrGoggles","vrGoggles","vrGoggles"),
-    bearHat("bearHat","bearHat","bearHat"),
-    shoulderTrain("shoulderTrain","shoulderTrain","shoulderTrain"),
-    cowboyHat("cowboyHat","cowboyHat","cowboyHat"),
-    santaHat("santaHat","santaHat","santaHat"),
-    santaHatSideways("santaHatSideways","santaHatSideways","santaHatSideways"),
-    deerHat("deerHat","deerHat","deerHat"),
-    beanieHat("beanieHat","beanieHat","beanieHat"),
+    testhat("testhat"),
+    conehat("conehat"),
+    umbrella("umbrella"),
+    ashBaseballHat("ashBaseballHat"),
+    foxyGrandpaBaseballHat("foxyGrandpaBaseballHat"),
+    strawHat("strawHat"),
+    vrGoggles("vrGoggles"),
+    bearHat("bearHat"),
+    shoulderTrain("shoulderTrain"),
+    cowboyHat("cowboyHat"),
+    santaHat("santaHat"),
+    santaHatSideways("santaHatSideways"),
+    deerHat("deerHat"),
+    beanieHat("beanieHat"),
+    constructionHelmet("constructionHelmet"),
+    hotdogHat("hotdogHat"),
+    blackHeadphones("blackHeadphones"),
+    pinkKittyHeadphones("pinkKittyHeadphones"),
 
     ;
 
     public Item item;
-    public String className;
-    public String iconName;
     public String itemName;
 
-    ItemIDs(String itemClassName, String iconName, String itemName) {
-        this.className = itemClassName;
-		this.iconName = iconName;
+    ItemIDs(String itemName) {
 		this.itemName = itemName;
     }
 

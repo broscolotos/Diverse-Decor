@@ -174,6 +174,7 @@ tile.Cash Register.name=Cash Register
 tile.Flatscreen TV (2x1).name=Flatscreen TV (2x1)
 tile.Log Chair.name=Log Chair
 tile.Monitor.name=Computer Monitor
+tile.Traffic Cone.name=Traffic Cone
 
 <!-- ## COSMETICS ## -->
 item.diversedecor:testhat.name=Capotain
@@ -189,6 +190,12 @@ item.diversedecor:cowboyHat.name=Cowboy Hat
 item.diversedecor:santaHat.name=Santa Hat
 item.diversedecor:santaHatSideways.name=Santa Hat Sideways
 item.diversedecor:deerHat.name=Antler Party Hat
+item.diversedecor:beanieHat.name=Beanie
+item.diversedecor:hotdogHat.name=Hotdog Hat
+item.diversedecor:pinkKittyHeadphones.name=Pink Kitty Headset
+item.diversedecor:blackHeadphones.name=Black Headset
+item.diversedecor:constructionHelmet.name=Construction Helmet
+
 
 
 <!-- ## ITEMS ## -->

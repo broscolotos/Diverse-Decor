@@ -18,6 +18,7 @@ public class RenderBlockHandler {
         ClientRegistry.bindTileEntitySpecialRenderer(Tile2x1FlatTV.class, new Render2x1FlatTV("2x1 flat tv"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileLogChair.class, new RenderLogChair());
         ClientRegistry.bindTileEntitySpecialRenderer(TileMonitor.class, new RenderMonitor("monitor"));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileTrafficCone.class, new RenderTrafficCone("traffic cone"));
 
         //RenderingRegistry.registerBlockHandler(transparentRenderID, new BlockRenderTransparent(transparentRenderID));
     }

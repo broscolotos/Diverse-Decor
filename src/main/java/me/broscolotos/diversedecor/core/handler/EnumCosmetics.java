@@ -17,7 +17,11 @@ public enum EnumCosmetics {
     santaHat(new ModelSantaHat()),
     santaHatSideways(new ModelSantaHatSideways()),
     deerHat(new ModelDeerHat()),
-    beanieHat(new ModelBeanie())
+    beanieHat(new ModelBeanie()),
+    constructionHelmet(new ModelConstructionHat()),
+    headphones(new ModelHeadphones()),
+    kittyHeadphones(new ModelKittyHeadphones()),
+    hotdogHat(new ModelHotdogHat())
     ;
 
     public ModelCustomArmor model;

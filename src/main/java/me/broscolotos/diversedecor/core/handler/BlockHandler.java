@@ -24,9 +24,10 @@ public class BlockHandler {
         BlockIDs.picnicTable.block = new DecorationBlock(Material.wood)
                 .setName("Picnic Table")
                 .setSeatPos(new Vec3f[]{new Vec3f(-0.85,0.4,0), new Vec3f(0.85,0.4,0.0)})
-                .bounds(new float[][]{{0,0,-1,1,0.8125f,2}})
                 .setTileEntity(new TilePicnicTable())
                 .setTool("axe",1)
+                .setItemScale(new Vec3f(0.45, 0.45, 0.45))
+                .setItemOffset(new Vec3f(0,0.2,0))
                 .setHardness(1)
                 .setResistance(2)
                 .setStepSound(Block.soundTypeWood);
@@ -37,8 +38,8 @@ public class BlockHandler {
                 .setTileEntity(new TileFancyWallLight())
                 .setTool("pickaxe", 1)
                 .setItemScale(new Vec3f(1.15, 1.15, 1.15))
-                .setItemOffset(new Vec3f(0, 0.0625, 0))
-                .setItemRotation(new Vec3f(0,-45,0))
+                .setItemOffset(new Vec3f(0, 0.375, 0.875))
+                .setItemRotation(new Vec3f(0,45,0))
                 .setHardness(1)
                 .setResistance(2)
                 .setStepSound(Block.soundTypeMetal)
@@ -52,7 +53,7 @@ public class BlockHandler {
                 .setTool("pickaxe", 1)
                 .setItemScale(new Vec3f(1.15, 1.15, 1.15))
                 .setItemOffset(new Vec3f(-0.875, 0.0625, 0))
-                .setItemRotation(new Vec3f(0,-45,0))
+                .setItemRotation(new Vec3f(0, 0,0))
                 .setHardness(1)
                 .setResistance(2)
                 .setStepSound(Block.soundTypeMetal)
@@ -73,6 +74,8 @@ public class BlockHandler {
                 .setName("Post Curve")
                 .setTileEntity(new TilePostCurve())
                 .setTool("pickaxe", 1)
+                .setItemScale(new Vec3f(1.25,1.25,1.25))
+                .setItemOffset(new Vec3f(0,0.375,0.75))
                 .setHardness(1)
                 .setResistance(2)
                 .setStepSound(Block.soundTypeMetal);
@@ -82,6 +85,8 @@ public class BlockHandler {
                 .setName("Post Topper")
                 .setTileEntity(new TilePostTopper())
                 .setTool("pickaxe",1)
+                .setItemScale(new Vec3f(2,2,2))
+                .setItemOffset(new Vec3f(0,0.875,0))
                 .setHardness(1)
                 .setResistance(2)
                 .setStepSound(Block.soundTypeMetal);
@@ -91,6 +96,7 @@ public class BlockHandler {
                 .setName("Cash Register")
                 .setTileEntity(new TileCashRegister())
                 .setTool("pickaxe",1)
+                .setItemOffset(new Vec3f(0,-0.25,0))
                 .setHardness(1)
                 .setResistance(2)
                 .setStepSound(Block.soundTypeMetal);
@@ -100,6 +106,9 @@ public class BlockHandler {
                 .setName("Flatscreen TV (2x1)")
                 .setTileEntity(new Tile2x1FlatTV())
                 .setTool("pickaxe",1)
+                .setItemScale(new Vec3f(0.75,0.75,0.75))
+                .setItemRotation(new Vec3f(0,180,0))
+                .setItemOffset(new Vec3f(0,-0.375,0))
                 .setHardness(1)
                 .setResistance(2)
                 .setStepSound(Block.soundTypeMetal);
@@ -121,10 +130,22 @@ public class BlockHandler {
                 .setName("Monitor")
                 .setTileEntity(new TileMonitor())
                 .setTool("pickaxe", 1)
+                .setItemOffset(new Vec3f(0,-0.375,0))
+                .setItemScale(new Vec3f(1.2,1.2,1.2))
                 .setHardness(1)
                 .setResistance(2)
                 .setStepSound(Block.soundTypeMetal);
         GameRegistry.registerTileEntity(TileMonitor.class, "monitor.tile");
+
+        BlockIDs.trafficCone.block = new DecorationBlock(Material.rock)
+                .setName("Traffic Cone")
+                .setTileEntity(new TileTrafficCone())
+                .setTool("pickaxe", 1)
+                .setItemOffset(new Vec3f(0,-0.5,0))
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeStone);
+        GameRegistry.registerTileEntity(TileTrafficCone.class, "trafficcone.tile");
 
         //dynamic
         BlockIDs.blockBrickOrange.block = new DynamicBlock(Material.rock, "orange_brick", DiverseDecor.MODID+":bricks/orange/orange_brick", 3);

@@ -41,6 +41,7 @@ public enum BlockIDs
     flatTV2x1(false, GenericPropItemBlock.class, "flat_tv2x1", -1),
     logChair(true, GenericPropItemBlock.class, "log_chair", -1),
     monitor(false, GenericPropItemBlock.class, "monitor", -1),
+    trafficCone(false,GenericPropItemBlock.class, "traffic_cone", -1),
 
 
     blockBrickOrange(true, GenericItemBlock.class, "blockBrickOrange", 1, true),
