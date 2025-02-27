@@ -25,13 +25,13 @@ public class DynamicBlock extends StandardBlock {
     //get the texture to render in the inventory. Default is the first one.
     @Override
     public IIcon getIcon ( int side, int meta){
-        return this.textures.get(0);
+        return this.textures[0];
     }
 
     //randomly assign the texture for the block.
     @Override
     public IIcon getIcon (IBlockAccess world, int x, int y, int z, int side) {
-        return this.textures.get(Math.abs(new Random((long) x*x*y*z).nextInt())%textAmt);
+        return this.textures[Math.abs(new Random((long) x*x*y*z).nextInt())%textAmt];
     }
 
     @Override

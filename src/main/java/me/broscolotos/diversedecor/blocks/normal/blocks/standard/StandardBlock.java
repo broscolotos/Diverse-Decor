@@ -14,7 +14,7 @@ import java.util.List;
 
 public class StandardBlock extends Block {
 
-    public LinkedList<IIcon> textures = new LinkedList<>();
+    public IIcon[] textures = new IIcon[16];
     public int textAmt;
 
     public StandardBlock(Material material) {
@@ -61,17 +61,17 @@ public class StandardBlock extends Block {
     public void registerBlockIcons(IIconRegister reg) {
         if (textAmt != 1) {
             for (int i = 0; i < textAmt; i++) {
-                this.textures.add(reg.registerIcon(this.textureName + "_" + i));
+                this.textures[i] = reg.registerIcon(this.textureName + "_" + i);
             }
         }
         else {
-            this.textures.add(reg.registerIcon(this.textureName));
+            this.textures[0] = reg.registerIcon(this.textureName);
         }
     }
 
     public IIcon getIcon ( int side, int meta){
         if (meta > textAmt) meta = 0;
-        return this.textures.get(meta);
+        return this.textures[meta];
     }
 
     public int damageDropped( int oldmeta){

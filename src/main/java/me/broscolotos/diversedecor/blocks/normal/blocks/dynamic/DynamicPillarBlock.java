@@ -19,11 +19,11 @@ public class DynamicPillarBlock extends DynamicBlock {
     @Override
     public IIcon getIcon (IBlockAccess world, int x, int y, int z, int side) { //#!# rework later to support more than two textures.
         if (world.getBlock(x,y-1,z) instanceof DynamicPillarBlock
-        && world.getBlock(x,y-1,z).getIcon(world,z,y-1,z, side) == this.textures.get(1)) {
-            return this.textures.get(0);
+        && world.getBlock(x,y-1,z).getIcon(world,z,y-1,z, side) == this.textures[1]) {
+            return this.textures[0];
         }
         else {
-            return this.textures.get(1);
+            return this.textures[1];
         }
     }
 }

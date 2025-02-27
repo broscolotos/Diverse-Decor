@@ -10,10 +10,7 @@ public class GenericItemBlock extends ItemBlockWithMetadata {
         super(block, block);
     }
 
-    public String getUnlocalizedName( ItemStack item){
-        if (this.getUnlocalizedName().toLowerCase().contains("stair") || this.getUnlocalizedName().toLowerCase().contains("slab")) {
-            return this.getUnlocalizedName();
-        }
+    public String getUnlocalizedName(ItemStack item) {
         return this.getUnlocalizedName() + "_" + item.getItemDamage();
     }
 }

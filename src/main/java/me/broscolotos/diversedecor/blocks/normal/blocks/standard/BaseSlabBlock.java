@@ -26,6 +26,7 @@ public class BaseSlabBlock extends BlockSlab {
 
     public BlockIDs host;
     public byte meta;
+    public final String blockName;
 
     public BaseSlabBlock(boolean par2, Material mat, float resistance, float hardness, String name, BlockIDs block) {
         super(par2, mat);
@@ -33,6 +34,7 @@ public class BaseSlabBlock extends BlockSlab {
         this.setStepSound(soundTypeStone);
         this.setResistance(resistance);
         this.setHardness(hardness);
+        blockName = name;
         this.setBlockName(name);
         this.host = block;
         this.meta = 0;
@@ -48,6 +50,7 @@ public class BaseSlabBlock extends BlockSlab {
         }
         this.setResistance(resistance);
         this.setHardness(hardness);
+        blockName = name;
         this.setBlockName(name);
         this.setHarvestLevel(block.tool, 1);
         this.host = block;
