@@ -71,7 +71,9 @@ public class EntityChair extends Entity {
     @Override
     public void onEntityUpdate() {
         if (!this.worldObj.isRemote) {
-            if (this.riddenByEntity == null || this.worldObj.isAirBlock((int)blockPos.xCoord, (int)blockPos.yCoord, (int)blockPos.zCoord)) {
+            if (this.riddenByEntity == null
+                || blockPos == null
+                || this.worldObj.isAirBlock((int)blockPos.xCoord, (int)blockPos.yCoord, (int)blockPos.zCoord)) {
                 this.setDead();
             }
         }
