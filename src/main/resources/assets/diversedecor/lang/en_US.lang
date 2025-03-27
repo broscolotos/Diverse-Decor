@@ -52,6 +52,10 @@ tile.slate_8.name=Lignite
 tile.slate_9.name=Pyroxenite
 tile.dirt_0.name=Compacted Dirt
 tile.dirt_1.name=Rough Dirt
+tile.glass_0.name=Small Bubble Glass
+tile.glass_1.name=Tinted Small Bubble Glass
+tile.glass_2.name=Bubble Glass
+tile.glass_3.name=Tinted Bubble Glass
 
 <!-- ## SLABS ## -->
 tile.blockbrickorange0_slab.name=Orange Brick Slab

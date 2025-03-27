@@ -9,7 +9,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class StandardBlock extends Block {

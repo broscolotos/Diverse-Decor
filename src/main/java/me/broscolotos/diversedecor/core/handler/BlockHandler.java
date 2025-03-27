@@ -176,6 +176,7 @@ public class BlockHandler {
         //special beans
         BlockIDs.blockTurf.block = new TurfBlock();
         BlockIDs.blockBrickInlay.block = new InlayBrickBlock();
+        BlockIDs.blockGlass.block = new TransparentBlock(Material.glass, "glass", DiverseDecor.MODID + ":glass/glass", 4);
 
 
         for (BlockIDs block : BlockIDs.values()) {
