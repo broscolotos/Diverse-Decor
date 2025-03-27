@@ -177,6 +177,7 @@ public class BlockHandler {
         BlockIDs.blockTurf.block = new TurfBlock();
         BlockIDs.blockBrickInlay.block = new InlayBrickBlock();
         BlockIDs.blockGlass.block = new TransparentBlock(Material.glass, "glass", DiverseDecor.MODID + ":glass/glass", 4);
+        BlockIDs.blockBrickStucco.block = new StandardBlock(Material.rock, "stucco_brick", DiverseDecor.MODID + ":bricks/stucco/stucco_brick", 6);
 
 
         for (BlockIDs block : BlockIDs.values()) {

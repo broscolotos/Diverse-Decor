@@ -56,6 +56,12 @@ tile.glass_0.name=Small Bubble Glass
 tile.glass_1.name=Tinted Small Bubble Glass
 tile.glass_2.name=Bubble Glass
 tile.glass_3.name=Tinted Bubble Glass
+tile.stucco_brick_0.name=Large Stucco Bricks
+tile.stucco_brick_1.name=Large Stucco Bricks (Dirty)
+tile.stucco_brick_2.name=Mixed Stucco Bricks
+tile.stucco_brick_3.name=Mixed Stucco Bricks (Dirty)
+tile.stucco_brick_4.name=Stucco Bricks
+tile.stucco_brick_5.name=Stucco Bricks (Dirty)
 
 <!-- ## SLABS ## -->
 tile.blockbrickorange0_slab.name=Orange Brick Slab
@@ -111,6 +117,12 @@ tile.blockslate8_slab.name=Lignite Slab
 tile.blockslate9_slab.name=Pyroxenite Slab
 tile.blockdirt0_slab.name=Compacted Dirt Slab
 tile.blockdirt1_slab.name=Rough Dirt Slab
+tile.blockbrickstucco0_slab.name=Large Stucco Brick Slab
+tile.blockbrickstucco1_slab.name=Large Stucco Brick Slab (Dirty)
+tile.blockbrickstucco2_slab.name=Mixed Stucco Brick Slab
+tile.blockbrickstucco3_slab.name=Mixed Stucco Brick Slab (Dirty)
+tile.blockbrickstucco4_slab.name=Stucco Brick Slab
+tile.blockbrickstucco5_slab.name=Stucco Brick Slab (Dirty)
 
 <!-- ## STAIRS ## -->
 tile.blockbrickorange0_stair.name=Orange Brick Stairs
@@ -166,6 +178,12 @@ tile.blockslate8_stair.name=Lignite Stairs
 tile.blockslate9_stair.name=Pyroxenite Stairs
 tile.blockdirt0_stair.name=Compacted Dirt Stairs
 tile.blockdirt1_stair.name=Rough Dirt Stairs
+tile.blockbrickstucco0_stair.name=Large Stucco Brick Stairs
+tile.blockbrickstucco1_stair.name=Large Stucco Brick Stairs (Dirty)
+tile.blockbrickstucco2_stair.name=Mixed Stucco Brick Stairs
+tile.blockbrickstucco3_stair.name=Mixed Stucco Brick Stairs (Dirty)
+tile.blockbrickstucco4_stair.name=Stucco Brick Stairs
+tile.blockbrickstucco5_stair.name=Stucco Brick Stairs (Dirty)
 
 <!-- ## PROPS ## -->
 tile.Picnic Table.name=Picnic Table

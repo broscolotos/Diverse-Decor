@@ -68,6 +68,7 @@ public enum BlockIDs
     blockColoredSteel(true, GenericItemBlock.class, "blockColoredSteel", 1, true),
     blockDirt(true, GenericItemBlock.class, "blockDirt", 2, true),
     blockGlass(true, GenericItemBlock.class, "blockGlass", 4, false),
+    blockBrickStucco(true, GenericItemBlock.class, "blockBrickStucco", 6, true),
     ;
 
 
