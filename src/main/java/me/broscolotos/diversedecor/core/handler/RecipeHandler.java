@@ -154,10 +154,24 @@ public class RecipeHandler {
         GameRegistry.addShapelessRecipe(new ItemStack(BlockIDs.blockBrickInlay.block, 1, 0), new ItemStack(BlockIDs.blockBrickNormal.block, 1, 0));
 
         for (BlockIDs block : BlockIDs.values()) {
-            if (block.hasSlabStair) {
+            if (block.hasBools[0]) {
                 for (int i=0;i<block.MaxMetadata;i++) {
                     GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + i + "_stair"), 4, 0), "B  ", "BB ", "BBB", 'B', new ItemStack(block.block, 1, i));
-                    GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID,block.blockName.toLowerCase() + (byte)(i) + "_slab"), 6, 0), "   ", "   ", "BBB", 'B', new ItemStack(block.block, 1, i));
+                }
+            }
+            if (block.hasBools[1]) {
+                for (int i=0;i<block.MaxMetadata;i++) {
+                    GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID,block.blockName.toLowerCase() + (byte)(i) + "_slab"), 6, 0), "BBB", 'B', new ItemStack(block.block, 1, i));
+                }
+            }
+            if (block.hasBools[2]) {
+                for (int i = 0; i < block.MaxMetadata; i++) {
+                    GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_wall"), 6, 0), "BBB", "BBB", 'B', new ItemStack(block.block, 1, i));
+                }
+            }
+            if (block.hasBools[3]) {
+                for (int i = 0; i < block.MaxMetadata; i++) {
+                    GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence"), 6, 0), "B B", "B B", 'B', new ItemStack(block.block, 1, i));
                 }
             }
         }

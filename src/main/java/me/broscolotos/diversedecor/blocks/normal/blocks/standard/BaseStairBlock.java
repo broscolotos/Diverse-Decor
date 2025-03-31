@@ -50,7 +50,7 @@ public class BaseStairBlock extends BlockStairs {
         this.setResistance(10.0F);
         this.setHarvestLevel("pickaxe", 1);
         this.setStepSound(soundTypeStone);
-        this.setCreativeTab(DiverseDecor.diverseDecorBlockTab);
+        this.setCreativeTab(DiverseDecor.diverseDecorSubBlocksTab);
         this.useNeighborBrightness = true;
     }
 
@@ -63,7 +63,7 @@ public class BaseStairBlock extends BlockStairs {
         } else {
             this.setStepSound(soundTypeStone);
         }
-        this.setCreativeTab(DiverseDecor.diverseDecorBlockTab);
+        this.setCreativeTab(DiverseDecor.diverseDecorSubBlocksTab);
         this.useNeighborBrightness = true;
     }
 

@@ -186,13 +186,32 @@ public class BlockHandler {
             } else {
                 GameRegistry.registerBlock(block.block, block.itemBlockClass, block.blockName);
             }
-            if (block.hasSlabStair) {
-                //register slabs & stairs
+            //register stairs
+            if (block.hasBools[0]) {
                 for (int i=0; i<block.MaxMetadata; i++) {
-                    GameRegistry.registerBlock(new BaseSlabBlock(true, block.block.getMaterial(), 10f, 2f, block.blockName.toLowerCase() + (byte)(i) + "_doubleslab", block, (byte)(i)), GenericSlabItemBlock.class,  block.blockName.toLowerCase() + (byte)(i) + "_doubleslab"); //register the doubleslab first because the slab needs to reference it when registering.
-                    GameRegistry.registerBlock(new BaseSlabBlock(false, block.block.getMaterial(), 10f, 2f, block.blockName.toLowerCase() + (byte)(i) + "_slab", block, (byte)(i)).setCreativeTab(DiverseDecor.diverseDecorBlockTab), GenericSlabItemBlock.class, block.blockName.toLowerCase() + (byte)(i) + "_slab");
                     GameRegistry.registerBlock(new BaseStairBlock(block.blockName.toLowerCase() + i + "_stair", block.block.getMaterial(), block.block, block.tool, (byte)(i)), GenericItemBlock.class, block.blockName.toLowerCase() + i + "_stair");
                 }
+            }
+            //register slabs
+            if (block.hasBools[1]) {
+                for (int i=0; i<block.MaxMetadata; i++) {
+                    GameRegistry.registerBlock(new BaseSlabBlock(true, block.block.getMaterial(), 10f, 2f, block.blockName.toLowerCase() + (byte)(i) + "_doubleslab", block, (byte)(i)), GenericSlabItemBlock.class,  block.blockName.toLowerCase() + (byte)(i) + "_doubleslab"); //register the doubleslab first because the slab needs to reference it when registering.
+                    GameRegistry.registerBlock(new BaseSlabBlock(false, block.block.getMaterial(), 10f, 2f, block.blockName.toLowerCase() + (byte)(i) + "_slab", block, (byte)(i)).setCreativeTab(DiverseDecor.diverseDecorSubBlocksTab), GenericSlabItemBlock.class, block.blockName.toLowerCase() + (byte)(i) + "_slab");
+                }
+            }
+            //register walls
+            if (block.hasBools[2]) {
+                for (int i=0; i<block.MaxMetadata; i++) {
+                    GameRegistry.registerBlock(new BaseWallBlock(10f, 2f, block.blockName.toLowerCase() + (byte)(i) + "_wall", block, (byte)(i)).setCreativeTab(DiverseDecor.diverseDecorSubBlocksTab), GenericItemBlock.class, block.blockName.toLowerCase() + (byte)(i) + "_wall");
+                }
+
+            }
+            //register fences
+            if (block.hasBools[3]) {
+                for (int i=0; i<block.MaxMetadata; i++) {
+                    GameRegistry.registerBlock(new BaseFenceBlock("idkwhatthisdoes", block.block.getMaterial(), 10f, 2f, block.blockName.toLowerCase() + (byte)(i) + "_fence", block, (byte)(i)).setCreativeTab(DiverseDecor.diverseDecorSubBlocksTab), GenericItemBlock.class, block.blockName.toLowerCase() + (byte)(i) + "_fence");
+                }
+
             }
             if (e.getSide().isClient()) {
                 if (block.block instanceof DecorationBlock){

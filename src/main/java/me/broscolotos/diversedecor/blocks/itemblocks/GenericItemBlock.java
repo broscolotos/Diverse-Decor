@@ -11,7 +11,7 @@ public class GenericItemBlock extends ItemBlockWithMetadata {
     }
 
     public String getUnlocalizedName( ItemStack item) {
-        if (this.getUnlocalizedName().toLowerCase().contains("stair") || this.getUnlocalizedName().toLowerCase().contains("slab")) {
+        if (this.getUnlocalizedName().toLowerCase().contains("stair") || this.getUnlocalizedName().toLowerCase().contains("slab") || this.getUnlocalizedName().toLowerCase().contains("fence") || this.getUnlocalizedName().toLowerCase().contains("wall")) {
             return this.getUnlocalizedName();
         }
         return this.getUnlocalizedName() + "_" + item.getItemDamage();

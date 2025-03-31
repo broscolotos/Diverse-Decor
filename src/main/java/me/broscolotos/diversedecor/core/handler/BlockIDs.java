@@ -43,32 +43,32 @@ public enum BlockIDs
     monitor(false, GenericPropItemBlock.class, "monitor", -1),
     trafficCone(false,GenericPropItemBlock.class, "traffic_cone", -1),
 
-
-    blockBrickOrange(true, GenericItemBlock.class, "blockBrickOrange", 1, true),
-    blockBrickBrown(true, GenericItemBlock.class, "blockBrickBrown", 1, true),
-    blockBrickBlueGray(true, GenericItemBlock.class, "blockBrickBlueGray", 1, true),
-    blockBrickLightGray(true, GenericItemBlock.class, "blockBrickLightGray", 1, true),
-    blockBrickNeutral(true, GenericItemBlock.class, "blockBrickNeutral", 1, true),
-    blockBrickMessyTan(true, GenericItemBlock.class, "blockBrickMessyTan", 1, true),
-    blockBrickPale(true, GenericItemBlock.class, "blockBrickPale", 1, true),
-    blockBrickRose(true, GenericItemBlock.class, "blockBrickRose",1, true),
-    blockAgedStucco(true, GenericItemBlock.class, "blockAgedStucco",1, true),
-    blockWoodPanel(true, GenericItemBlock.class, "blockWoodPanel",8, true, "axe"),
-    blockCement(true, GenericItemBlock.class, "blockCement",3, true),
-    blockPolishedStone(true, GenericItemBlock.class, "blockPolishedStone",1, true),
-    blockVerticalBrickPale(true, GenericItemBlock.class, "blockVerticalBrickPale",1, true),
-    blockBrickBlack(true, GenericItemBlock.class, "blockBrickBlack",1, true),
-    blockBrickWhite(true, GenericItemBlock.class, "blockBrickWhite",1, true),
-    blockLargeBrickGranite(true, GenericItemBlock.class, "blockLargeBrickGranite", 3, true),
-    blockSlate(true, GenericItemBlock.class, "blockSlate", 10, true),
-    blockStone(true, GenericItemBlock.class, "blockColored",10,true),
-    blockTurf(true, GenericItemBlock.class, "blockTurf", 1, true),
-    blockBrickNormal(true, GenericItemBlock.class, "blockBrickNormal", 1, true),
-    blockBrickInlay(true, GenericItemBlock.class, "blockBrickInlay", 1, true),
-    blockColoredSteel(true, GenericItemBlock.class, "blockColoredSteel", 1, true),
-    blockDirt(true, GenericItemBlock.class, "blockDirt", 2, true),
-    blockGlass(true, GenericItemBlock.class, "blockGlass", 4, false),
-    blockBrickStucco(true, GenericItemBlock.class, "blockBrickStucco", 6, true),
+    //normal blocks; if you pass the boolean array it NEEDS to have 4 arguments. Stairs, Slabs, Walls, Fences; in that order.
+    blockBrickOrange(true, GenericItemBlock.class, "blockBrickOrange", 1, new boolean[]{true,true,false,false}),
+    blockBrickBrown(true, GenericItemBlock.class, "blockBrickBrown", 1, new boolean[]{true,true,false,false}),
+    blockBrickBlueGray(true, GenericItemBlock.class, "blockBrickBlueGray", 1, new boolean[]{true,true,false,false}),
+    blockBrickLightGray(true, GenericItemBlock.class, "blockBrickLightGray", 1, new boolean[]{true,true,false,false}),
+    blockBrickNeutral(true, GenericItemBlock.class, "blockBrickNeutral", 1, new boolean[]{true,true,false,false}),
+    blockBrickMessyTan(true, GenericItemBlock.class, "blockBrickMessyTan", 1, new boolean[]{true,true,false,false}),
+    blockBrickPale(true, GenericItemBlock.class, "blockBrickPale", 1, new boolean[]{true,true,false,false}),
+    blockBrickRose(true, GenericItemBlock.class, "blockBrickRose",1, new boolean[]{true,true,false,false}),
+    blockAgedStucco(true, GenericItemBlock.class, "blockAgedStucco",1, new boolean[]{true,true,false,false}),
+    blockWoodPanel(true, GenericItemBlock.class, "blockWoodPanel",8, new boolean[]{true,true,false,false}, "axe"),
+    blockCement(true, GenericItemBlock.class, "blockCement",3, new boolean[]{true,true,false,false}),
+    blockPolishedStone(true, GenericItemBlock.class, "blockPolishedStone",1, new boolean[]{true,true,false,false}),
+    blockVerticalBrickPale(true, GenericItemBlock.class, "blockVerticalBrickPale",1, new boolean[]{true,true,false,false}),
+    blockBrickBlack(true, GenericItemBlock.class, "blockBrickBlack",1, new boolean[]{true,true,false,false}),
+    blockBrickWhite(true, GenericItemBlock.class, "blockBrickWhite",1, new boolean[]{true,true,false,false}),
+    blockLargeBrickGranite(true, GenericItemBlock.class, "blockLargeBrickGranite", 3, new boolean[]{true,true,false,false}),
+    blockSlate(true, GenericItemBlock.class, "blockSlate", 10, new boolean[]{true,true,false,false}),
+    blockStone(true, GenericItemBlock.class, "blockColored",10,new boolean[]{true,true,false,false}),
+    blockTurf(true, GenericItemBlock.class, "blockTurf", 1, new boolean[]{true,true,false,false}),
+    blockBrickNormal(true, GenericItemBlock.class, "blockBrickNormal", 1, new boolean[]{true,true,false,false}),
+    blockBrickInlay(true, GenericItemBlock.class, "blockBrickInlay", 1, new boolean[]{true,true,false,false}),
+    blockColoredSteel(true, GenericItemBlock.class, "blockColoredSteel", 1, new boolean[]{true,true,false,false}),
+    blockDirt(true, GenericItemBlock.class, "blockDirt", 2, new boolean[]{true,true,false,false}),
+    blockGlass(true, GenericItemBlock.class, "blockGlass", 4, new boolean[]{false,false,false,false}),
+    blockBrickStucco(true, GenericItemBlock.class, "blockBrickStucco", 6, new boolean[]{true,true,false,false}),
     ;
 
 
@@ -81,7 +81,7 @@ public enum BlockIDs
      * 0 Enabled the use of multipart on the block and will allow for only the base block to use Multipart
      */
     public byte MaxMetadata;
-    public boolean hasSlabStair;
+    public boolean[] hasBools = new boolean[]{false, false, false, false};
     public String tool;
 
     /**
@@ -91,12 +91,12 @@ public enum BlockIDs
      * @param blockName name of the block
      * @param maxMetadata how many blocks with the same baseID should be generated for Forge Multipart
      */
-    BlockIDs(boolean hasItemBlock, Class<? extends ItemBlock> itemBlockClass, String blockName, int maxMetadata, boolean hasSlabStair, String tool) {
+    BlockIDs(boolean hasItemBlock, Class<? extends ItemBlock> itemBlockClass, String blockName, int maxMetadata, boolean[] bools, String tool) {
         this.hasItemBlock = hasItemBlock;
         this.itemBlockClass = itemBlockClass;
         this.blockName = blockName;
         this.MaxMetadata = ((byte) maxMetadata);
-        this.hasSlabStair = hasSlabStair;
+        this.hasBools = bools;
         this.tool = tool;
     }
 
@@ -108,12 +108,12 @@ public enum BlockIDs
      * @param blockName name of the block
      * @param maxMetadata how many blocks with the same baseID should be generated for Forge Multipart
      */
-    BlockIDs(boolean hasItemBlock, Class<? extends ItemBlock> itemBlockClass, String blockName, int maxMetadata, boolean hasSlabStair) {
+    BlockIDs(boolean hasItemBlock, Class<? extends ItemBlock> itemBlockClass, String blockName, int maxMetadata, boolean[] bools) {
         this.hasItemBlock = hasItemBlock;
         this.itemBlockClass = itemBlockClass;
         this.blockName = blockName;
         this.MaxMetadata = ((byte) maxMetadata);
-        this.hasSlabStair = hasSlabStair;
+        this.hasBools = bools;
         this.tool = "pickaxe";
     }
 
@@ -145,7 +145,6 @@ public enum BlockIDs
         this.itemBlockClass = itemBlockClass;
         this.blockName = blockName;
         this.MaxMetadata = 0;
-        this.hasSlabStair = false;
         this.tool = "pickaxe";
     }
 }

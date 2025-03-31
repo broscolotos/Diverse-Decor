@@ -8,6 +8,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import me.broscolotos.diversedecor.core.CommonProxy;
 import me.broscolotos.diversedecor.core.handler.*;
 import me.broscolotos.diversedecor.entities.EntityChair;
@@ -28,7 +29,7 @@ public class DiverseDecor {
     public static final String MODID = "diversedecor";
     public static final String NAME = "DiverseDecor";
     public static final String VERSION = "1.0.0";
-    public static CreativeTabs diverseDecorCreativeTab, diverseDecorBlockTab, diverseDecorCosmeticsTab;
+    public static CreativeTabs diverseDecorCreativeTab, diverseDecorBlockTab, diverseDecorSubBlocksTab, diverseDecorCosmeticsTab;
     public static Logger blockLogger = LogManager.getLogger("DiverseDecor");
 
     /* Mod instance */
@@ -49,33 +50,31 @@ public class DiverseDecor {
     public void init(FMLInitializationEvent event) {
         blockLogger.info("Divserse Decor starting");
         diverseDecorCreativeTab = new CreativeTabs("Divserse Decor") {
-            public Item getTabIconItem() {
-                return Item.getItemFromBlock(BlockIDs.picnicTable.block);
-            }
-            public String getTranslatedTabLabel() {
-                return "Diverse Decor";
-                }
-        };
+            public Item getTabIconItem() { return Item.getItemFromBlock(BlockIDs.picnicTable.block); }
+            public String getTranslatedTabLabel() { return "Diverse Decor"; }
+            public boolean hasSearchBar() { return true; }
+        }.setBackgroundImageName("item_search.png");
 
         diverseDecorBlockTab = new CreativeTabs("Diverse Decor Blocks") {
             @Override
-            public Item getTabIconItem() {
-                return Item.getItemFromBlock(BlockIDs.blockBrickOrange.block);
-            }
-            public String getTranslatedTabLabel() {
-                return "Diverse Decor Blocks";
-            }
-        };
+            public Item getTabIconItem() { return Item.getItemFromBlock(BlockIDs.blockBrickOrange.block); }
+            public String getTranslatedTabLabel() { return "DD Blocks"; }
+            public boolean hasSearchBar() { return true; }
+        }.setBackgroundImageName("item_search.png");
+
+
+        diverseDecorSubBlocksTab = new CreativeTabs("Diverse Decor Sub-blocks") {
+            @Override
+            public Item getTabIconItem() { return Item.getItemFromBlock(GameRegistry.findBlock(DiverseDecor.MODID, BlockIDs.blockBrickOrange.blockName.toLowerCase() + "0_stair")); }
+            public String getTranslatedTabLabel() { return "DD Sub-blocks"; }
+            public boolean hasSearchBar() { return true; }
+        }.setBackgroundImageName("item_search.png");
 
         diverseDecorCosmeticsTab = new CreativeTabs("Diverse Cosmetics") {
             @Override
-            public Item getTabIconItem() {
-                return ItemIDs.testhat.item;
-            }
-            public String getTranslatedTabLabel() {
-                return "Diverse Cosmetics";
-            }
-        };
+            public Item getTabIconItem() { return ItemIDs.testhat.item; }
+            public String getTranslatedTabLabel() { return "DD Cosmetics"; }
+        }.setBackgroundImageName("item_search.png");
 
         BlockHandler.initBlockRegister(event);
         if (proxy.isClient()) {
