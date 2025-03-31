@@ -171,8 +171,15 @@ public class RecipeHandler {
             }
             if (block.hasBools[3]) {
                 for (int i = 0; i < block.MaxMetadata; i++) {
-                    GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence"), 6, 0), "B B", "B B", 'B', new ItemStack(block.block, 1, i));
+                    GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence"), 3, 0), "B B", "B B", 'B', new ItemStack(block.block, 1, i));
                 }
+            }
+            if (block.hasBools[4]) {
+                for (int i = 0; i < block.MaxMetadata; i++) {
+                    GameRegistry.addShapelessRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence_gate"), 1, 0), new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence"), 1, i));
+                    GameRegistry.addShapelessRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence"), 1, 0), new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence_gate"), 1, i));
+                }
+
             }
         }
 

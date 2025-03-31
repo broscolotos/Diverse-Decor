@@ -43,32 +43,32 @@ public enum BlockIDs
     monitor(false, GenericPropItemBlock.class, "monitor", -1),
     trafficCone(false,GenericPropItemBlock.class, "traffic_cone", -1),
 
-    //normal blocks; if you pass the boolean array it NEEDS to have 4 arguments. Stairs, Slabs, Walls, Fences; in that order.
-    blockBrickOrange(true, GenericItemBlock.class, "blockBrickOrange", 1, new boolean[]{true,true,false,false}),
-    blockBrickBrown(true, GenericItemBlock.class, "blockBrickBrown", 1, new boolean[]{true,true,false,false}),
-    blockBrickBlueGray(true, GenericItemBlock.class, "blockBrickBlueGray", 1, new boolean[]{true,true,false,false}),
-    blockBrickLightGray(true, GenericItemBlock.class, "blockBrickLightGray", 1, new boolean[]{true,true,false,false}),
-    blockBrickNeutral(true, GenericItemBlock.class, "blockBrickNeutral", 1, new boolean[]{true,true,false,false}),
-    blockBrickMessyTan(true, GenericItemBlock.class, "blockBrickMessyTan", 1, new boolean[]{true,true,false,false}),
-    blockBrickPale(true, GenericItemBlock.class, "blockBrickPale", 1, new boolean[]{true,true,false,false}),
-    blockBrickRose(true, GenericItemBlock.class, "blockBrickRose",1, new boolean[]{true,true,false,false}),
-    blockAgedStucco(true, GenericItemBlock.class, "blockAgedStucco",1, new boolean[]{true,true,false,false}),
-    blockWoodPanel(true, GenericItemBlock.class, "blockWoodPanel",8, new boolean[]{true,true,false,false}, "axe"),
-    blockCement(true, GenericItemBlock.class, "blockCement",3, new boolean[]{true,true,false,false}),
-    blockPolishedStone(true, GenericItemBlock.class, "blockPolishedStone",1, new boolean[]{true,true,false,false}),
-    blockVerticalBrickPale(true, GenericItemBlock.class, "blockVerticalBrickPale",1, new boolean[]{true,true,false,false}),
-    blockBrickBlack(true, GenericItemBlock.class, "blockBrickBlack",1, new boolean[]{true,true,false,false}),
-    blockBrickWhite(true, GenericItemBlock.class, "blockBrickWhite",1, new boolean[]{true,true,false,false}),
-    blockLargeBrickGranite(true, GenericItemBlock.class, "blockLargeBrickGranite", 3, new boolean[]{true,true,false,false}),
-    blockSlate(true, GenericItemBlock.class, "blockSlate", 10, new boolean[]{true,true,false,false}),
-    blockStone(true, GenericItemBlock.class, "blockColored",10,new boolean[]{true,true,false,false}),
-    blockTurf(true, GenericItemBlock.class, "blockTurf", 1, new boolean[]{true,true,false,false}),
-    blockBrickNormal(true, GenericItemBlock.class, "blockBrickNormal", 1, new boolean[]{true,true,false,false}),
-    blockBrickInlay(true, GenericItemBlock.class, "blockBrickInlay", 1, new boolean[]{true,true,false,false}),
-    blockColoredSteel(true, GenericItemBlock.class, "blockColoredSteel", 1, new boolean[]{true,true,false,false}),
-    blockDirt(true, GenericItemBlock.class, "blockDirt", 2, new boolean[]{true,true,false,false}),
-    blockGlass(true, GenericItemBlock.class, "blockGlass", 4, new boolean[]{false,false,false,false}),
-    blockBrickStucco(true, GenericItemBlock.class, "blockBrickStucco", 6, new boolean[]{true,true,false,false}),
+    //normal blocks; if you pass the boolean array it NEEDS to have 5 arguments. Stairs, Slabs, Walls, Fences, Fence Gates; in that order.
+    blockBrickOrange(true, GenericItemBlock.class, "blockBrickOrange", 1, new boolean[]{true,true,true,true,true}),
+    blockBrickBrown(true, GenericItemBlock.class, "blockBrickBrown", 1, new boolean[]{true,true,true,true,true}),
+    blockBrickBlueGray(true, GenericItemBlock.class, "blockBrickBlueGray", 1, new boolean[]{true,true,true,true,true}),
+    blockBrickLightGray(true, GenericItemBlock.class, "blockBrickLightGray", 1, new boolean[]{true,true,true,true,true}),
+    blockBrickNeutral(true, GenericItemBlock.class, "blockBrickNeutral", 1, new boolean[]{true,true,true,true,true}),
+    blockBrickMessyTan(true, GenericItemBlock.class, "blockBrickMessyTan", 1, new boolean[]{true,true,true,true,true}),
+    blockBrickPale(true, GenericItemBlock.class, "blockBrickPale", 1, new boolean[]{true,true,true,true,true}),
+    blockBrickRose(true, GenericItemBlock.class, "blockBrickRose",1, new boolean[]{true,true,true,true,true}),
+    blockAgedStucco(true, GenericItemBlock.class, "blockAgedStucco",1, new boolean[]{true,true,true,true,true}),
+    blockWoodPanel(true, GenericItemBlock.class, "blockWoodPanel",8, new boolean[]{true,true,true,true,true}, "axe"),
+    blockCement(true, GenericItemBlock.class, "blockCement",3, new boolean[]{true,true,true,true,true}),
+    blockPolishedStone(true, GenericItemBlock.class, "blockPolishedStone",1, new boolean[]{true,true,true,true,true}),
+    blockVerticalBrickPale(true, GenericItemBlock.class, "blockVerticalBrickPale",1, new boolean[]{true,true,true,true,true}),
+    blockBrickBlack(true, GenericItemBlock.class, "blockBrickBlack",1, new boolean[]{true,true,true,true,true}),
+    blockBrickWhite(true, GenericItemBlock.class, "blockBrickWhite",1, new boolean[]{true,true,true,true,true}),
+    blockLargeBrickGranite(true, GenericItemBlock.class, "blockLargeBrickGranite", 3, new boolean[]{true,true,true,true,true}),
+    blockSlate(true, GenericItemBlock.class, "blockSlate", 10, new boolean[]{true,true,true,true,true}),
+    blockStone(true, GenericItemBlock.class, "blockColored",10,new boolean[]{true,true,true,true,true}),
+    blockTurf(true, GenericItemBlock.class, "blockTurf", 1, new boolean[]{true,true,false,false,false}),
+    blockBrickNormal(true, GenericItemBlock.class, "blockBrickNormal", 1, new boolean[]{true,true,true,true,true}),
+    blockBrickInlay(true, GenericItemBlock.class, "blockBrickInlay", 1, new boolean[]{true,true,true,true,true}),
+    blockColoredSteel(true, GenericItemBlock.class, "blockColoredSteel", 1, new boolean[]{true,true,true,true,true}),
+    blockDirt(true, GenericItemBlock.class, "blockDirt", 2, new boolean[]{true,true,true,true,true}),
+    blockGlass(true, GenericItemBlock.class, "blockGlass", 4, new boolean[]{false,false,false,false,false}),
+    blockBrickStucco(true, GenericItemBlock.class, "blockBrickStucco", 6, new boolean[]{true,true,true,true,true}),
     ;
 
 
@@ -81,7 +81,7 @@ public enum BlockIDs
      * 0 Enabled the use of multipart on the block and will allow for only the base block to use Multipart
      */
     public byte MaxMetadata;
-    public boolean[] hasBools = new boolean[]{false, false, false, false};
+    public boolean[] hasBools = new boolean[]{false, false, false, false, false};
     public String tool;
 
     /**

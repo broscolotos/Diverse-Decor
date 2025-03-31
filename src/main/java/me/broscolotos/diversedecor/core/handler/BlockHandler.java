@@ -213,6 +213,12 @@ public class BlockHandler {
                 }
 
             }
+            //register fence gates
+            if (block.hasBools[4]) {
+                for (int i=0; i<block.MaxMetadata; i++) {
+                    GameRegistry.registerBlock(new BaseFenceGateBlock(10f,2f,block.blockName.toLowerCase() + (byte)(i) + "_fence_gate", block, (byte)(i)).setCreativeTab(DiverseDecor.diverseDecorSubBlocksTab), GenericItemBlock.class, block.blockName.toLowerCase() + (byte)(i) + "_fence_gate");
+                }
+            }
             if (e.getSide().isClient()) {
                 if (block.block instanceof DecorationBlock){
                     MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(block.block), ddebf.tim.items.CustomItemModel.instance);
