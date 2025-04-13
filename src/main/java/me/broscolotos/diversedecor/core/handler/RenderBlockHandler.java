@@ -19,6 +19,7 @@ public class RenderBlockHandler {
         ClientRegistry.bindTileEntitySpecialRenderer(TileLogChair.class, new RenderLogChair());
         ClientRegistry.bindTileEntitySpecialRenderer(TileMonitor.class, new RenderMonitor("monitor"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileTrafficCone.class, new RenderTrafficCone("traffic cone"));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileTrashCanSquare.class, new RenderTrashCanSquare("trash can/square/spruce"));
 
         //RenderingRegistry.registerBlockHandler(transparentRenderID, new BlockRenderTransparent(transparentRenderID));
     }

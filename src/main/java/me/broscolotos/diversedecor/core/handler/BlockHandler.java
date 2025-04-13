@@ -147,6 +147,15 @@ public class BlockHandler {
                 .setStepSound(Block.soundTypeStone);
         GameRegistry.registerTileEntity(TileTrafficCone.class, "trafficcone.tile");
 
+        BlockIDs.trashCanSquare.block = new DecorationBlock(Material.wood)
+                .setName("Square Trash Can")
+                .setTileEntity(new TileTrashCanSquare())
+                .setTool("axe",1)
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeWood);
+        GameRegistry.registerTileEntity(TileTrashCanSquare.class, "trashcansquare.tile");
+
         //gag
         BlockIDs.decorationGag.block = new GagDecorationBlock(Material.rock);
 

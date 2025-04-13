@@ -42,6 +42,7 @@ public enum BlockIDs
     logChair(true, GenericPropItemBlock.class, "log_chair", -1),
     monitor(false, GenericPropItemBlock.class, "monitor", -1),
     trafficCone(false,GenericPropItemBlock.class, "traffic_cone", -1),
+    trashCanSquare(false, GenericPropItemBlock.class, "trashcan_square", -1),
 
     //gag for multiblocks
     decorationGag(false,GenericPropItemBlock.class, "decoration_gag",-1),
