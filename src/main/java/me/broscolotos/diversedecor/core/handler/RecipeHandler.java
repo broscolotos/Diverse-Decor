@@ -75,6 +75,7 @@ public class RecipeHandler {
         ArrayList<ItemStack> dyeYellow = OreDictionary.getOres("dyeYellow");
         ArrayList<ItemStack> dyeBlack = OreDictionary.getOres("dyeBlack");
         ArrayList<ItemStack> dyeGreen = OreDictionary.getOres("dyeGreen");
+        ArrayList<ItemStack> dyeRed = OreDictionary.getOres("dyeRed");
 
 
         for (ItemStack dye : dyeOrange) {
@@ -134,6 +135,13 @@ public class RecipeHandler {
                 GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockColoredSteel.block, 8, 0), "BBB", "BDB", "BBB", 'B', stack, 'D', dye);
             } else {
                 GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockColoredSteel.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.iron_block, 'D', dye);
+            }
+        }
+        for (ItemStack dye : dyeRed) {
+            if (stack.getItem() != null) {
+                GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockColoredSteel.block, 8, 1), "BBB", "BDB", "BBB", 'B', stack, 'D', dye);
+            } else {
+                GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockColoredSteel.block, 8, 1), "BBB", "BDB", "BBB", 'B', Blocks.iron_block, 'D', dye);
             }
         }
         GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockBrickMessyTan.block, 8, 0), "BBB", "BDB", "BBB", 'B', BlockIDs.blockBrickNeutral.block, 'D', Blocks.dirt);

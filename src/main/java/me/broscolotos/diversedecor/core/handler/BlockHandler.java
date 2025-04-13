@@ -147,6 +147,9 @@ public class BlockHandler {
                 .setStepSound(Block.soundTypeStone);
         GameRegistry.registerTileEntity(TileTrafficCone.class, "trafficcone.tile");
 
+        //gag
+        BlockIDs.decorationGag.block = new GagDecorationBlock(Material.rock);
+
         //dynamic
         BlockIDs.blockBrickOrange.block = new DynamicBlock(Material.rock, "orange_brick", DiverseDecor.MODID+":bricks/orange/orange_brick", 3);
         BlockIDs.blockBrickBrown.block = new DynamicBlock(Material.rock, "brown_brick", DiverseDecor.MODID+":bricks/brown/brown_brick", 4);
@@ -171,7 +174,7 @@ public class BlockHandler {
         BlockIDs.blockSlate.block = new StandardBlock(Material.rock, "slate", DiverseDecor.MODID + ":stones/slate/slate", 10);
         BlockIDs.blockStone.block = new StandardBlock(Material.rock, "colored_block", DiverseDecor.MODID + ":generic/colored/colored_block",10);
         BlockIDs.blockBrickNormal.block = new StandardBlock(Material.rock, "normal_brick", DiverseDecor.MODID + ":bricks/darkmortar/normal", 1);
-        BlockIDs.blockColoredSteel.block = new StandardBlock(Material.iron, "colored_steel", DiverseDecor.MODID + ":metal/steel/coloredSteel_0", 1);
+        BlockIDs.blockColoredSteel.block = new StandardBlock(Material.iron, "colored_steel", DiverseDecor.MODID + ":metal/steel/coloredSteel", 2);
         BlockIDs.blockDirt.block = new StandardBlock(Material.grass, "dirt", DiverseDecor.MODID + ":dirt/dirt", 2);
         //special beans
         BlockIDs.blockTurf.block = new TurfBlock();

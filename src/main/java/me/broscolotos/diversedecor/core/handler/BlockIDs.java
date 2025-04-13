@@ -43,6 +43,9 @@ public enum BlockIDs
     monitor(false, GenericPropItemBlock.class, "monitor", -1),
     trafficCone(false,GenericPropItemBlock.class, "traffic_cone", -1),
 
+    //gag for multiblocks
+    decorationGag(false,GenericPropItemBlock.class, "decoration_gag",-1),
+
     //normal blocks; if you pass the boolean array it NEEDS to have 5 arguments. Stairs, Slabs, Walls, Fences, Fence Gates; in that order.
     blockBrickOrange(true, GenericItemBlock.class, "blockBrickOrange", 1, new boolean[]{true,true,true,true,true}),
     blockBrickBrown(true, GenericItemBlock.class, "blockBrickBrown", 1, new boolean[]{true,true,true,true,true}),
@@ -65,7 +68,7 @@ public enum BlockIDs
     blockTurf(true, GenericItemBlock.class, "blockTurf", 1, new boolean[]{true,true,false,false,false}),
     blockBrickNormal(true, GenericItemBlock.class, "blockBrickNormal", 1, new boolean[]{true,true,true,true,true}),
     blockBrickInlay(true, GenericItemBlock.class, "blockBrickInlay", 1, new boolean[]{true,true,true,true,true}),
-    blockColoredSteel(true, GenericItemBlock.class, "blockColoredSteel", 1, new boolean[]{true,true,true,true,true}),
+    blockColoredSteel(true, GenericItemBlock.class, "blockColoredSteel", 2, new boolean[]{true,true,true,true,true}),
     blockDirt(true, GenericItemBlock.class, "blockDirt", 2, new boolean[]{true,true,true,true,true}),
     blockGlass(true, GenericItemBlock.class, "blockGlass", 4, new boolean[]{false,false,false,false,false}),
     blockBrickStucco(true, GenericItemBlock.class, "blockBrickStucco", 6, new boolean[]{true,true,true,true,true}),

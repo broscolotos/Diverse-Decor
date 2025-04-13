@@ -72,9 +72,8 @@ public class BaseSlabBlock extends BlockSlab {
         return super.getUnlocalizedName();
     }
 
-    @SideOnly(Side.CLIENT)
     private boolean isBlockSingleSlab(Block block) {
-        return this.getBlockBoundsMaxY() <= 0.5f;
+        return block.getBlockBoundsMaxY() <= 0.5f;
     }
 
     @Override
