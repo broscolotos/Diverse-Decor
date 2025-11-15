@@ -63,6 +63,10 @@ tile.stucco_brick_2.name=Mixed Stucco Bricks
 tile.stucco_brick_3.name=Mixed Stucco Bricks (Dirty)
 tile.stucco_brick_4.name=Stucco Bricks
 tile.stucco_brick_5.name=Stucco Bricks (Dirty)
+tile.mixed_stone_brick_0.name=Mixed Stone Bricks
+tile.wood_panel_8.name=Beige Wood Panel
+tile.wood_panel_9.name=Green Wood Panel
+tile.recolorable_block.name=Recolorable Block
 
 <!-- ## SLABS ## -->
 tile.blockbrickorange0_slab.name=Orange Brick Slab
@@ -125,6 +129,10 @@ tile.blockbrickstucco2_slab.name=Mixed Stucco Brick Slab
 tile.blockbrickstucco3_slab.name=Mixed Stucco Brick Slab (Dirty)
 tile.blockbrickstucco4_slab.name=Stucco Brick Slab
 tile.blockbrickstucco5_slab.name=Stucco Brick Slab (Dirty)
+tile.blockmixedbrick0_slab.name=Mixed Stone Brick Slab
+tile.blockwoodpanel8_slab.name=Beige Wood Panel Slab
+tile.blockwoodpanel9_slab.name=Green Wood Panel Slab
+tile.blockrecolorable0_slab.name=Recolorable Slab
 
 <!-- ## STAIRS ## -->
 tile.blockbrickorange0_stair.name=Orange Brick Stairs
@@ -187,6 +195,9 @@ tile.blockbrickstucco2_stair.name=Mixed Stucco Brick Stairs
 tile.blockbrickstucco3_stair.name=Mixed Stucco Brick Stairs (Dirty)
 tile.blockbrickstucco4_stair.name=Stucco Brick Stairs
 tile.blockbrickstucco5_stair.name=Stucco Brick Stairs (Dirty)
+tile.blockmixedbrick0_stair.name=Mixed Stone Brick Stairs
+tile.blockwoodpanel8_stair.name=Beige Wood Panel Stairs
+tile.blockwoodpanel9_stair.name=Green Wood Panel Stairs
 
 <!-- ## WALLS ## -->
 tile.blockbrickorange0_wall.name=Orange Brick Wall
@@ -248,6 +259,9 @@ tile.blockbrickstucco2_wall.name=Mixed Stucco Brick Wall
 tile.blockbrickstucco3_wall.name=Mixed Stucco Brick Wall (Dirty)
 tile.blockbrickstucco4_wall.name=Stucco Brick Wall
 tile.blockbrickstucco5_wall.name=Stucco Brick Wall (Dirty)
+tile.blockmixedbrick0_wall.name=Mixed Stone Brick Wall
+tile.blockwoodpanel8_wall.name=Beige Wood Panel Wall
+tile.blockwoodpanel9_wall.name=Green Wood Panel Wall
 
 <!-- ## FENCES ## -->
 tile.blockbrickorange0_fence.name=Orange Brick Fence
@@ -309,6 +323,9 @@ tile.blockbrickstucco2_fence.name=Mixed Stucco Brick Fence
 tile.blockbrickstucco3_fence.name=Mixed Stucco Brick Fence (Dirty)
 tile.blockbrickstucco4_fence.name=Stucco Brick Fence
 tile.blockbrickstucco5_fence.name=Stucco Brick Fence (Dirty)
+tile.blockmixedbrick0_fence.name=Mixed Stone Brick Fence
+tile.blockwoodpanel8_fence.name=Beige Wood Panel Fence
+tile.blockwoodpanel9_fence.name=Green Wood Panel Fence
 
 <!-- ## FENCE GATES ## -->
 tile.blockbrickorange0_fence_gate.name=Orange Brick Fence Gate
@@ -370,6 +387,9 @@ tile.blockbrickstucco2_fence_gate.name=Mixed Stucco Brick Fence Gate
 tile.blockbrickstucco3_fence_gate.name=Mixed Stucco Brick Fence Gate (Dirty)
 tile.blockbrickstucco4_fence_gate.name=Stucco Brick Fence Gate
 tile.blockbrickstucco5_fence_gate.name=Stucco Brick Fence Gate (Dirty)
+tile.blockmixedbrick0_fence_gate.name=Mixed Stone Brick Fence Gate
+tile.blockwoodpanel8_fence_gate.name=Beige Wood Panel Fence Gate
+tile.blockwoodpanel9_fence_gate.name=Green Wood Panel Fence Gate
 
 <!-- ## PROPS ## -->
 tile.Picnic Table.name=Picnic Table
@@ -383,6 +403,10 @@ tile.Flatscreen TV (2x1).name=Flatscreen TV (2x1)
 tile.Log Chair.name=Log Chair
 tile.Monitor.name=Computer Monitor
 tile.Traffic Cone.name=Traffic Cone
+tile.Square Trash Can.name=Trash Can
+tile.Curved Trash Can.name=Trash Can
+tile.Wagon Wheel.name=Wagon Wheel
+tile.barrel.name=Barrel
 
 <!-- ## COSMETICS ## -->
 item.diversedecor:testhat.name=Capotain

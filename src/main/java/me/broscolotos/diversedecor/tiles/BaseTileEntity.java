@@ -18,15 +18,10 @@ public class BaseTileEntity extends TileEntity {
         this.dir = dir;
     }
 
-    public BaseTileEntity() {
-        super();
-    }
+    public BaseTileEntity() { super(); }
 
     @Override
-    public boolean shouldRenderInPass(int pass) {
-        return pass == 0;
-    }
-
+    public boolean canUpdate() { return false; }
 
     @Override
     public S35PacketUpdateTileEntity  getDescriptionPacket() {
@@ -36,8 +31,7 @@ public class BaseTileEntity extends TileEntity {
     }
 
     @Override
-    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
-    {
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
         if(pkt == null)
         {
             return;
@@ -48,16 +42,14 @@ public class BaseTileEntity extends TileEntity {
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound tag)
-    {
+    public void writeToNBT(NBTTagCompound tag) {
         super.writeToNBT(tag);
         tag.setInteger("direction", dir);
         tag.setString("texture", texture.getResourcePath());
     }
 
     @Override
-    public void readFromNBT(NBTTagCompound tag)
-    {
+    public void readFromNBT(NBTTagCompound tag) {
         super.readFromNBT(tag);
         dir = tag.getInteger("direction");
         String t = tag.getString("texture");
@@ -65,22 +57,18 @@ public class BaseTileEntity extends TileEntity {
             t = t.substring(9);
         t = "textures/" + t;
         texture = new ResourceLocation(DiverseDecor.MODID,t);
-        if(worldObj != null && worldObj.isRemote)
-        {
+        if(worldObj != null && worldObj.isRemote) {
             markDirty();
         }
     }
 
-    public BaseTileEntity setFacing(int direction)
-    {
+    public BaseTileEntity setFacing(int direction) {
         dir = (byte) direction;
         this.markDirty();
         return this;
     }
 
-    public ResourceLocation getTexture() {
-        return this.texture;
-    }
+    public ResourceLocation getTexture() { return this.texture; }
 
     public void setTexture(String texture) {
         this.texture = new ResourceLocation(DiverseDecor.MODID, "textures/blocks/" + texture + ".png");

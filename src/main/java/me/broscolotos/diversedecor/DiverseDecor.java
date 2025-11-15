@@ -16,6 +16,7 @@ import me.broscolotos.diversedecor.plugins.fmp.ForgeMultiPart;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -77,12 +78,10 @@ public class DiverseDecor {
         }.setBackgroundImageName("item_search.png");
 
         BlockHandler.initBlockRegister(event);
-        if (proxy.isClient()) {
-            ItemHandler.initItemRegisterClient(event);
-        } else {
-            ItemHandler.initItemRegisterServer(event);
-        }
+        proxy.handleRegistry(event);
         OreDictHandler.registerOreDict();
+
+        MinecraftForge.EVENT_BUS.register(new me.broscolotos.diversedecor.core.handler.EventHandler());
 
         if (Loader.isModLoaded("ForgeMultipart")) {
             ForgeMultiPart.registerBlocks();

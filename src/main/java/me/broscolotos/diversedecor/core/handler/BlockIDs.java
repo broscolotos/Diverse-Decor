@@ -26,6 +26,7 @@ package me.broscolotos.diversedecor.core.handler;
 import me.broscolotos.diversedecor.blocks.itemblocks.GenericItemBlock;
 //import me.broscolotos.diversedecor.blocks.itemblocks.ItemBrickSlab;
 import me.broscolotos.diversedecor.blocks.itemblocks.GenericPropItemBlock;
+import me.broscolotos.diversedecor.blocks.itemblocks.Recolorable.RecolorableItemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 
@@ -43,9 +44,12 @@ public enum BlockIDs
     monitor(false, GenericPropItemBlock.class, "monitor", -1),
     trafficCone(false,GenericPropItemBlock.class, "traffic_cone", -1),
     trashCanSquare(false, GenericPropItemBlock.class, "trashcan_square", -1),
+    trashCanCurved(false, GenericPropItemBlock.class, "trashcan_curved", -1),
+    wagonWheel(false, GenericPropItemBlock.class, "wagon_wheel", -1),
+    barrel(false, GenericPropItemBlock.class, "barrel", -1),
 
     //gag for multiblocks
-    decorationGag(false,GenericPropItemBlock.class, "decoration_gag",-1),
+    //decorationGag(false,GenericPropItemBlock.class, "decoration_gag",-1),
 
     //normal blocks; if you pass the boolean array it NEEDS to have 5 arguments. Stairs, Slabs, Walls, Fences, Fence Gates; in that order.
     blockBrickOrange(true, GenericItemBlock.class, "blockBrickOrange", 1, new boolean[]{true,true,true,true,true}),
@@ -57,7 +61,7 @@ public enum BlockIDs
     blockBrickPale(true, GenericItemBlock.class, "blockBrickPale", 1, new boolean[]{true,true,true,true,true}),
     blockBrickRose(true, GenericItemBlock.class, "blockBrickRose",1, new boolean[]{true,true,true,true,true}),
     blockAgedStucco(true, GenericItemBlock.class, "blockAgedStucco",1, new boolean[]{true,true,true,true,true}),
-    blockWoodPanel(true, GenericItemBlock.class, "blockWoodPanel",8, new boolean[]{true,true,true,true,true}, "axe"),
+    blockWoodPanel(true, GenericItemBlock.class, "blockWoodPanel",10, new boolean[]{true,true,true,true,true}, "axe"),
     blockCement(true, GenericItemBlock.class, "blockCement",3, new boolean[]{true,true,true,true,true}),
     blockPolishedStone(true, GenericItemBlock.class, "blockPolishedStone",1, new boolean[]{true,true,true,true,true}),
     blockVerticalBrickPale(true, GenericItemBlock.class, "blockVerticalBrickPale",1, new boolean[]{true,true,true,true,true}),
@@ -73,6 +77,8 @@ public enum BlockIDs
     blockDirt(true, GenericItemBlock.class, "blockDirt", 2, new boolean[]{true,true,true,true,true}),
     blockGlass(true, GenericItemBlock.class, "blockGlass", 4, new boolean[]{false,false,false,false,false}),
     blockBrickStucco(true, GenericItemBlock.class, "blockBrickStucco", 6, new boolean[]{true,true,true,true,true}),
+    blockMixedBrick(true, GenericItemBlock.class, "blockMixedBrick", 1, new boolean[]{true,true,true,true,true}),
+    blockRecolorable(true, RecolorableItemBlock.class, "blockRecolorable", -1),
     ;
 
 

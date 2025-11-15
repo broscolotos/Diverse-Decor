@@ -5,6 +5,7 @@ import ddfexcraft.tmt.slim.Tessellator;
 import ddfexcraft.tmt.slim.Vec3f;
 import me.broscolotos.diversedecor.blocks.decoration.DecorationBlock;
 import me.broscolotos.diversedecor.blocks.decoration.LogChairBlock;
+import me.broscolotos.diversedecor.blocks.decoration.TrashCanCurvedBlock;
 import me.broscolotos.diversedecor.core.ClientProxy;
 import me.broscolotos.diversedecor.items.armor.GenericArmor;
 import me.broscolotos.diversedecor.tiles.BaseTileEntity;
@@ -123,7 +124,7 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
                 }
                 case INVENTORY: {
                     GL11.glRotatef(180,0,0,1);
-                    GL11.glRotatef(180,0,1,0);
+                    GL11.glRotatef(90,0,1,0);
 
                     GL11.glTranslatef(0,0.5f,0);
                     break;
@@ -139,9 +140,13 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
                     GL11.glTranslatef(0f,0.3125f,0);
                 }
             }
-            if (b instanceof LogChairBlock) { //need a better solution to this
+            if (b instanceof LogChairBlock) { //really need a better solution to this
                 b.tileEntity.setTexture(((LogChairBlock) b).textures.get(item.getItemDamage()));
             }
+            if (b instanceof TrashCanCurvedBlock) {
+                b.tileEntity.setTexture(((TrashCanCurvedBlock) b).textures.get(item.getItemDamage()));
+            }
+
             ResourceLocation texture = b.tileEntity.getTexture();
             Tessellator.bindTexture(texture);
             ClientProxy.decorationItemRenderer.render(b.tileEntity.model,1);

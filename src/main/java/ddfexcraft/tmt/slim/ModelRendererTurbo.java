@@ -1432,21 +1432,18 @@ public class ModelRendererTurbo {
             GL11.glTranslatef(rotationPointX * scale, rotationPointY * scale, rotationPointZ * scale);
         }
 
+        if(rotateAngleX != 0.0F){
+            GL11.glRotated(rotateAngleX, 1.0F, 0.0F, 0.0F);
+        }
         if(rotateAngleY != 0.0F){
-            GL11.glRotatef(rotateAngleY, 0.0F, 1.0F, 0.0F);
+            GL11.glRotated(rotateAngleY, 0.0F, 1.0F, 0.0F);
         }
         if(rotateAngleZ != 0.0F){
-            GL11.glRotatef(rotateAngleZ, 0.0F, 0.0F, 1.0F);
-        }
-        if(rotateAngleX != 0.0F){
-            GL11.glRotatef(rotateAngleX, 1.0F, 0.0F, 0.0F);
+            GL11.glRotated(rotateAngleZ, 0.0F, 0.0F, 1.0F);
         }
 
         for (TexturedPolygon poly : faces) {
             Tessellator.getInstance().drawTexturedVertsWithNormal(poly, scale);
-        }
-        if(rotationPointX != 0.0F || rotationPointY != 0.0F || rotationPointZ != 0.0F){
-            GL11.glTranslatef(-rotationPointX * scale, -rotationPointY * scale, -rotationPointZ * scale);
         }
         if(noCull){
             GL11.glEnable(GL11.GL_CULL_FACE);

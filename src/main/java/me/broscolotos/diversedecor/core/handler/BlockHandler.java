@@ -6,6 +6,7 @@ import ddfexcraft.tmt.slim.Vec3f;
 import me.broscolotos.diversedecor.DiverseDecor;
 import me.broscolotos.diversedecor.blocks.decoration.*;
 import me.broscolotos.diversedecor.blocks.itemblocks.*;
+import me.broscolotos.diversedecor.blocks.itemblocks.Recolorable.RecolorableItemBlock;
 import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.*;
 import me.broscolotos.diversedecor.blocks.normal.blocks.other.InlayBrickBlock;
 import me.broscolotos.diversedecor.blocks.normal.blocks.other.TurfBlock;
@@ -15,6 +16,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
+
 
 
 public class BlockHandler {
@@ -156,8 +158,37 @@ public class BlockHandler {
                 .setStepSound(Block.soundTypeWood);
         GameRegistry.registerTileEntity(TileTrashCanSquare.class, "trashcansquare.tile");
 
-        //gag
-        BlockIDs.decorationGag.block = new GagDecorationBlock(Material.rock);
+        BlockIDs.trashCanCurved.block = new TrashCanCurvedBlock(Material.wood)
+                .setName("Curved Trash Can")
+                .setTileEntity(new TileTrashCanCurved())
+                .setTool("axe",1)
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeWood);
+        GameRegistry.registerTileEntity(TileTrashCanCurved.class, "trashcancurved.tile");
+
+        BlockIDs.wagonWheel.block = new DecorationBlock(Material.wood)
+                .setName("Wagon Wheel")
+                .setTileEntity(new TileWagonWheel())
+                .setTool("axe", 1)
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeWood);
+        GameRegistry.registerTileEntity(TileWagonWheel.class, "wagonwheel.tile");
+
+        BlockIDs.barrel.block = new ExtendedDecorationBlock(Material.wood)
+                .setName("barrel")
+                .setTileEntity(new TileBarrel())
+                .setTool("axe", 1)
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeWood);
+        GameRegistry.registerTileEntity(TileBarrel.class, "barrel.tile");
+
+
+        BlockIDs.blockRecolorable.block = new RecolorableBlock(Material.rock,"recolorable_block", DiverseDecor.MODID + ":generic/colored/colored_block_0",1);
+
+        GameRegistry.registerTileEntity(TileRecolorableBlock.class, "recolorable.tile");
 
         //dynamic
         BlockIDs.blockBrickOrange.block = new DynamicBlock(Material.rock, "orange_brick", DiverseDecor.MODID+":bricks/orange/orange_brick", 3);
@@ -174,7 +205,7 @@ public class BlockHandler {
         BlockIDs.blockBrickPale.block = new StandardBlock(Material.rock, "palebrick", DiverseDecor.MODID+":bricks/pale/pale_brick", 1);
         BlockIDs.blockBrickRose.block = new StandardBlock(Material.rock, "rosebrick", DiverseDecor.MODID + ":bricks/rose/rose_brick", 1);
         BlockIDs.blockAgedStucco.block = new StandardBlock(Material.rock, "aged_stucco", DiverseDecor.MODID + ":aged_stucco",1);
-        BlockIDs.blockWoodPanel.block = new StandardBlock(Material.wood, "wood_panel", DiverseDecor.MODID + ":woods/wood panels/wood_panel", 8, "axe");
+        BlockIDs.blockWoodPanel.block = new StandardBlock(Material.wood, "wood_panel", DiverseDecor.MODID + ":woods/wood panels/wood_panel", 10, "axe");
         BlockIDs.blockCement.block = new StandardBlock(Material.rock, "cement", DiverseDecor.MODID + ":stones/cement/cement",3);
         BlockIDs.blockPolishedStone.block = new StandardBlock(Material.rock, "polished_stone", DiverseDecor.MODID + ":stones/polished_stone",1);
         BlockIDs.blockVerticalBrickPale.block = new StandardBlock(Material.rock, "pale_vertical_brick", DiverseDecor.MODID + ":bricks/vertical/pale_vertical_brick", 1);
@@ -185,6 +216,7 @@ public class BlockHandler {
         BlockIDs.blockBrickNormal.block = new StandardBlock(Material.rock, "normal_brick", DiverseDecor.MODID + ":bricks/darkmortar/normal", 1);
         BlockIDs.blockColoredSteel.block = new StandardBlock(Material.iron, "colored_steel", DiverseDecor.MODID + ":metal/steel/coloredSteel", 2);
         BlockIDs.blockDirt.block = new StandardBlock(Material.grass, "dirt", DiverseDecor.MODID + ":dirt/dirt", 2);
+        BlockIDs.blockMixedBrick.block = new StandardBlock(Material.rock, "mixed_stone_brick", DiverseDecor.MODID + ":stones/mixed_stone_brick", 1);
         //special beans
         BlockIDs.blockTurf.block = new TurfBlock();
         BlockIDs.blockBrickInlay.block = new InlayBrickBlock();

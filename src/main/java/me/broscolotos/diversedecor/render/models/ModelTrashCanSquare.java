@@ -101,6 +101,7 @@ public class ModelTrashCanSquare extends BlockModel {
 		);
 		groups.add(group0);
 		//
+		flipAll();
 	}
 
 }

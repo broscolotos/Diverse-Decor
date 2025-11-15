@@ -6,7 +6,9 @@ import me.broscolotos.diversedecor.render.tilerenders.*;
 import me.broscolotos.diversedecor.tiles.*;
 
 public class RenderBlockHandler {
+
     public static int transparentRenderID = RenderingRegistry.getNextAvailableRenderId();
+
     public static void initializeCustomModels() {
         ClientRegistry.bindTileEntitySpecialRenderer(TilePicnicTable.class, new RenderPicnicTable("picnic table/picnic table spruce"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileFancyWallLight.class, new RenderFancyWallLight("lights/wall lights/fancy_lantern"));
@@ -19,7 +21,10 @@ public class RenderBlockHandler {
         ClientRegistry.bindTileEntitySpecialRenderer(TileLogChair.class, new RenderLogChair());
         ClientRegistry.bindTileEntitySpecialRenderer(TileMonitor.class, new RenderMonitor("monitor"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileTrafficCone.class, new RenderTrafficCone("traffic cone"));
-        ClientRegistry.bindTileEntitySpecialRenderer(TileTrashCanSquare.class, new RenderTrashCanSquare("trash can/square/spruce"));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileTrashCanSquare.class, new RenderTrashCanSquare("trash can/square/spruce"));;
+        ClientRegistry.bindTileEntitySpecialRenderer(TileTrashCanCurved.class, new RenderTrashCanCurved());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileWagonWheel.class, new RenderWagonWheel("wagon wheel"));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileBarrel.class, new RenderBarrel("barrel"));
 
         //RenderingRegistry.registerBlockHandler(transparentRenderID, new BlockRenderTransparent(transparentRenderID));
     }

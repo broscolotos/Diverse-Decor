@@ -72,7 +72,7 @@ public class BaseSlabBlock extends BlockSlab {
         return super.getUnlocalizedName();
     }
 
-    private boolean isBlockSingleSlab(Block block) {
+    public boolean isBlockSingleSlab(Block block) {
         return block.getBlockBoundsMaxY() <= 0.5f;
     }
 
@@ -107,20 +107,13 @@ public class BaseSlabBlock extends BlockSlab {
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon (IBlockAccess world, int x, int y, int z, int side) {
-        if (host.block instanceof DynamicPillarBlock) {
-            return ((DynamicPillarBlock) host.block).getIcon(world, x, y, z, side);
-        }
-        if (host.block instanceof DynamicBlock) {
-            return ((DynamicBlock) host.block).getIcon(world, x, y, z, side);
-        }
         return host.block.getIcon(side,this.meta);
     }
 
     @Override
-    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z, EntityPlayer player)
-    {
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z, EntityPlayer player) {
         if (world.getBlock(x,y,z) == this) {
-            if (isBlockSingleSlab(this)) {
+            if (isBlockSingleSlab(world.getBlock(x,y,z))) {
                 return new ItemStack(this, 1);
             }
             else {
