@@ -184,8 +184,8 @@ public class RecipeHandler {
             }
             if (block.hasBools[4]) {
                 for (int i = 0; i < block.MaxMetadata; i++) {
-                    GameRegistry.addShapelessRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence_gate"), 1, 0), new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence"), 1, i));
-                    GameRegistry.addShapelessRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence"), 1, 0), new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence_gate"), 1, i));
+                    GameRegistry.addShapelessRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence_gate"), 1, 0), new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence"), 1, 0));
+                    GameRegistry.addShapelessRecipe(new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence"), 1, 0), new ItemStack(GameRegistry.findBlock(DiverseDecor.MODID, block.blockName.toLowerCase() + (byte) (i) + "_fence_gate"), 1, 0));
                 }
 
             }

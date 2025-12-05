@@ -29,6 +29,7 @@ public class DecorationBlock extends BlockContainer {
     public DecorationBlock(Material material) {
         super(material);
         setCreativeTab(DiverseDecor.diverseDecorCreativeTab);
+
     }
 
     @Override

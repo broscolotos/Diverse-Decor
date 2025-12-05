@@ -6,7 +6,6 @@ import ddfexcraft.tmt.slim.Vec3f;
 import me.broscolotos.diversedecor.DiverseDecor;
 import me.broscolotos.diversedecor.blocks.decoration.*;
 import me.broscolotos.diversedecor.blocks.itemblocks.*;
-import me.broscolotos.diversedecor.blocks.itemblocks.Recolorable.RecolorableItemBlock;
 import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.*;
 import me.broscolotos.diversedecor.blocks.normal.blocks.other.InlayBrickBlock;
 import me.broscolotos.diversedecor.blocks.normal.blocks.other.TurfBlock;
@@ -185,6 +184,56 @@ public class BlockHandler {
                 .setStepSound(Block.soundTypeWood);
         GameRegistry.registerTileEntity(TileBarrel.class, "barrel.tile");
 
+        BlockIDs.trafficBarrel.block = new DecorationBlock(Material.rock)
+                .setName("Traffic Barrel")
+                .setTileEntity(new TileTrafficBarrel())
+                .setTool("pickaxe", 1)
+                .setItemOffset(new Vec3f(0,-0.5,0))
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeStone);
+        GameRegistry.registerTileEntity(TileTrafficBarrel.class, "trafficbarrel.tile");
+
+        BlockIDs.oneWaySign.block = new ExtendedDecorationBlock(Material.rock)
+                .setName("One Way Sign")
+                .setTileEntity(new TileOneWaySign())
+                .setTool("pickaxe", 1)
+                .setItemOffset(new Vec3f(0.5,0.75,0))
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeStone);
+        GameRegistry.registerTileEntity(TileOneWaySign.class, "onewaysign.tile");
+
+        BlockIDs.stopSign.block = new DecorationBlock(Material.rock)
+                .setName("Stop Sign")
+                .setTileEntity(new TileStopSign())
+                .setTool("pickaxe", 1)
+                .setItemOffset(new Vec3f(0.5,0.75,0))
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeStone);
+        GameRegistry.registerTileEntity(TileStopSign.class, "stopsign.tile");
+
+        BlockIDs.yieldSign.block = new DecorationBlock(Material.rock)
+                .setName("Yield Sign")
+                .setTileEntity(new TileYieldSign())
+                .setTool("pickaxe", 1)
+                .setItemOffset(new Vec3f(0.5,0.75,0))
+                .setItemRotation(new Vec3f(0,-90,0))
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeStone);
+        GameRegistry.registerTileEntity(TileYieldSign.class, "yieldsign.tile");
+
+        BlockIDs.trafficBarricade.block = new DecorationBlock(Material.rock)
+                .setName("Traffic Barricade")
+                .setTileEntity(new TileTrafficBarricade())
+                .setTool("pickaxe", 1)
+                .setItemOffset(new Vec3f(0,-0.5,0))
+                .setHardness(1)
+                .setResistance(2)
+                .setStepSound(Block.soundTypeStone);
+        GameRegistry.registerTileEntity(TileTrafficBarricade.class, "trafficbarricade.tile");
 
         BlockIDs.blockRecolorable.block = new RecolorableBlock(Material.rock,"recolorable_block", DiverseDecor.MODID + ":generic/colored/colored_block_0",1);
 
@@ -222,6 +271,8 @@ public class BlockHandler {
         BlockIDs.blockBrickInlay.block = new InlayBrickBlock();
         BlockIDs.blockGlass.block = new TransparentBlock(Material.glass, "glass", DiverseDecor.MODID + ":glass/glass", 4);
         BlockIDs.blockBrickStucco.block = new StandardBlock(Material.rock, "stucco_brick", DiverseDecor.MODID + ":bricks/stucco/stucco_brick", 6);
+        BlockIDs.blockDeadGrass.block = new BaseFoliageBlock("dead_grass",DiverseDecor.MODID + ":foliage/grass/dead_grass", 1);
+        BlockIDs.blockSnowyGrass.block = new BaseFoliageBlock("snowy_grass",DiverseDecor.MODID + ":foliage/grass/snowy_grass", 1);
 
 
         for (BlockIDs block : BlockIDs.values()) {

@@ -67,6 +67,8 @@ tile.mixed_stone_brick_0.name=Mixed Stone Bricks
 tile.wood_panel_8.name=Beige Wood Panel
 tile.wood_panel_9.name=Green Wood Panel
 tile.recolorable_block.name=Recolorable Block
+tile.dead_grass.name=Dead Grass
+tile.snowy_grass.name=Snowy Grass
 
 <!-- ## SLABS ## -->
 tile.blockbrickorange0_slab.name=Orange Brick Slab
@@ -403,10 +405,15 @@ tile.Flatscreen TV (2x1).name=Flatscreen TV (2x1)
 tile.Log Chair.name=Log Chair
 tile.Monitor.name=Computer Monitor
 tile.Traffic Cone.name=Traffic Cone
+tile.Traffic Barrel.name=Traffic Barrel
 tile.Square Trash Can.name=Trash Can
 tile.Curved Trash Can.name=Trash Can
 tile.Wagon Wheel.name=Wagon Wheel
 tile.barrel.name=Barrel
+tile.One Way Sign.name=One Way Sign
+tile.Stop Sign.name=Stop Sign
+tile.Yield Sign.name=Yield Sign
+tile.Traffic Barricade.name=Traffic Barricade
 
 <!-- ## COSMETICS ## -->
 item.diversedecor:testhat.name=Capotain

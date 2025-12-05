@@ -47,7 +47,11 @@ public enum BlockIDs
     trashCanCurved(false, GenericPropItemBlock.class, "trashcan_curved", -1),
     wagonWheel(false, GenericPropItemBlock.class, "wagon_wheel", -1),
     barrel(false, GenericPropItemBlock.class, "barrel", -1),
-
+    trafficBarrel(false, GenericPropItemBlock.class, "traffic_barrel", -1),
+    oneWaySign(false, GenericPropItemBlock.class, "one_way_sign", -1),
+    stopSign(false, GenericPropItemBlock.class, "stop_sign", -1),
+    yieldSign(false, GenericPropItemBlock.class, "yield_sign", -1),
+    trafficBarricade(false, GenericPropItemBlock.class, "traffic_barricade", -1),
     //gag for multiblocks
     //decorationGag(false,GenericPropItemBlock.class, "decoration_gag",-1),
 
@@ -79,6 +83,10 @@ public enum BlockIDs
     blockBrickStucco(true, GenericItemBlock.class, "blockBrickStucco", 6, new boolean[]{true,true,true,true,true}),
     blockMixedBrick(true, GenericItemBlock.class, "blockMixedBrick", 1, new boolean[]{true,true,true,true,true}),
     blockRecolorable(true, RecolorableItemBlock.class, "blockRecolorable", -1),
+
+
+    blockDeadGrass(true, GenericItemBlock.class, "blockDeadGrass", -1),
+    blockSnowyGrass(true, GenericItemBlock.class, "blockSnowyGrass", -1),
     ;
 
 

@@ -25,6 +25,11 @@ public class RenderBlockHandler {
         ClientRegistry.bindTileEntitySpecialRenderer(TileTrashCanCurved.class, new RenderTrashCanCurved());
         ClientRegistry.bindTileEntitySpecialRenderer(TileWagonWheel.class, new RenderWagonWheel("wagon wheel"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileBarrel.class, new RenderBarrel("barrel"));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileTrafficBarrel.class, new RenderTrafficBarrel("traffic barrel"));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileOneWaySign.class, new RenderOneWaySign("street signs/one way left"));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileStopSign.class, new RenderStopSign("street signs/stop sign"));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileYieldSign.class, new RenderYieldSign("street signs/yield sign"));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileTrafficBarricade.class, new RenderTrafficBarricade("traffic barricade"));
 
         //RenderingRegistry.registerBlockHandler(transparentRenderID, new BlockRenderTransparent(transparentRenderID));
     }
