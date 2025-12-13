@@ -1,5 +1,10 @@
 package me.broscolotos.diversedecor.core.handler;
 
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
+
+import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
+
 /**
  *
  *  oreDictHandler by -hariesh
@@ -26,6 +31,6 @@ public class OreDictHandler {
         //OreDictionary.registerOre("ingotIron", new ItemStack(ItemIDs.bulb.item));//for testing
 
         //FoxBlocks.blockLogger.info("oreDict compatibility Post Init at com.bidahochi.BlockMod.core.handler.oreDictHandler");
-
+        OreDictionary.registerOre("concrete", new ItemStack(BlockIDs.blockCement.block, 1, WILDCARD_VALUE));
     }
 }
