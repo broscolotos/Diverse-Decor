@@ -33,7 +33,10 @@ public class SlotAnvilRename extends Slot {
     @Override
     public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
         if (stack.getItem() != Item.getItemFromBlock(BlockIDs.blockRecolorable.block) /*&&
-                !(Block.getBlockFromItem(stack.getItem()) instanceof RecolorableSlabBlock)*/) { return; }
+                !(Block.getBlockFromItem(stack.getItem()) instanceof RecolorableSlabBlock)*/) {
+            parent.onPickupFromSlot(player, stack);
+            return;
+        }
         if (!stack.getDisplayName().contains("pat")) {
             if (stack.hasTagCompound() && stack.getTagCompound().hasKey("display")) {
                 stack.setTagInfo("Color", new NBTTagString("#" + Integer.toHexString(Utility.getColorFromString(stack.getDisplayName()))));
