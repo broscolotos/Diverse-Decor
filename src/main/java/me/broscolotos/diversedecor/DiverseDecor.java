@@ -30,7 +30,7 @@ public class DiverseDecor {
     public static final String MODID = "diversedecor";
     public static final String NAME = "DiverseDecor";
     public static final String VERSION = "0.3.3";
-    public static CreativeTabs diverseDecorCreativeTab, diverseDecorBlockTab, diverseDecorSubBlocksTab, diverseDecorCosmeticsTab;
+    public static CreativeTabs diverseDecorCreativeTab, diverseDecorBlockTab, diverseDecorSubBlocksTab, diverseDecorCosmeticsTab, diverseDecorItemTab;
     public static Logger blockLogger = LogManager.getLogger("DiverseDecor");
 
     /* Mod instance */
@@ -75,7 +75,13 @@ public class DiverseDecor {
             @Override
             public Item getTabIconItem() { return ItemIDs.testhat.item; }
             public String getTranslatedTabLabel() { return "DD Cosmetics"; }
-        }.setBackgroundImageName("item_search.png");
+        };
+
+        diverseDecorItemTab = new CreativeTabs("Diverse Items") {
+            @Override
+            public Item getTabIconItem() { return ItemIDs.materialItem.item; }
+            public String getTranslatedTabLabel() { return "DD Items"; }
+        };
 
         BlockHandler.initBlockRegister(event);
         proxy.handleRegistry(event);

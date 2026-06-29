@@ -41,6 +41,7 @@ public class EventHandler {
         }
     }
 
+    /*
     @SubscribeEvent
     public void onContainerOpen(PlayerOpenContainerEvent event) {
         if (event.entityPlayer.openContainer instanceof ContainerRepair) {
@@ -51,5 +52,5 @@ public class EventHandler {
 
             repair.inventorySlots.set(2, wrapper);
         }
-    }
+    }*/
 }

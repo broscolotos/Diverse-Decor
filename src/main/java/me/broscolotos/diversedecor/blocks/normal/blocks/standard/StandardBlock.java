@@ -68,16 +68,14 @@ public class StandardBlock extends Block {
         }
     }
 
-    public IIcon getIcon ( int side, int meta){
+    public IIcon getIcon ( int side, int meta) {
         if (meta > textAmt) meta = 0;
         return this.textures[meta];
     }
 
-    public int damageDropped( int oldmeta){
-        return oldmeta;
-    }
+    public int damageDropped( int oldmeta) { return oldmeta; }
 
-    public void getSubBlocks(Item item, CreativeTabs tab, List list){
+    public void getSubBlocks(Item item, CreativeTabs tab, List list) {
         for (int i = 0; i < textAmt; i++){
             list.add(new ItemStack(item, 1, i));
         }

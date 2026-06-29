@@ -2,12 +2,14 @@ package me.broscolotos.diversedecor.core.handler;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import me.broscolotos.diversedecor.render.BlockRenderModernWall;
 import me.broscolotos.diversedecor.render.tilerenders.*;
 import me.broscolotos.diversedecor.tiles.*;
 
 public class RenderBlockHandler {
 
     public static int transparentRenderID = RenderingRegistry.getNextAvailableRenderId();
+    public static int modernWall = RenderingRegistry.getNextAvailableRenderId();
 
     public static void initializeCustomModels() {
         ClientRegistry.bindTileEntitySpecialRenderer(TilePicnicTable.class, new RenderPicnicTable("picnic table/picnic table spruce"));
@@ -32,5 +34,6 @@ public class RenderBlockHandler {
         ClientRegistry.bindTileEntitySpecialRenderer(TileTrafficBarricade.class, new RenderTrafficBarricade("traffic barricade"));
 
         //RenderingRegistry.registerBlockHandler(transparentRenderID, new BlockRenderTransparent(transparentRenderID));
+        RenderingRegistry.registerBlockHandler(modernWall, new BlockRenderModernWall(modernWall));
     }
 }

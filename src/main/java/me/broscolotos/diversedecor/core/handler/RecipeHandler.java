@@ -6,52 +6,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import java.util.ArrayList;
-
-/***************************************
- *
- *  recipeHandler  by -hariesh
- *
- *  For any recipe that involved unique blocks from the mod or minecraft use BlockIDs or Blocks
- *
- *  For any recipe that involved generic items such as dye, ingots, or other, please use OreDictionary ArrayStacks by
- *  making an ArrayList from line 40 onwards using format:
- *          ArrayList<ItemStack> nameOfItem = OreDictionary.getOres("oreDictTag");
- *
- *  Please stick to formatting and Proper Naming Conventions for ease of code!
- *
- *
- *  How to do Recipies:
- *
- *  For Shapeless Recipies what you are doing is saying the block output (block your crafting) and a list of items that can make it
- *
- *  Use format:
- *      GameRegistry.AddShapelessRecipe(new ItemStack(BlockIDs.<insertBlockForCrafting>.block, 1), {Start list of blocks that make up recipe, using Blocks.## or New ItemStack(BlockIDs.##.block, 1) or OreDictList); }
- *
- *  For Shaped Recipies, what you are to do is set where each block should be and what block they are
- *
- *  Crafting Grid:
- *      {ABC}
- *      {DEF}
- *      {GHI}
- *
- *  Imagine where the items for recipe should go in that grid on the table and use this format:
- *      GameRegistry.AddRecipe(new ItemStack(BlockIDs.<insertBlockForCrafting>.block, 1), "ABC", "DEF", "GHI", Character.valueOf('<insert position here>'), {new ItemStack(BlockIDs.blockname.block, 1)/Blocks.Blockname} );
- *
- *      Note: Add a
- *          Character.valueOf('#'), {new ItemStack(BlockIDs.blockname.block, 1)/Blocks.Blockname}
- *      for each item in the grid.
- *
- *      Note: For the empty spots in the grid use a spacebar " " instead of a character to represent no block needed
- *
- *      Note: You can use any Character in the grid, etc X, or S or whatever, but its easier to use the format above but I wont judge!
- *
- *  If you have any further Questions, just DM or Ping me and I can help you through!
- *
- *   -hariesh
- *
- ****************************/
 
 public class RecipeHandler {
 
@@ -65,85 +22,68 @@ public class RecipeHandler {
 
     public static void initBlockRecipes() {
 
-        ArrayList<ItemStack> dyeOrange = OreDictionary.getOres("dyeOrange");
-        ArrayList<ItemStack> dyeBrown = OreDictionary.getOres("dyeBrown");
-        ArrayList<ItemStack> dyeGray = OreDictionary.getOres("dyeGray");
-        ArrayList<ItemStack> dyeBlue = OreDictionary.getOres("dyeBlue");
-        ArrayList<ItemStack> dyeLightGray = OreDictionary.getOres("dyeLightGray");
-        ArrayList<ItemStack> dyeWhite = OreDictionary.getOres("dyeWhite");
-        ArrayList<ItemStack> dyePink = OreDictionary.getOres("dyePink");
-        ArrayList<ItemStack> dyeYellow = OreDictionary.getOres("dyeYellow");
-        ArrayList<ItemStack> dyeBlack = OreDictionary.getOres("dyeBlack");
-        ArrayList<ItemStack> dyeGreen = OreDictionary.getOres("dyeGreen");
-        ArrayList<ItemStack> dyeRed = OreDictionary.getOres("dyeRed");
+        String dyeOrange = "dyeOrange";
+        String dyeBrown = "dyeBrown";
+        String dyeGray = "dyeGray";
+        String dyeBlue = "dyeBlue";
+        String dyeLightGray = "dyeLightGray";
+        String dyeWhite = "dyeWhite";
+        String dyePink = "dyePink";
+        String dyeYellow = "dyeYellow";
+        String dyeBlack = "dyeBlack";
+        String dyeGreen = "dyeGreen";
+        String dyeRed = "dyeRed";
 
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockBrickOrange.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dyeOrange));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockLargeBrickGranite.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.stonebrick, 'D', dyeOrange));
 
-        for (ItemStack dye : dyeOrange) {
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockBrickOrange.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockLargeBrickGranite.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.stonebrick, 'D', dye);
-        }
-        for (ItemStack dye : dyeBrown) {
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockBrickBrown.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dye);
-        }
-        for (ItemStack dye : dyeGray) {
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockBrickBlack.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 4), "BBB", "BDB", "BBB", 'B', Blocks.stone, 'D', dye);
-        }
-        for (ItemStack dye : dyeBlue) {
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockBrickBlueGray.block, 8, 0), "BBB", "BDB", "BBB", 'B', BlockIDs.blockBrickBlack.block, 'D', dye);
-        }
-        for (ItemStack dye : dyeLightGray) {
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockBrickLightGray.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dye);
-        }
-        for (ItemStack dye : dyeWhite) {
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockBrickWhite.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.stone, 'D', dye);
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockBrickBrown.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dyeBrown));
 
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 0), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 1), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 1), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 2), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 2), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 3), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 3), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 4), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 4), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 5), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 5), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 6), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 6), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 7), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 7), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 8), 'D', dye);
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockBrickBlack.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dyeGray));
 
-        }
-        for (ItemStack dye : dyeBlack) {
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block,8,8),"BBB","BDB","BBB", 'B', Blocks.stone, 'D', dye);
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockBrickBlueGray.block, 8, 0), "BBB", "BDB", "BBB", 'B', BlockIDs.blockBrickBlack.block, 'D', dyeBlue));
 
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 1), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 0), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 2), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 1), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 3), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 2), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 4), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 3), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 5), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 4), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 6), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 5), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 7), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 6), 'D', dye);
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 8), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 7), 'D', dye);
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockBrickLightGray.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dyeLightGray));
 
-        }
-        for (ItemStack dye : dyePink) {
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockBrickRose.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dye);
-        }
-        for (ItemStack dye : dyeYellow) {
-            GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 9), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 0), 'D', dye);
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemIDs.materialItem.item, 8, 0), " D ", "DDD", " D ", 'D', dyeWhite));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ItemIDs.materialItem.item, 8, 1), " D ", "DDD", " D ", 'D', dyeBlack));
+
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockBrickWhite.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dyeWhite));
+
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.stone, 'D', dyeWhite));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 4), "BBB", "BDB", "BBB", 'B', Blocks.stone, 'D', dyeGray));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 8), "BBB", "BDB", "BBB", 'B', Blocks.stone, 'D', dyeBlack));
+
+        //:0 needs :1 w/ bleach
+        //:1 needs :0 w/ dark and :2 w/ bleach
+        //:2 needs :1 w/ dark and :3 w/ bleach
+        //...
+        //:8 needs :7 w/ bleach
+
+        for (int i=0; i<=8; i++) {
+            if (i < 8)
+                GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, i), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, i+1), 'D', new ItemStack(ItemIDs.materialItem.item, 1, 0));
+            if (i > 0)
+                GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockStone.block, 8, i), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, i-1), 'D', new ItemStack(ItemIDs.materialItem.item, 1, 1));
         }
 
-        ItemStack stack = new ItemStack(GameRegistry.findBlock("ImmersiveEngineering","storage"), 1, 7);
-        for (ItemStack dye : dyeGreen) {
-            if (stack.getItem() != null) {
-                GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockColoredSteel.block, 8, 0), "BBB", "BDB", "BBB", 'B', stack, 'D', dye);
-            } else {
-                GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockColoredSteel.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.iron_block, 'D', dye);
-            }
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockBrickRose.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.brick_block, 'D', dyePink));
+
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockStone.block, 8, 9), "BBB", "BDB", "BBB", 'B', new ItemStack(BlockIDs.blockStone.block, 1, 0), 'D', dyeYellow));
+
+        if (!OreDictionary.getOres("blockSteel").isEmpty()) {
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockColoredSteel.block, 8, 0), "BBB", "BDB", "BBB", 'B', "blockSteel", 'D', dyeGreen));
+
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockColoredSteel.block, 8, 1), "BBB", "BDB", "BBB", 'B', "blockSteel", 'D', dyeRed));
+        } else {
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockColoredSteel.block, 8, 0), "BBB", "BDB", "BBB", 'B', Blocks.iron_block, 'D', dyeGreen));
+
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockIDs.blockColoredSteel.block, 8, 1), "BBB", "BDB", "BBB", 'B', Blocks.iron_block, 'D', dyeRed));
         }
-        for (ItemStack dye : dyeRed) {
-            if (stack.getItem() != null) {
-                GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockColoredSteel.block, 8, 1), "BBB", "BDB", "BBB", 'B', stack, 'D', dye);
-            } else {
-                GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockColoredSteel.block, 8, 1), "BBB", "BDB", "BBB", 'B', Blocks.iron_block, 'D', dye);
-            }
+        for (int i=0; i<BlockIDs.blockColoredSteel.MaxMetadata; i++) {
+            OreDictionary.registerOre("blockSteel", new ItemStack(BlockIDs.blockColoredSteel.block, 1, i));
         }
+
         GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockBrickMessyTan.block, 8, 0), "BBB", "BDB", "BBB", 'B', BlockIDs.blockBrickNeutral.block, 'D', Blocks.dirt);
         GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockBrickPale.block, 8, 0), "BBB", "B B", "BBB", 'B', BlockIDs.blockBrickWhite.block);
         GameRegistry.addShapedRecipe(new ItemStack(BlockIDs.blockTurf.block, 3, 0), " G ", " C ", " D ", 'G', Blocks.grass, 'C', Blocks.cobblestone, 'D', Blocks.dirt);

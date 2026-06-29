@@ -5,6 +5,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.DynamicBlock;
 import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.DynamicPillarBlock;
 import me.broscolotos.diversedecor.core.handler.BlockIDs;
+import me.broscolotos.diversedecor.core.handler.RenderBlockHandler;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockWall;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -51,6 +54,23 @@ public class BaseWallBlock extends BlockWall {
 
     @Override
     @SideOnly(Side.CLIENT)
+    public int getRenderType() {
+        return RenderBlockHandler.modernWall;
+    }
+
+    @Override
+    public boolean isNormalCube() {
+        return false;
+    }
+
+    @Override
+    public boolean isOpaqueCube() {
+        return false;
+    }
+
+
+    @Override
+    @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs tab, List list) {
         list.add(new ItemStack(item, 1, 0));
     }
@@ -71,5 +91,12 @@ public class BaseWallBlock extends BlockWall {
             return ((DynamicBlock) host.block).getIcon(world, x, y, z, side);
         }
         return host.block.getIcon(side,this.meta);
+    }
+
+    @Override
+    public boolean canConnectWallTo(IBlockAccess access, int x, int y, int z) {
+        Block block = access.getBlock(x, y, z);
+        if (block instanceof BlockFenceGate) return true;
+        return super.canConnectWallTo(access, x, y, z);
     }
 }

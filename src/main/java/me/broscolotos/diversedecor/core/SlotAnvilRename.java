@@ -32,6 +32,9 @@ public class SlotAnvilRename extends Slot {
 
     @Override
     public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
+        if (stack == null) {
+            return;
+        }
         if (stack.getItem() != Item.getItemFromBlock(BlockIDs.blockRecolorable.block) /*&&
                 !(Block.getBlockFromItem(stack.getItem()) instanceof RecolorableSlabBlock)*/) {
             parent.onPickupFromSlot(player, stack);

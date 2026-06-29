@@ -122,18 +122,7 @@ public class BlockModel extends ModelBase {
 
     public void render(BlockModel model, float scale) {
         for (ModelRendererTurbo t : model.getParts()) {
-            if (t.rotateAngleX != 0 || t.rotateAngleY != 0|| t.rotateAngleZ != 0) {
-                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleX), 1, 0, 0);
-                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleY), 0, 1, 0);
-                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleZ), 0, 0, 1);
-            }
             t.render(scale);
-
-            if (t.rotateAngleX != 0 || t.rotateAngleY != 0|| t.rotateAngleZ != 0) {
-                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleX), -1, 0, 0);
-                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleY), 0, -1, 0);
-                GL11.glRotatef((float)Math.toDegrees(t.rotateAngleZ), 0, 0, -1);
-            }
         }
     }
 

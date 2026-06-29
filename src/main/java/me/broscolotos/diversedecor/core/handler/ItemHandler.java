@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import ddfexcraft.tmt.slim.Vec3f;
 import me.broscolotos.diversedecor.DiverseDecor;
+import me.broscolotos.diversedecor.items.GenericItem;
 import me.broscolotos.diversedecor.items.armor.GenericArmor;
 import net.minecraftforge.client.MinecraftForgeClient;
 
@@ -35,6 +36,7 @@ public class ItemHandler {
         //chestplate
         ItemIDs.shoulderTrain.item = new GenericArmor(DiverseDecor.instance.armor, 0, 1, EnumCosmetics.shoulderTrain.model,"wooden train", new Vec3f(2.5f, 2.5f, 2.5f), new Vec3f(0.375f,0.625f,0));
         ItemIDs.umbrella.item = new GenericArmor(DiverseDecor.instance.armor,0,1,EnumCosmetics.umbrella.model,"umbrella", new Vec3f(0.7f,0.7f,0.7f), new Vec3f(0.125f,0.5f,0));
+        ItemIDs.materialItem.item = new GenericItem("material", "bleachingagent", "darkeningagent");
         register();
     }
 
@@ -67,7 +69,7 @@ public class ItemHandler {
 
     private static void register(){
         for (ItemIDs items : ItemIDs.values()) {
-            if (items.item != null) {
+            if (items.item != null && !items.ignoreAutoRegistry) {
                 items.item.setUnlocalizedName(DiverseDecor.MODID + ":" + items.name());
                 GameRegistry.registerItem(items.item, items.name());
                 if (DiverseDecor.proxy.isClient()) {

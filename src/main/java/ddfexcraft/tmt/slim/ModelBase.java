@@ -1,5 +1,6 @@
 package ddfexcraft.tmt.slim;
 
+import ddfexcraft.fvtm.TurboList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.entity.Entity;
@@ -226,6 +227,14 @@ public class ModelBase extends ArrayList<ModelRendererTurbo> {
 			p.rotateAngleX*= degreesF;
 			p.rotateAngleY*= degreesF;
 			p.rotateAngleZ*= degreesF;
+		}
+	}
+
+	protected final void fixRotation(List<TurboList> turboLists, boolean flipX, boolean flipY, boolean flipZ) {
+		for (TurboList l : turboLists) {
+			ModelRendererTurbo[] arr = new ModelRendererTurbo[l.size()];
+			l.toArray(arr);
+			fixRotation(arr, flipX, flipY, flipZ);
 		}
 	}
 

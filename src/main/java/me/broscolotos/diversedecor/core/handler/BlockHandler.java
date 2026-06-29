@@ -245,6 +245,7 @@ public class BlockHandler {
         BlockIDs.blockBrickBlueGray.block = new DynamicBlock(Material.rock, "blue_gray_brick", DiverseDecor.MODID+":bricks/blue gray/bluegray_brick", 3);
         BlockIDs.blockBrickLightGray.block = new DynamicBlock(Material.rock, "light_gray_brick", DiverseDecor.MODID+":bricks/light gray/lightgray_brick", 2);
         BlockIDs.blockBrickNeutral.block = new DynamicBlock(Material.rock, "neutral_brick", DiverseDecor.MODID+":bricks/neutral/neutral_brick", 4);
+        BlockIDs.blockVariedBrick.block = new DynamicBlock(Material.rock, "varied_brick", DiverseDecor.MODID+":bricks/varied/32x_vaired_brick", 4);
 
         //pillar
         BlockIDs.blockBrickWhite.block = new DynamicPillarBlock(Material.rock, "white_brick", DiverseDecor.MODID + ":bricks/white/white_brick", 2);
@@ -254,7 +255,7 @@ public class BlockHandler {
         BlockIDs.blockBrickPale.block = new StandardBlock(Material.rock, "palebrick", DiverseDecor.MODID+":bricks/pale/pale_brick", 1);
         BlockIDs.blockBrickRose.block = new StandardBlock(Material.rock, "rosebrick", DiverseDecor.MODID + ":bricks/rose/rose_brick", 1);
         BlockIDs.blockAgedStucco.block = new StandardBlock(Material.rock, "aged_stucco", DiverseDecor.MODID + ":aged_stucco",1);
-        BlockIDs.blockWoodPanel.block = new StandardBlock(Material.wood, "wood_panel", DiverseDecor.MODID + ":woods/wood panels/wood_panel", 10, "axe");
+        BlockIDs.blockWoodPanel.block = new StandardBlock(Material.wood, "wood_panel", DiverseDecor.MODID + ":woods/wood panels/wood_panel", 16, "axe");
         BlockIDs.blockCement.block = new StandardBlock(Material.rock, "cement", DiverseDecor.MODID + ":stones/cement/cement",3);
         BlockIDs.blockPolishedStone.block = new StandardBlock(Material.rock, "polished_stone", DiverseDecor.MODID + ":stones/polished_stone",1);
         BlockIDs.blockVerticalBrickPale.block = new StandardBlock(Material.rock, "pale_vertical_brick", DiverseDecor.MODID + ":bricks/vertical/pale_vertical_brick", 1);
@@ -266,6 +267,8 @@ public class BlockHandler {
         BlockIDs.blockColoredSteel.block = new StandardBlock(Material.iron, "colored_steel", DiverseDecor.MODID + ":metal/steel/coloredSteel", 2);
         BlockIDs.blockDirt.block = new StandardBlock(Material.grass, "dirt", DiverseDecor.MODID + ":dirt/dirt", 2);
         BlockIDs.blockMixedBrick.block = new StandardBlock(Material.rock, "mixed_stone_brick", DiverseDecor.MODID + ":stones/mixed_stone_brick", 1);
+        BlockIDs.blockWoodPanel2.block = new StandardBlock(Material.wood, "wood_panel2", DiverseDecor.MODID + ":woods/wood panels 2/wood_panel", 8, "axe");
+        BlockIDs.blockTerracottaTile.block = new StandardBlock(Material.rock, "terracotta_tile", DiverseDecor.MODID + ":terracotta/terracotta_tile", 3);
         //special beans
         BlockIDs.blockTurf.block = new TurfBlock();
         BlockIDs.blockBrickInlay.block = new InlayBrickBlock();

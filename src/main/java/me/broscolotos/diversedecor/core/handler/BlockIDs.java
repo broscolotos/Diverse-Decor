@@ -65,7 +65,7 @@ public enum BlockIDs
     blockBrickPale(true, GenericItemBlock.class, "blockBrickPale", 1, new boolean[]{true,true,true,true,true}),
     blockBrickRose(true, GenericItemBlock.class, "blockBrickRose",1, new boolean[]{true,true,true,true,true}),
     blockAgedStucco(true, GenericItemBlock.class, "blockAgedStucco",1, new boolean[]{true,true,true,true,true}),
-    blockWoodPanel(true, GenericItemBlock.class, "blockWoodPanel",10, new boolean[]{true,true,true,true,true}, "axe"),
+    blockWoodPanel(true, GenericItemBlock.class, "blockWoodPanel",16, new boolean[]{true,true,true,true,true}, "axe"),
     blockCement(true, GenericItemBlock.class, "blockCement",3, new boolean[]{true,true,true,true,true}),
     blockPolishedStone(true, GenericItemBlock.class, "blockPolishedStone",1, new boolean[]{true,true,true,true,true}),
     blockVerticalBrickPale(true, GenericItemBlock.class, "blockVerticalBrickPale",1, new boolean[]{true,true,true,true,true}),
@@ -83,6 +83,9 @@ public enum BlockIDs
     blockBrickStucco(true, GenericItemBlock.class, "blockBrickStucco", 6, new boolean[]{true,true,true,true,true}),
     blockMixedBrick(true, GenericItemBlock.class, "blockMixedBrick", 1, new boolean[]{true,true,true,true,true}),
     blockRecolorable(true, RecolorableItemBlock.class, "blockRecolorable", -1),
+    blockWoodPanel2(true, GenericItemBlock.class, "blockWoodPanel2",8, new boolean[]{true,true,true,true,true}, "axe"),
+    blockVariedBrick(true, GenericItemBlock.class, "blockVariedBrick", 1, new boolean[]{true,true,true,true,true}),
+    blockTerracottaTile(true, GenericItemBlock.class, "blockTerracottaTile", 3, new boolean[]{true,true,true,true,true}),
 
 
     blockDeadGrass(true, GenericItemBlock.class, "blockDeadGrass", -1),

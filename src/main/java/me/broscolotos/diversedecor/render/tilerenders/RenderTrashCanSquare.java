@@ -18,7 +18,7 @@ public class RenderTrashCanSquare extends RenderTileEntity {
     }
     @Override
     public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
-        if(!(tileEntity instanceof TileTrashCanSquare)){return;}
+        if(!(tileEntity instanceof TileTrashCanSquare)){ return; }
         GL11.glPushMatrix();
         Tessellator.bindTexture(texture);
         GL11.glTranslated(x+.5, y+0.625, z+.5);

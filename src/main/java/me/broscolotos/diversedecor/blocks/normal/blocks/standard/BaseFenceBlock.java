@@ -7,9 +7,12 @@ import me.broscolotos.diversedecor.DiverseDecor;
 import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.DynamicBlock;
 import me.broscolotos.diversedecor.blocks.normal.blocks.dynamic.DynamicPillarBlock;
 import me.broscolotos.diversedecor.core.handler.BlockIDs;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
+import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -54,25 +57,28 @@ public class BaseFenceBlock extends BlockFence {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-        list.add(new ItemStack(item, 1, 0));
-    }
+    public void getSubBlocks(Item item, CreativeTabs tab, List list) { list.add(new ItemStack(item, 1, 0)); }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta) {
-        return host.block.getIcon(side, this.meta);
-    }
+    public IIcon getIcon(int side, int meta) { return host.block.getIcon(side, this.meta); }
 
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon (IBlockAccess world, int x, int y, int z, int side) {
         if (host.block instanceof DynamicPillarBlock) {
-            return ((DynamicPillarBlock) host.block).getIcon(world, x, y, z, side);
+            return host.block.getIcon(world, x, y, z, side);
         }
         if (host.block instanceof DynamicBlock) {
-            return ((DynamicBlock) host.block).getIcon(world, x, y, z, side);
+            return host.block.getIcon(world, x, y, z, side);
         }
         return host.block.getIcon(side,this.meta);
+    }
+
+    @Override
+    public boolean canConnectFenceTo(IBlockAccess access, int x, int y, int z) {
+        Block block = access.getBlock(x, y, z);
+        if (block instanceof BlockFenceGate) return true;
+        return super.canConnectFenceTo(access, x, y, z);
     }
 }

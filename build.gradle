@@ -81,9 +81,9 @@ repositories {
 dependencies {
 	// `compile` will compile it and run with `runClient`/`runServer`
     // `compileOnly will only compile but not load in dev testing (can still put in the instance mods directory though)
-	compile "codechicken:CodeChickenLib:1.7.10-1.1.3.136:dev"
-	compile "codechicken:CodeChickenCore:1.7.10-1.0.4.35:dev"
-	compile "codechicken:NotEnoughItems:1.7.10-1.0.4.90:dev"
+    compile "codechicken:CodeChickenLib:1.7.10-1.1.3.140:dev"
+    compile "codechicken:CodeChickenCore:1.7.10-1.0.7.47:dev"
+    compile "codechicken:NotEnoughItems:1.7.10-1.0.5.120:dev"
     compile "codechicken:ForgeMultipart:1.7.10-1.2.0.345:dev"
 
     // quality of life line to simplify importing jars for experimental testing

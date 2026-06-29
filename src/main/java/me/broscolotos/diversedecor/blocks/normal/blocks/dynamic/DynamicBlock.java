@@ -13,9 +13,7 @@ import java.util.Random;
 
 public class DynamicBlock extends StandardBlock {
 
-    public DynamicBlock(Material mat) {
-        super(mat);
-    }
+    public DynamicBlock(Material mat) { super(mat); }
 
     public DynamicBlock(Material mat, String name, String textName, int textAmt) {
         super(mat, name, textName, textAmt);
@@ -24,9 +22,7 @@ public class DynamicBlock extends StandardBlock {
 
     //get the texture to render in the inventory. Default is the first one.
     @Override
-    public IIcon getIcon ( int side, int meta){
-        return this.textures[0];
-    }
+    public IIcon getIcon ( int side, int meta) { return this.textures[0]; }
 
     //randomly assign the texture for the block.
     @Override
@@ -35,7 +31,5 @@ public class DynamicBlock extends StandardBlock {
     }
 
     @Override
-    public void getSubBlocks(Item item, CreativeTabs tab, List list){
-        list.add(new ItemStack(item, 1, 0));
-    }
+    public void getSubBlocks(Item item, CreativeTabs tab, List list) { list.add(new ItemStack(item, 1, 0)); }
 }

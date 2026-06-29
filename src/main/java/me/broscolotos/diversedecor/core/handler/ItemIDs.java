@@ -23,14 +23,21 @@ public enum ItemIDs {
     hotdogHat("hotdogHat"),
     blackHeadphones("blackHeadphones"),
     pinkKittyHeadphones("pinkKittyHeadphones"),
-
+    materialItem("material", true),
     ;
 
     public Item item;
     public String itemName;
+    public boolean ignoreAutoRegistry;
 
     ItemIDs(String itemName) {
 		this.itemName = itemName;
+        this.ignoreAutoRegistry = false;
+    }
+
+    ItemIDs(String itemName, boolean ignore) {
+        this.itemName = itemName;
+        this.ignoreAutoRegistry = ignore;
     }
 
     public static boolean isItemHere(String name) {
